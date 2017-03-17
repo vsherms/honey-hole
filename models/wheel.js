@@ -1,7 +1,6 @@
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
+const mongoose = require('mongoose');
 
-module.exports = mongoose.model('Values', new Schema({
+const WheelSchema = new mongoose.Schema({
   date: Date,
   value1: String,
   score1: Number,
@@ -19,4 +18,6 @@ module.exports = mongoose.model('Values', new Schema({
   score7: Number,
   value8: String,
   score8: Number
-}));
+});
+
+export default mongoose.model('Wheel', WheelSchema);
