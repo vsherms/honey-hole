@@ -1,5 +1,10 @@
-import React from 'react';
+const mongoose = require('mongoose');
 
-class User {}
+const UserSchema = new mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  email: String,
+  password: String
+});
 
-export default "user";
+export default mongoose.model('User', UserSchema);
