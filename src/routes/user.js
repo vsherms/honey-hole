@@ -1,7 +1,26 @@
 import express from 'express';
 import User from '../models/user';
 const userRoutes = express.Router();
+const hash = require('password-hash');
+const jwt = require('jsonwebtoken');
+const authConfig = require('./authConfig');
+const app = express();
+app.set('superSecret', authConfig.secret);
 
+app.post('/newuser', function(req, res) {
+  let user = new User({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    password: hash.generate(req.body.password)
+  });
+  user.save(function(err) {
+    if (err) throw err;
+    // console.log('User saved successfully');
+    res.json({ success: true,
+               user: user});
+  });
+});
 
 userRoutes.post('/authenticate', function(req, res) {
   User.findOne({
@@ -48,8 +67,14 @@ userRoutes.use(function(req,res,next) {
   }
 });
 
+userRoutes.get('/', function(req,res) {
+  res.json({ message: 'Welcome to the coolest API on earth!' });
+});
+
 userRoutes.get('/users', function(req, res) {
   User.find({}, function(err, users) {
     res.json(users);
   });
 });
+
+module.exports = userRoutes;
