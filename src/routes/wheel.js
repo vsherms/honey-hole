@@ -1,10 +1,9 @@
+import express from 'express';
+import Wheel from '../models/wheel';
 
+const wheelRoutes = express.Router();
 
-
-const apiRoutes = express.Router();
-
-
-Router.post('/wheels',function(req, res){
+wheelRoutes.post('/wheels',function(req, res){
   let wheel = new Wheel();
   wheel.date = req.body.date;
   wheel.value1  = req.body.value1;
@@ -23,7 +22,6 @@ Router.post('/wheels',function(req, res){
   wheel.score7 = req.body.score7;
   wheel.value8  = req.body.value8;
   wheel.score8 = req.body.score8;
-  // console.log(req.body.user);
   wheel.save(function(err, wheel){
     if(err){
       res.send(err);
@@ -32,3 +30,25 @@ Router.post('/wheels',function(req, res){
     }
   });
 });
+
+wheelRoutes.get('/wheels', function(req, res, next){
+  Wheel.find(function(err, wheels){
+    if(err){
+      next(err);
+    } else {
+      res.json(wheels);
+    }
+  });
+});
+
+wheelRoutes.delete('/wheels/:wheel_id', function(req, res){
+  Wheel.remove({_id: req.params.wheel_id}, function(err, wheel){
+    if(err){
+      console.log(err);
+    } else {
+      res.json({title: 'Wheel was successfully deleted!'});
+    }
+  });
+});
+
+module.exports = wheelRoutes;
