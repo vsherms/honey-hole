@@ -1,22 +1,33 @@
 import React from 'react';
-
+import { Jumbotron } from 'react-bootstrap';
 
 
 export default class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: "",
-      registered: false
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: ""
     };
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+    this.handleLastNameChange = this.handleLastNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.addUserToDatabase = this.addUserToDatabase.bind(this);
   }
 
-  handleUsernameChange(e) {
-    this.setState({username: e.target.value});
+  handleFirstNameChange(e) {
+    this.setState({firstName: e.target.value});
+  }
+
+  handleLastNameChange(e) {
+    this.setState({lastName: e.target.value});
+  }
+
+  handleEmailChange(e) {
+    this.setState({email: e.target.value});
   }
 
   handlePasswordChange(e) {
@@ -25,37 +36,49 @@ export default class SignUp extends React.Component {
 
   addUserToDatabase(e){
     e.preventDefault();
-    fetch('/api/user', {
+    fetch('/newuser', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: this.state.username,
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
         password: this.state.password
       })
     });
-    this.setState({registered: true});
+    this.setState({firstName: "", lastName: "", email: "", password: ""});
   }
 
 
   render() {
-    if(this.state.registered) {
-      return (
-        <h1>Welcome!</h1>
-      );
-    }
     return (
       <div>
-        <form>
-          User Name:<br/>
-          <input onChange={this.handleUsernameChange} value={this.state.username} type="text" name="username"/><br/>
-          Password:<br/>
-          <input onChange={this.handlePasswordChange} value={this.state.password} type="password" name="password"/><br/>
-          <button onClick={this.addUserToDatabase} type="submit" className="btn btn-primary">Register</button>
-        </form>
+     <h2>MY GIPHY WONDERLAND</h2>
+       <div className="login-form">
+         <Jumbotron>
+         <form method="" role="form">
+             <legend>Please Sign Up</legend>
+             <div className="form-group">
+               <input onChange={this.handleFirstNameChange} value={this.state.firstName} type="text" className="form-control" id="first-name" placeholder="first name"/>
+             </div>
+             <div className="form-group">
+               <input onChange={this.handleLastNameChange} value={this.state.lastName} type="text" className="form-control" id="last-name" placeholder="last name"/>
+             </div>
+             <div className="form-group">
+               <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>
+             </div>
+             <div className="form-group">
+               <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
+             </div>
+             <button onClick={this.addUserToDatabase} type="submit" className="btn btn-primary">Submit</button>
+          </form>
+          </Jumbotron>
+        </div>
       </div>
+
     );
     }
   }
