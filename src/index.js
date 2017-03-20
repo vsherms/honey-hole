@@ -13,6 +13,8 @@ import Wheel from './components/Wheel';
 import UserStore from './stores/UserStore';
 import WheelStore from './stores/WheelStore';
 import History from './components/History';
+import EnsureLoggedInContainer from './components/EnsureLoggedInContainer';
+import EntryPage from './components/EntryPage';
 
 const wheelStore = new WheelStore();
 const userStore = new UserStore();
@@ -23,13 +25,14 @@ const userStore = new UserStore();
 render((
   <Provider wheelStore={wheelStore} userStore={userStore}>
     <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Home}/>
-        <Route path="/wheel" component={Wheel}/>
-        <Route path="/lifegoals" component={LifeGoals}/>
-        <Route path="/history" component={History}/>
-        <Route path="/signup" component={SignUp}/>
-        <Route path="/Login" component={Login}/>
+    <Route path="/entrypage" component={EntryPage}/>
+      <Route component={EnsureLoggedInContainer}>
+        <Route path="/" component={App}>
+          <IndexRoute component={Home}/>
+          <Route path="/wheel" component={Wheel}/>
+          <Route path="/lifegoals" component={LifeGoals}/>
+          <Route path="/history" component={History}/>
+        </Route>
       </Route>
     </Router>
   </Provider>

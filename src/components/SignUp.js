@@ -56,7 +56,6 @@ export default class SignUp extends React.Component {
   render() {
     return (
       <div>
-     <h2>MY GIPHY WONDERLAND</h2>
        <div className="login-form">
          <Jumbotron>
          <form method="" role="form">
