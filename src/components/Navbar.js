@@ -15,7 +15,7 @@ class Navbar extends React.Component {
             <a className="navbar-brand" href="#">Life Coach</a>
           </div>
           <ul className="nav navbar-nav">
-            <li><Link to="/home">Home</Link></li>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="/wheel">Value Wheel</Link></li>
             <li><Link to="/lifegoals">Life Goals</Link></li>
             <li><Link to="/history">Value History</Link></li>
