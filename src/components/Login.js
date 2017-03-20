@@ -27,10 +27,8 @@ class Login extends React.Component {
       this.setState({email: "", password: ""});
     }
   render(){
-    let signUpLink = (<Link className="signup-link" to="/signup">Sign Up</Link>);
     let loginForm = (
       <div>
-      <h2>MY GIPHY WONDERLAND</h2>
       <div className="login-form">
         <Jumbotron>
           <form method="" role="form">
@@ -42,7 +40,6 @@ class Login extends React.Component {
               <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
             </div>
             <button onClick={this.handleUserAuth} type="submit" className="btn btn-primary">Submit</button>
-            {signUpLink}
           </form>
         </Jumbotron>
       </div>
