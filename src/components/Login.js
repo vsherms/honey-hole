@@ -1,61 +1,69 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { browserHistory, Link } from 'react-router';
-
-
-
+import { Jumbotron } from 'react-bootstrap';
 class Login extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      username: "",
+      email: "",
       password: ""
     };
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.loginHandler = this.loginHandler.bind(this);
+    this.handleUserAuth = this.handleUserAuth.bind(this);
   }
-
-  handleUsernameChange(e) {
-    this.setState({username: e.target.value});
+  handleEmailChange(e) {
+    this.setState({email: e.target.value});
   }
-
   handlePasswordChange(e) {
     this.setState({password: e.target.value});
   }
-
-  loginHandler(e){
-    e.preventDefault();
-    this.props.userStore.authenticateUser(this.state);
-  }
-
-
-
-
-
-
-  render() {
-    if(this.props.userStore.loggedIn) {
+    handleUserAuth(event){
+      event.preventDefault();
+      let user = {email: this.state.email, password: this.state.password};
+      this.props.userStore.authUser(user);
+      this.props.userStore.setUser(user);
+      this.setState({email: "", password: ""});
+    }
+  render(){
+    let signUpLink = (<Link className="signup-link" to="/signup">Sign Up</Link>);
+    let loginForm = (
+      <div>
+      <h2>MY GIPHY WONDERLAND</h2>
+      <div className="login-form">
+        <Jumbotron>
+          <form method="" role="form">
+            <legend>Please Log In</legend>
+            <div className="form-group">
+              <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>
+            </div>
+            <div className="form-group">
+              <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
+            </div>
+            <button onClick={this.handleUserAuth} type="submit" className="btn btn-primary">Submit</button>
+            {signUpLink}
+          </form>
+        </Jumbotron>
+      </div>
+    </div>);
+    if(this.props.userStore.failedLogin){
+      return(
+        <div>
+          {loginForm}
+          <h4 style={{color: "red"}}>Please enter valid username and password.</h4>
+        </div>
+      );
+    } else {
       return (
-        <h1>You are logged on!</h1>
+        <div>
+          {loginForm}
+        </div>
       );
     }
-    return (
-      <div>
-        <form>
-          User Name:<br/>
-          <input onChange={this.handleUsernameChange} value={this.state.username} type="text" name="username"/><br/>
-          Password:<br/>
-          <input onChange={this.handlePasswordChange} value={this.state.password} type="password" name="password"/><br/>
-          <button onClick={this.loginHandler} type="submit" className="btn btn-primary">Login</button>
-        </form>
-      </div>
-    );
-    }
   }
-
-  Login.propTypes = {
-    userStore: React.PropTypes.object
-  };
-
-  export default inject("userStore")(observer(Login));
+}
+Login.propTypes = {
+  userStore: React.PropTypes.object
+};
+export default inject('userStore')(observer(Login));

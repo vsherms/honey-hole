@@ -6,7 +6,6 @@ import { Button, Glyphicon } from 'react-bootstrap';
 export default class WheelStore {
   constructor(){
     extendObservable(this, {
-      allImages: [],
       images: []
     });
     this.addNewImage = this.addNewImage.bind(this);
