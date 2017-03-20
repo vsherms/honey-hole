@@ -1,5 +1,6 @@
 import React from 'react';
-const Slider = require("bootstrap-slider");
+import ReactBootstrapSlider from 'react-bootstrap-slider';
+import { observer, inject } from 'mobx-react';
 
 let date = new Date();
 
@@ -11,44 +12,154 @@ class Wheel extends React.Component{
     min: 0,
     max: 10,
     step: 1,
+    currentValue: "",
     value1: 'Career',
-    score1: 0,
     value2: 'Financial',
-    score2: 0,
     value3: 'Spiritual',
-    score3: 0,
     value4: 'Health',
-    score4: 0,
     value5: 'Intellectual',
-    score5: 0,
     value6: 'Family',
-    score6: 0,
     value7: 'Social',
-    score7: 0,
-    value8: 'Environmental',
-    score8: 0
+    value8: 'Environmental'
     };
+    this.changeScore1 = this.changeScore1.bind(this);
+    this.changeScore2 = this.changeScore2.bind(this);
+    this.changeScore3 = this.changeScore3.bind(this);
+    this.changeScore4 = this.changeScore4.bind(this);
+    this.changeScore5 = this.changeScore5.bind(this);
+    this.changeScore6 = this.changeScore6.bind(this);
+    this.changeScore7 = this.changeScore7.bind(this);
+    this.changeScore8 = this.changeScore8.bind(this);
+
   }
 
 
-  changeValue(e){
-    console.log(e);
+  changeScore1(e){
+    this.props.wheelStore.score1 = e.target.value;
+    console.log(this.props.wheelStore.score1);
+    }
 
+  changeScore2(e){
+    this.props.wheelStore.score2 = e.target.value;
+    console.log(this.props.wheelStore.score2);
+    }
+
+  changeScore3(e){
+    this.props.wheelStore.score3 = e.target.value;
+    console.log(this.props.wheelStore.score3);
+    }
+
+  changeScore4(e){
+    this.props.wheelStore.score4 = e.target.value;
+    console.log(this.props.wheelStore.score4);
+    }
+  changeScore5(e){
+    this.props.wheelStore.score5 = e.target.value;
+    console.log(this.props.wheelStore.score5);
+    }
+  changeScore6(e){
+    this.props.wheelStore.score6 = e.target.value;
+    console.log(this.props.wheelStore.score6);
+    }
+  changeScore7(e){
+    this.props.wheelStore.score7 = e.target.value;
+    console.log(this.props.wheelStore.score7);
+    }
+  changeScore8(e){
+    this.props.wheelStore.score8 = e.target.value;
+    console.log(this.props.wheelStore.score8);
     }
 
   render(){
     return (
-      <div>
+      <div className="container">
         <div>
           <h1>{this.state.value1}</h1>
-          <input id="ex1" data-slider-id="ex1Slider"
-          type="text" data-slider-min="0" data-slider-max="10"
-          data-slider-step="1" data-slider-value="5"/>
+          <ReactBootstrapSlider
+            value={this.state.currentValue}
+            change={this.changeScore1}
+            step={this.state.step}
+            max={this.state.max}
+            min={this.state.min}
+            orientation="horizontal"/>
+        </div>
+        <div>
+          <h1>{this.state.value2}</h1>
+          <ReactBootstrapSlider
+            value={this.state.currentValue}
+            change={this.changeScore2}
+            step={this.state.step}
+            max={this.state.max}
+            min={this.state.min}
+            orientation="horizontal"/>
+        </div>
+        <div>
+          <h1>{this.state.value3}</h1>
+          <ReactBootstrapSlider
+            value={this.state.currentValue}
+            change={this.changeScore3}
+            step={this.state.step}
+            max={this.state.max}
+            min={this.state.min}
+            orientation="horizontal"/>
+        </div>
+        <div>
+          <h1>{this.state.value4}</h1>
+          <ReactBootstrapSlider
+            value={this.state.currentValue}
+            change={this.changeScore4}
+            step={this.state.step}
+            max={this.state.max}
+            min={this.state.min}
+            orientation="horizontal"/>
+        </div>
+        <div>
+          <h1>{this.state.value5}</h1>
+          <ReactBootstrapSlider
+            value={this.state.currentValue}
+            change={this.changeScore5}
+            step={this.state.step}
+            max={this.state.max}
+            min={this.state.min}
+            orientation="horizontal"/>
+        </div>
+        <div>
+          <h1>{this.state.value6}</h1>
+          <ReactBootstrapSlider
+            value={this.state.currentValue}
+            change={this.changeScore6}
+            step={this.state.step}
+            max={this.state.max}
+            min={this.state.min}
+            orientation="horizontal"/>
+        </div>
+        <div>
+          <h1>{this.state.value7}</h1>
+          <ReactBootstrapSlider
+            value={this.state.currentValue}
+            change={this.changeScore7}
+            step={this.state.step}
+            max={this.state.max}
+            min={this.state.min}
+            orientation="horizontal"/>
+        </div>
+        <div>
+          <h1>{this.state.value8}</h1>
+          <ReactBootstrapSlider
+            value={this.state.currentValue}
+            change={this.changeScore8}
+            step={this.state.step}
+            max={this.state.max}
+            min={this.state.min}
+            orientation="horizontal"/>
         </div>
       </div>
     );
   }
 }
 
+Wheel.propTypes = {
+  wheelStore: React.PropTypes.object
+};
 
-export default Wheel;
+export default inject('wheelStore')(observer(Wheel));

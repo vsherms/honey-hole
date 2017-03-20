@@ -6,41 +6,49 @@ import { Button, Glyphicon } from 'react-bootstrap';
 export default class WheelStore {
   constructor(){
     extendObservable(this, {
-      images: []
+      score1: "",
+      score2: "",
+      score3: "",
+      score4: "",
+      score5: "",
+      score6: "",
+      score7: "",
+      score8: ""
     });
-    this.addNewImage = this.addNewImage.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.loadGifsFromServer = this.loadGifsFromServer.bind(this);
-  }
-  loadGifsFromServer() {
-    fetch('/gifs')
-       .then(result => result.json())
-       .then(images => this.images = images)
-       .then(images => this.allImages = images);
-  }
-  handleDelete(imgId) {
-    let newList = this.images.filter(img => img._id !== imgId);
-    let allnewList = this.allImages.filter(img => img._id !== imgId);
-    this.images = newList;
-    this.allImages = allnewList;
-    fetch('/gifs/' + imgId, {
-      method: 'DELETE'
-    });
-  }
-  addNewImage(img) {
-    fetch('/gifs', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: img.name,
-        url: img.url,
-        description: img.description,
-        user: img.user._id
-      })
-    })
-    .then(result => result.json());
+    // this.addNewImage = this.addNewImage.bind(this);
+    // this.handleDelete = this.handleDelete.bind(this);
+    // this.loadGifsFromServer = this.loadGifsFromServer.bind(this);
   }
 }
+//   loadGifsFromServer() {
+//     fetch('/gifs')
+//        .then(result => result.json())
+//        .then(images => this.images = images)
+//        .then(images => this.allImages = images);
+//   }
+//   handleDelete(imgId) {
+//     let newList = this.images.filter(img => img._id !== imgId);
+//     let allnewList = this.allImages.filter(img => img._id !== imgId);
+//     this.images = newList;
+//     this.allImages = allnewList;
+//     fetch('/gifs/' + imgId, {
+//       method: 'DELETE'
+//     });
+//   }
+//   addNewImage(img) {
+//     fetch('/gifs', {
+//       method: 'POST',
+//       headers: {
+//         'Accept': 'application/json',
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({
+//         name: img.name,
+//         url: img.url,
+//         description: img.description,
+//         user: img.user._id
+//       })
+//     })
+//     .then(result => result.json());
+//   }
+// }
