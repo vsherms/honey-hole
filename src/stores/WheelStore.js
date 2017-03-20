@@ -3,23 +3,70 @@ import {extendObservable} from 'mobx';
 import { Button, Glyphicon } from 'react-bootstrap';
 
 
+
 export default class WheelStore {
   constructor(){
     extendObservable(this, {
-      score1: "",
-      score2: "",
-      score3: "",
-      score4: "",
-      score5: "",
-      score6: "",
-      score7: "",
-      score8: ""
+      date: "",
+      score1: 0,
+      score2: 0,
+      score3: 0,
+      score4: 0,
+      score5: 0,
+      score6: 0,
+      score7: 0,
+      score8: 0,
+      value1: 'Career',
+      value2: 'Financial',
+      value3: 'Spiritual',
+      value4: 'Health',
+      value5: 'Intellectual',
+      value6: 'Family',
+      value7: 'Social',
+      value8: 'Environmental'
     });
-    // this.addNewImage = this.addNewImage.bind(this);
     // this.handleDelete = this.handleDelete.bind(this);
     // this.loadGifsFromServer = this.loadGifsFromServer.bind(this);
+    this.setDate = this.setDate.bind(this);
+    this.addNewWheel = this.addNewWheel.bind(this);
+  }
+  setDate(){
+    let date = new Date().toLocaleDateString();
+    this.date = date;
+    return date;
+  }
+  addNewWheel(wheel) {
+    fetch('/wheel/wheels', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        date: this.date,
+        value1 : this.value1,
+        score1: this.score1,
+        value2: this.value2,
+        score2: this.score2,
+        value3 : this.value3,
+        score3: this.score3,
+        value4 : this.value4,
+        score4: this.score4,
+        value5 : this.value5,
+        score5: this.score5,
+        value6 : this.value6,
+        score6: this.score6,
+        value7 : this.value7,
+        score7: this.score7,
+        value8 : this.value8,
+        score8: this.score8
+      })
+    })
+    .then(result => result.json());
   }
 }
+
+
 //   loadGifsFromServer() {
 //     fetch('/gifs')
 //        .then(result => result.json())
@@ -35,20 +82,3 @@ export default class WheelStore {
 //       method: 'DELETE'
 //     });
 //   }
-//   addNewImage(img) {
-//     fetch('/gifs', {
-//       method: 'POST',
-//       headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify({
-//         name: img.name,
-//         url: img.url,
-//         description: img.description,
-//         user: img.user._id
-//       })
-//     })
-//     .then(result => result.json());
-//   }
-// }
