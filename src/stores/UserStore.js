@@ -1,19 +1,17 @@
 import {extendObservable} from 'mobx';
 import {browserHistory} from 'react-router';
 import React from 'react';
-import { Button, Glyphicon } from 'react-bootstrap';
 
 export default class UserStore {
   constructor(){
     extendObservable(this, {
-      username: "",
+      email: "",
       password: "",
       token: "",
       admin: false,
       isLoggedIn: false,
       failedLogin: false,
-      userId: "",
-      showUserImages: false
+      userId: ""
     });
     this.authUser = this.authUser.bind(this);
     this.setUser = this.setUser.bind(this);
@@ -26,7 +24,7 @@ export default class UserStore {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: user.username,
+        email: user.email,
         password: user.password
       })
     })
@@ -43,7 +41,7 @@ export default class UserStore {
     });
   }
   setUser(user) {
-    this.username = user.username;
+    this.email = user.email;
     this.password = user.password;
   }
   logout(){
