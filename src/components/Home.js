@@ -7,7 +7,6 @@ class Home extends React.Component{
 
         <h1 className="page-container">
           <h2 className="title"> Home!!!</h2>
-          <img src="./caspar-rubin-39821.jpg"/>
         </h1>
       </div>
     );
