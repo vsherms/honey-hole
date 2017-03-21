@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
 import { observer, inject } from 'mobx-react';
-import {Row, Col, Button } from 'react-bootstrap';
+import {Row, Col, Button, Jumbotron } from 'react-bootstrap';
 
 
 class Wheel extends React.Component{
@@ -50,6 +50,10 @@ class Wheel extends React.Component{
   render(){
     return (
       <div className="container">
+        <Jumbotron style={{ textAlign: "center"}}>
+          <h1>How are you today?</h1>
+          <h2>Rate yourself on a scale of 1-10.</h2>
+        </Jumbotron>
         <div>
           <h3>{this.props.wheelStore.setDate()}</h3>
         </div>

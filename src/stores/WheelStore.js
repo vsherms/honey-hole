@@ -10,6 +10,9 @@ export default class WheelStore {
   constructor(){
     extendObservable(this, {
       date: "",
+      // segs: [
+      //   {value: 'Career', score: 0}, ],
+
       score1: 0,
       score2: 0,
       score3: 0,
@@ -38,7 +41,7 @@ export default class WheelStore {
     this.date = date;
     return dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT");
   }
-  addNewWheel(wheel) {
+  addNewWheel(segs) {
     fetch('/wheel/wheels', {
       method: 'POST',
       headers: {
