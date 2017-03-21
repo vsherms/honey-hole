@@ -7,38 +7,41 @@
   float: right;
   padding: 2vw;
 }
-.container{
-  color: black;
+
+.wheel-container{
+  width:20vw;
+  margin: auto;
 }
 
-.history{
-width: 20vw;
-margin-right: auto;
-margin-left: auto;
-color: black;
-}
-
-.page-container{
-  /*background-image: url(https://www.cesarsway.com/sites/newcesarsway/files/styles/large_article_preview/public/How%20to%20calm%20a%20hyper%20dog.jpg?itok=Vg7ueySi);*/
+.background-container{
+  background-image: url(./components/caspar-rubin-39821.jpg);
   width: 100vw;
   height: 100vh;
-  padding: 0px;
-  margin: 0px;
-  background-color: yellow;
+  background-position: center;
+  background-size: cover;
 }
 
-.title{
-  color: green;
-  margin: 0px;
-}
-
-.navbar{
+.navbar-inverse{
   margin-bottom: 0px;
-  background-color: green;
+  padding-bottom: 0px;
+  width: 100vw;
+  margin: auto;
 }
 
-#troubleshoot{
-  width:100vw;
-  height:100vh;
-  color:red;
+#app{
+  width: 100vw;
+  height: 100vh;
+}
+
+.lifecoach{
+  margin:auto;
+  text-align:center;
+  font-family: 'Yellowtail', cursive;
+  font-size: 15vh;
+  color:white;
+}
+
+.lifecoach-header{
+  font-family: 'Yellowtail', cursive;
+  font-size: 5vh;
 }
