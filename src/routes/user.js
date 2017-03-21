@@ -49,7 +49,7 @@ userRoutes.post('/authenticate', function(req, res) {
 });
 
 userRoutes.use(function(req,res,next) {
-   let token = req.body.token || req.query.token || req.headers['x-access-token'];
+  let token = req.body.token || req.query.token || req.headers['x-access-token'];
   if(token) {
     jwt.verify(token, app.get('superSecret'), function(err, decoded) {
       if(err) {
