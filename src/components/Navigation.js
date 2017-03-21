@@ -15,10 +15,10 @@ class Navigation extends React.Component {
       <div>
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
-          <Navbar.Brand>
-          <Link to="/">Life Coach</Link>
-          </Navbar.Brand>
-          <Navbar.Toggle/>
+            <Navbar.Brand>
+              <Link to="/">Life Coach</Link>
+            </Navbar.Brand>
+            <Navbar.Toggle/>
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>

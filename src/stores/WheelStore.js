@@ -1,6 +1,8 @@
 import React from 'react';
 import {extendObservable} from 'mobx';
 import { Button, Glyphicon } from 'react-bootstrap';
+const dateFormat = require('dateformat');
+
 
 
 
@@ -32,9 +34,9 @@ export default class WheelStore {
     this.addNewWheel = this.addNewWheel.bind(this);
   }
   setDate(){
-    let date = new Date().toLocaleDateString();
+    let date = new Date;
     this.date = date;
-    return date;
+    return dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT");
   }
   addNewWheel(wheel) {
     fetch('/wheel/wheels', {

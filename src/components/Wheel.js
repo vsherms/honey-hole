@@ -8,9 +8,9 @@ class Wheel extends React.Component{
   constructor(){
     super();
     this.state = {
-    min: 0,
-    max: 10,
-    step: 1
+      min: 0,
+      max: 10,
+      step: 1
     };
     this.changeScore1 = this.changeScore1.bind(this);
     this.changeScore2 = this.changeScore2.bind(this);
@@ -20,39 +20,32 @@ class Wheel extends React.Component{
     this.changeScore6 = this.changeScore6.bind(this);
     this.changeScore7 = this.changeScore7.bind(this);
     this.changeScore8 = this.changeScore8.bind(this);
-
   }
-
 
   changeScore1(e){
     this.props.wheelStore.score1 = e.target.value;
-    }
-
+  }
   changeScore2(e){
     this.props.wheelStore.score2 = e.target.value;
-    }
-
+  }
   changeScore3(e){
     this.props.wheelStore.score3 = e.target.value;
-    }
-
+  }
   changeScore4(e){
     this.props.wheelStore.score4 = e.target.value;
-    }
+  }
   changeScore5(e){
     this.props.wheelStore.score5 = e.target.value;
-    }
+  }
   changeScore6(e){
     this.props.wheelStore.score6 = e.target.value;
-    }
+  }
   changeScore7(e){
     this.props.wheelStore.score7 = e.target.value;
-    }
+  }
   changeScore8(e){
     this.props.wheelStore.score8 = e.target.value;
-    }
-
-
+  }
 
   render(){
     return (

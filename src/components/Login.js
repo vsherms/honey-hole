@@ -19,13 +19,14 @@ class Login extends React.Component {
   handlePasswordChange(e) {
     this.setState({password: e.target.value});
   }
-    handleUserAuth(event){
-      event.preventDefault();
-      let user = {email: this.state.email, password: this.state.password};
-      this.props.userStore.authUser(user);
-      this.props.userStore.setUser(user);
-      this.setState({email: "", password: ""});
-    }
+
+  handleUserAuth(event){
+    event.preventDefault();
+    let user = {email: this.state.email, password: this.state.password};
+    this.props.userStore.authUser(user);
+    this.props.userStore.setUser(user);
+    this.setState({email: "", password: ""});
+  }
   render(){
     let loginForm = (
       <div>

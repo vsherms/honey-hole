@@ -7,7 +7,7 @@ export default class EntryPage extends React.Component {
     return(
 
       <div className="app-container">
-      <h1> Life Coach </h1>
+        <h1> Life Coach </h1>
         <div className="left-container">
           <Login/>
         </div>

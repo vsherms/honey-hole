@@ -6,9 +6,7 @@ class LifeGoals extends React.Component{
     return (
       <div>goals</div>
     );
+  }  
 }
-  
-}
-
 
 export default LifeGoals;
