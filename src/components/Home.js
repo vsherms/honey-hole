@@ -3,11 +3,10 @@ import React from 'react';
 class Home extends React.Component{
   render(){
     return (
-      <div>
-
-        <h1 className="page-container">
+      <div className="home-background-container">
+        <div className="page-container">
           <h2 className="title"> Home!!!</h2>
-        </h1>
+        </div>
       </div>
     );
   }

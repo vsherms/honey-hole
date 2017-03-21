@@ -49,7 +49,7 @@ class Wheel extends React.Component{
 
   render(){
     return (
-      <div className="container">
+      <div className="wheel-background-container">
         <div>
           <h3>{this.props.wheelStore.setDate()}</h3>
         </div>
