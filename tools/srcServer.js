@@ -21,7 +21,9 @@ const options = {
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
 };
 mongoose.connect(mongooseUri, options);
+
 const app = express();
+
 app.set('superSecret', authConfig.secret);
 /* eslint-disable no-console */
 const compiler = webpack(config);
@@ -33,6 +35,9 @@ app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
 }));
+
+app.use(express.static('src'));
+
 app.use(require('webpack-hot-middleware')(compiler));
 app.use(morgan('dev'));
 
