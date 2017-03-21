@@ -8,7 +8,14 @@
   padding: 2vw;
 }
 .container{
-  color: red;
+  color: black;
+}
+
+.history{
+width: 20vw;
+margin-right: auto;
+margin-left: auto;
+color: black;
 }
 
 .page-container{
@@ -20,6 +27,8 @@
   background-color: yellow;
 
 }
+
+
 
 .title{
   color: green;
