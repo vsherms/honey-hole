@@ -7,14 +7,10 @@
   float: right;
   padding: 2vw;
 }
-/*.container{
-  color: grey;
-}*/
 
 .wheel-container{
   width:20vw;
   margin: auto;
-  /*background-color: white;*/
 }
 
 .background-container{
@@ -25,12 +21,6 @@
   background-size: cover;
 }
 
-/*.title{
-  color: grey;
-  margin: 0px;
-}*/
-
-
 .navbar-inverse{
   margin-bottom: 0px;
   padding-bottom: 0px;
@@ -38,14 +28,7 @@
   margin: auto;
 }
 
-/*#troubleshoot{
-  width:100vw;
-  height:100vh;
-  color:red;*/
-}
-
 #app{
-
   width: 100vw;
   height: 100vh;
 }
