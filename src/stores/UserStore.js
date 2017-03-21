@@ -5,6 +5,7 @@ import React from 'react';
 export default class UserStore {
   constructor(){
     extendObservable(this, {
+      firstName: "",
       email: "",
       password: "",
       token: "",
@@ -15,6 +16,7 @@ export default class UserStore {
     });
     this.authUser = this.authUser.bind(this);
     this.setUser = this.setUser.bind(this);
+    this.logUserOut = this.logUserOut.bind(this);
   }
   authUser(user) {
     fetch('/api/authenticate', {
@@ -32,6 +34,7 @@ export default class UserStore {
     .then(res => {
       this.token = res.token;
       this.userId = res.userId;
+      this.firstName = res.firstName;
       if(res.token){
         this.isLoggedIn = true;
         browserHistory.replace("/");
@@ -44,7 +47,15 @@ export default class UserStore {
     this.email = user.email;
     this.password = user.password;
   }
-  logout(){
-    browserHistory.replace("/");
-  }
+  logUserOut() {
+      this.token = "";
+      this.isLoggedIn = false;
+      this.admin = false;
+      this.firstName= "";
+      this.email= "";
+      this.password= "";
+      this.failedLogin= false;
+      this.userId= "";
+      console.log(this.isLoggedIn);
+    }
 }

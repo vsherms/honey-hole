@@ -69,7 +69,8 @@ apiRoutes.post('/authenticate', function(req, res) {
           success: true,
           message: 'Enjoy your token!',
           token: token,
-          userId: user._id
+          userId: user._id,
+          firstName: user.firstName
         });
       }
     }

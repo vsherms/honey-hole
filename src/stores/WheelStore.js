@@ -23,10 +23,11 @@ export default class WheelStore {
       value5: 'Intellectual',
       value6: 'Family',
       value7: 'Social',
-      value8: 'Environmental'
+      value8: 'Environmental',
+      wheels: []
     });
     // this.handleDelete = this.handleDelete.bind(this);
-    // this.loadGifsFromServer = this.loadGifsFromServer.bind(this);
+    this.loadWheelsFromServer = this.loadWheelsFromServer.bind(this);
     this.setDate = this.setDate.bind(this);
     this.addNewWheel = this.addNewWheel.bind(this);
   }
@@ -64,15 +65,17 @@ export default class WheelStore {
     })
     .then(result => result.json());
   }
+
+  loadWheelsFromServer() {
+    fetch('/wheel/wheels')
+       .then(result => result.json())
+       .then(wheels => this.wheels = wheels);
+  }
 }
 
 
-//   loadGifsFromServer() {
-//     fetch('/gifs')
-//        .then(result => result.json())
-//        .then(images => this.images = images)
-//        .then(images => this.allImages = images);
-//   }
+
+
 //   handleDelete(imgId) {
 //     let newList = this.images.filter(img => img._id !== imgId);
 //     let allnewList = this.allImages.filter(img => img._id !== imgId);
