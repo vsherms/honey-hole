@@ -4,13 +4,11 @@ import Navigation from './Navigation';
 import { Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
 
-
-
 class App extends React.Component{
   constructor() {
     super();
-
   }
+
   componentDidMount() {
     this.props.wheelStore.loadWheelsFromServer();
     console.log(this.props.wheelStore.wheels);
@@ -18,12 +16,11 @@ class App extends React.Component{
   render() {
     return(
       <div>
-      <Navigation/>
-      {this.props.children}
+        <Navigation/>
+        {this.props.children}
       </div>
     );
   }
-
 }
 
 App.propTypes = {
