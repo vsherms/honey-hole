@@ -65,7 +65,8 @@ export default class WheelStore {
         score8: this.score8
       })
     })
-    .then(result => result.json());
+    .then(result => result.json())
+    .then(result => this.wheels.push(result));
   }
 
   loadWheelsFromServer() {
