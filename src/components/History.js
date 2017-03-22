@@ -7,7 +7,7 @@ class History extends React.Component{
 
   render(){
     let eachWheel = this.props.wheelStore.wheels.map(wheel =>
-      <div className="white-container">
+      <div className="container">
         <div key={wheel._id} className="wheel-container">
           <div className="history">
             <Table striped bordered condensed hover>
