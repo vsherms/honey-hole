@@ -38,7 +38,7 @@ class Login extends React.Component {
               <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>
             </div>
             <div className="form-group">
-              <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
+              <input onChange={this.handlePasswordChange} value={this.state.password}type="password" className="form-control" id="password" placeholder="password"/>
             </div>
             <button onClick={this.handleUserAuth} type="submit" className="btn btn-primary">Submit</button>
           </form>
