@@ -13,7 +13,7 @@ class Navigation extends React.Component {
   render() {
     return (
       <div>
-        <Navbar inverse collapseOnSelect className="nav-margin-fix">
+        <Navbar inverse collapseOnSelect id="nav-margin">
           <Navbar.Header>
             <Navbar.Brand>
               <Link to="/" className="lifecoach-header">Life Coach</Link>

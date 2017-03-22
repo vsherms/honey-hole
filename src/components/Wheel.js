@@ -60,7 +60,7 @@ class Wheel extends React.Component{
         <Row>
           <Col md={6}>
             <div>
-              <h1>{this.props.wheelStore.value1}</h1>
+              <h2>{this.props.wheelStore.value1}</h2>
               <ReactBootstrapSlider
                 value={this.props.wheelStore.score1}
                 change={this.changeScore1}
@@ -79,7 +79,7 @@ class Wheel extends React.Component{
         <Row>
           <Col md={6}>
             <div>
-              <h1>{this.props.wheelStore.value2}</h1>
+              <h2>{this.props.wheelStore.value2}</h2>
               <ReactBootstrapSlider
                 value={this.props.wheelStore.score2}
                 change={this.changeScore2}
@@ -98,7 +98,7 @@ class Wheel extends React.Component{
         <Row>
           <Col md={6}>
             <div>
-              <h1>{this.props.wheelStore.value3}</h1>
+              <h2>{this.props.wheelStore.value3}</h2>
               <ReactBootstrapSlider
               value={this.props.wheelStore.score3}
               change={this.changeScore3}
@@ -117,7 +117,7 @@ class Wheel extends React.Component{
       <Row>
         <Col md={6}>
           <div>
-            <h1>{this.props.wheelStore.value4}</h1>
+            <h2>{this.props.wheelStore.value4}</h2>
             <ReactBootstrapSlider
               value={this.props.wheelStore.score4}
               change={this.changeScore4}
@@ -136,7 +136,7 @@ class Wheel extends React.Component{
       <Row>
         <Col md={6}>
           <div>
-            <h1>{this.props.wheelStore.value5}</h1>
+            <h2>{this.props.wheelStore.value5}</h2>
             <ReactBootstrapSlider
             value={this.props.wheelStore.score5}
             change={this.changeScore5}
@@ -155,7 +155,7 @@ class Wheel extends React.Component{
       <Row>
         <Col md={6}>
           <div>
-            <h1>{this.props.wheelStore.value6}</h1>
+            <h2>{this.props.wheelStore.value6}</h2>
             <ReactBootstrapSlider
             value={this.props.wheelStore.score6}
             change={this.changeScore6}
@@ -174,7 +174,7 @@ class Wheel extends React.Component{
       <Row>
         <Col md={6}>
           <div>
-            <h1>{this.props.wheelStore.value7}</h1>
+            <h2>{this.props.wheelStore.value7}</h2>
             <ReactBootstrapSlider
             value={this.props.wheelStore.score7}
             change={this.changeScore7}
@@ -193,7 +193,7 @@ class Wheel extends React.Component{
       <Row>
         <Col md={6}>
           <div>
-            <h1>{this.props.wheelStore.value8}</h1>
+            <h2>{this.props.wheelStore.value8}</h2>
             <ReactBootstrapSlider
             value={this.props.wheelStore.score8}
             change={this.changeScore8}
@@ -209,9 +209,10 @@ class Wheel extends React.Component{
           </div>
         </Col>
       </Row>
+      <br></br>
       <Button style={{width: '280px', marginBottom: '10px'}}
       onClick={this.props.wheelStore.addNewWheel} bsStyle="success"
-      Glyphicon glyph="plus-sign" block>save results in an amazing wheel!!</Button>
+      Glyphicon glyph="plus-sign" block>Save Your Results!!</Button>
     </div>
     );
   }

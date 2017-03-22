@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Table} from 'react-bootstrap';
+import { Table, Jumbotron } from 'react-bootstrap';
 const dateFormat = require('dateformat');
 
 class History extends React.Component{
@@ -62,7 +62,10 @@ class History extends React.Component{
       </div>
   );
     return (
-      <div>
+      <div className="container">
+        <Jumbotron style={{ textAlign: "center"}}>
+          <h1>Your History</h1>
+        </Jumbotron>
         {eachWheel}
       </div>
     );
