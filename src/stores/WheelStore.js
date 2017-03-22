@@ -30,6 +30,7 @@ export default class WheelStore {
       value7: 'Social',
       value8: 'Environmental',
       wheels: [],
+      wheelDates: [],
       min: 0,
       step: 1,
       historyIndex: 0
@@ -44,7 +45,7 @@ export default class WheelStore {
     this.date = date;
     return dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT");
   }
-  addNewWheel(segs) {
+  addNewWheel(wheel) {
     fetch('/wheel/wheels', {
       method: 'POST',
       headers: {
@@ -72,13 +73,18 @@ export default class WheelStore {
       })
     })
     .then(result => result.json())
-    .then(result => this.wheels.push(result));
+    .then(result => this.wheels.push(result))
+    .then(result => this.wheelDates.push(dateFormat(wheel.date,
+      "mm/dd/yy")));
   }
 
   loadWheelsFromServer() {
     fetch('/wheel/wheels')
        .then(result => result.json())
-       .then(wheels => this.wheels = wheels);
+       .then(wheels => this.wheels = wheels)
+       .then(wheels => wheels.forEach(wheel => this.wheelDates.push(dateFormat(wheel.date,
+         "mm/dd/yy"))))
+       .then(wheels => console.log(this.wheelDates));
   }
 }
 
