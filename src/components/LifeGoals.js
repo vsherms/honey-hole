@@ -1,11 +1,13 @@
 import React from 'react';
-
+import { Jumbotron } from 'react-bootstrap';
 
 class LifeGoals extends React.Component{
   render(){
     return (
       <div className="container">
-        <h1>Life Goals</h1>
+        <Jumbotron style={{ textAlign: "center"}}>
+          <h1>Life Goals</h1>
+        </Jumbotron>
         <ul>
           <li>
             <h3><strong>Career:</strong></h3><h4>Have a great job using my gifts and skills and prior education, to serve my community and make some additional income for my family.</h4>
