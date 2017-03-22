@@ -4,7 +4,9 @@ import { Jumbotron } from 'react-bootstrap';
 class Home extends React.Component{
   render(){
     return (
-      <div className="background-container">
+
+
+      <div className="background-container2">
         <div className="container">
           <Jumbotron style={{ textAlign: "center"}}>
             <h1 className="title">Welcome to Life Coach!!!</h1>
