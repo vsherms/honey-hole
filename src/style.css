@@ -21,6 +21,14 @@
   background-size: cover;
 }
 
+.background-container2{
+  background-image: url(./components/caspar-rubin-398212.jpg);
+  width: 100vw;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+
 .navbar-inverse{
   margin-bottom: 0px;
   padding-bottom: 0px;
@@ -44,4 +52,8 @@
 .lifecoach-header{
   font-family: 'Yellowtail', cursive;
   font-size: 5vh;
+}
+
+.test{
+  position:;
 }
