@@ -15,6 +15,7 @@ body{
 .app-container{
   width: 100vw;
   height: 100vh;
+  position: relative;
 }
 .login-form{
   width: 50vw;
@@ -34,7 +35,6 @@ body{
   background-position: center;
   background-size: cover;
 }
-
 
 .navbar-inverse{
   margin-bottom: 0px;
@@ -64,3 +64,4 @@ body{
 .history{
   background-color: white;
 }
+
