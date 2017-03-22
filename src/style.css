@@ -1,6 +1,15 @@
-html, body{
-  width: 100vw;
-  height: 100vh;
+html {
+
+width: 100vw;
+height: 100vh;
+}
+
+body{
+  background: url(./components/caspar-rubin-398212.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .app-container{
@@ -27,17 +36,6 @@ html, body{
   background-size: cover;
 }
 
-.background-container2{
-  background-image: url(./components/caspar-rubin-398212.jpg);
-  width: 100vw;
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-}
-
 .navbar-inverse{
   margin-bottom: 0px;
   padding-bottom: 0px;
@@ -62,3 +60,8 @@ html, body{
   font-family: 'Yellowtail', cursive;
   font-size: 5vh;
 }
+
+.history{
+  background-color: white;
+}
+
