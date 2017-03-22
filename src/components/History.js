@@ -17,6 +17,9 @@ class History extends React.Component{
   }
 
   render(){
+    let wheelArray = this.props.wheelStore.wheels;
+    let index = this.props.wheelStore.historyIndex;
+    let newArr = this.props.wheelStore.wheelDates.map(function(date){return date});
     let wheelTable = (
         <div className="wheel-container">
           <div className="history">
@@ -24,7 +27,7 @@ class History extends React.Component{
               <thead>
                 <tr>
                   <th colSpan="2">
-                    {dateFormat(this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].date,
+                    {dateFormat(wheelArray[index].date,
                        "dddd, mmmm dS, yyyy, h:MM TT")}
                   </th>
                 </tr>
@@ -35,36 +38,36 @@ class History extends React.Component{
               </thead>
               <tbody>
                 <tr>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].value1}</td>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].score1}</td>
+                  <td>{wheelArray[index].value1}</td>
+                  <td>{wheelArray[index].score1}</td>
                 </tr>
                 <tr>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].value2}</td>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].score2}</td>
+                  <td>{wheelArray[index].value2}</td>
+                  <td>{wheelArray[index].score2}</td>
                 </tr>
                 <tr>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].value3}</td>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].score3}</td>
+                  <td>{wheelArray[index].value3}</td>
+                  <td>{wheelArray[index].score3}</td>
                 </tr>
                 <tr>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].value4}</td>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].score4}</td>
+                  <td>{wheelArray[index].value4}</td>
+                  <td>{wheelArray[index].score4}</td>
                 </tr>
                 <tr>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].value5}</td>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].score5}</td>
+                  <td>{wheelArray[index].value5}</td>
+                  <td>{wheelArray[index].score5}</td>
                 </tr>
                 <tr>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].value6}</td>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].score6}</td>
+                  <td>{wheelArray[index].value6}</td>
+                  <td>{wheelArray[index].score6}</td>
                 </tr>
                 <tr>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].value7}</td>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].score7}</td>
+                  <td>{wheelArray[index].value7}</td>
+                  <td>{wheelArray[index].score7}</td>
                 </tr>
                 <tr>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].value8}</td>
-                  <td>{this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].score8}</td>
+                  <td>{wheelArray[index].value8}</td>
+                  <td>{wheelArray[index].score8}</td>
                 </tr>
               </tbody>
             </Table>
@@ -83,18 +86,13 @@ class History extends React.Component{
           <div>
             <h2>Your History</h2>
             <ReactBootstrapSlider
-              value={this.props.wheelStore.historyIndex}
+              value={index}
               change={this.changeHistoryIndex}
               step={this.props.wheelStore.step}
-              max={this.props.wheelStore.wheels.length-1}
+              max={wheelArray.length-1}
               min={this.props.wheelStore.min}
-              ticks = {[this.props.wheelStore.min, this.props.wheelStore.min+1, this.props.wheelStore.wheels.length-1]}
-              ticks_labels = {[dateFormat(this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].date,
-                "mm/dd/yy"),
-                dateFormat(this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].date,
-                  "mm/dd/yy"),
-                  dateFormat(this.props.wheelStore.wheels[this.props.wheelStore.historyIndex].date,
-                    "mm/dd/yy")]}
+              ticks = {[this.props.wheelStore.min, this.props.wheelStore.min+1, this.props.wheelStore.min+2, wheelArray.length-1]}
+              ticks_labels = {newArr}
 
               // reversed
               orientation="horizontal"/>
