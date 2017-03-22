@@ -29,7 +29,10 @@ export default class WheelStore {
       value6: 'Family',
       value7: 'Social',
       value8: 'Environmental',
-      wheels: []
+      wheels: [],
+      min: 0,
+      step: 1,
+      historyIndex: 0
     });
     // this.handleDelete = this.handleDelete.bind(this);
     this.loadWheelsFromServer = this.loadWheelsFromServer.bind(this);
