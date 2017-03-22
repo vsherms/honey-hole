@@ -16,10 +16,15 @@ class History extends React.Component{
     console.log(this.props.wheelStore.wheels);
   }
 
+
   render(){
     let wheelArray = this.props.wheelStore.wheels;
     let index = this.props.wheelStore.historyIndex;
-    let newArr = this.props.wheelStore.wheelDates.map(function(date){return date});
+    let newArr = this.props.wheelStore.wheelDates.map(function(date){return date;});
+    let ticksArr = [];
+    for (let i=0; i< this.props.wheelStore.wheels; i++) {
+      ticksArr.push(i);
+    }
     let wheelTable = (
         <div className="wheel-container">
           <div className="history">
@@ -85,14 +90,14 @@ class History extends React.Component{
 
           <div>
             <h2>Your History</h2>
-            <ReactBootstrapSlider
+            <ReactBootstrapSlider className= "slider"
               value={index}
               change={this.changeHistoryIndex}
               step={this.props.wheelStore.step}
               max={wheelArray.length-1}
               min={this.props.wheelStore.min}
-              ticks = {[this.props.wheelStore.min, this.props.wheelStore.min+1, this.props.wheelStore.min+2, wheelArray.length-1]}
-              ticks_labels = {newArr}
+              // ticks = {ticksArr}
+              // ticks_labels = {newArr}
 
               // reversed
               orientation="horizontal"/>
