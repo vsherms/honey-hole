@@ -12,7 +12,7 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className= "Navigation">
         <Navbar inverse collapseOnSelect id="nav-margin">
           <Navbar.Header>
             <Navbar.Brand>

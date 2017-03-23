@@ -36,11 +36,11 @@ body{
   background-size: cover;
 }
 
-.navbar-inverse{
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-  width: 100vw;
-  margin: auto;
+
+
+.Navigation {
+    position: fixed;
+    width: 100vw;
 }
 
 #app{
