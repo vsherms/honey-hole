@@ -93,13 +93,13 @@ class History extends React.Component{
 
       <div className="background-container2">
         <div className="container">
-          <Jumbotron style={{ textAlign: "center"}}>
+          <Jumbotron className="jumbotronHeader">
             <h1>Your History</h1>
           </Jumbotron>
           {wheelTable}
 
           <div>
-            <h2>Your History</h2>
+            <h2 className="bodyText">Your History</h2>
             <ReactBootstrapSlider className= "slider"
               value={index + 1}
               change={this.changeHistoryIndex}
@@ -118,7 +118,7 @@ class History extends React.Component{
       return (
         <div className="background-container2">
           <div className="container">
-            <Jumbotron style={{ textAlign: "center"}}>
+            <Jumbotron className="jumbotronHeader">
               <h1>Your History</h1>
             </Jumbotron>
             <div>you have not filled out a wheel! </div>

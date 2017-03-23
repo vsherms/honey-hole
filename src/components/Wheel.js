@@ -49,7 +49,7 @@ class Wheel extends React.Component{
     return (
       <div className="background-container2">
         <div className="container">
-          <Jumbotron style={{ textAlign: "center"}}>
+          <Jumbotron className="jumbotronHeader">
             <h1>How are you today?</h1>
             <h2>Rate yourself on a scale of 1-10.</h2>
           </Jumbotron>
@@ -62,7 +62,7 @@ class Wheel extends React.Component{
         onClick={this.props.wheelStore.addNewWheel} bsStyle="success"
         Glyphicon glyph="plus-sign" block>Save Your Results!!</Button>
       </div>
-    </div>
+  </div>
     );
   }
 }

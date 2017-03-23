@@ -8,10 +8,10 @@ class Home extends React.Component{
 
       <div className="background-container2">
         <div className="container">
-          <Jumbotron style={{ textAlign: "center"}}>
-            <h1 className="title">Welcome to Life Coach!!!</h1>
+          <Jumbotron className="jumbotronHeader">
+            <h1 className="title">Welcome </h1>
           </Jumbotron>
-            <div className="aboutPage">
+            <div className="bodyText">
               <h3>{this.props.userStore.firstName},</h3>
               <h3> If you are ready to realize your full potential, you have come to the right place.
               Life Coach™ is a tool to help you assess where you are in your life, set acheivable goals

@@ -51,13 +51,13 @@ body{
 .lifecoach{
   margin:auto;
   text-align:center;
-  font-family: 'Yellowtail', cursive;
+  font-family: 'Lobster', cursive;
   font-size: 15vh;
   color:white;
 }
 
 .lifecoach-header{
-  font-family: 'Yellowtail', cursive;
+  font-family: 'Lobster', cursive;
   font-size: 5vh;
 }
 
@@ -67,4 +67,22 @@ body{
 
 .slider {
   width: 10vw;
+}
+
+.bodyText{
+  text-transform:full-width;
+  font-family: 'Rokkitt', serif;
+  color: rgba(53, 53, 53, 0.65);
+}
+
+.jumbotronHeader{
+  margin-top: 10vh;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  letter-spacing: 5px;
+}
+
+.navigationBar{
+  position: fixed;
+  z-index: 1;
 }
