@@ -50,36 +50,36 @@ class History extends React.Component{
                 </thead>
                 <tbody>
                   <tr>
-                    <td>{wheelArray[index].value1}</td>
-                    <td>{wheelArray[index].score1}</td>
+                    <td>{wheelArray[index].segs[0].value}</td>
+                    <td>{wheelArray[index].segs[0].score}</td>
                   </tr>
                   <tr>
-                    <td>{wheelArray[index].value2}</td>
-                    <td>{wheelArray[index].score2}</td>
+                    <td>{wheelArray[index].segs[1].value}</td>
+                    <td>{wheelArray[index].segs[1].score}</td>
                   </tr>
                   <tr>
-                    <td>{wheelArray[index].value3}</td>
-                    <td>{wheelArray[index].score3}</td>
+                    <td>{wheelArray[index].segs[2].value}</td>
+                    <td>{wheelArray[index].segs[2].score}</td>
                   </tr>
                   <tr>
-                    <td>{wheelArray[index].value4}</td>
-                    <td>{wheelArray[index].score4}</td>
+                    <td>{wheelArray[index].segs[3].value}</td>
+                    <td>{wheelArray[index].segs[3].score}</td>
                   </tr>
                   <tr>
-                    <td>{wheelArray[index].value5}</td>
-                    <td>{wheelArray[index].score5}</td>
+                    <td>{wheelArray[index].segs[4].value}</td>
+                    <td>{wheelArray[index].segs[4].score}</td>
                   </tr>
                   <tr>
-                    <td>{wheelArray[index].value6}</td>
-                    <td>{wheelArray[index].score6}</td>
+                    <td>{wheelArray[index].segs[5].value}</td>
+                    <td>{wheelArray[index].segs[5].score}</td>
                   </tr>
                   <tr>
-                    <td>{wheelArray[index].value7}</td>
-                    <td>{wheelArray[index].score7}</td>
+                    <td>{wheelArray[index].segs[6].value}</td>
+                    <td>{wheelArray[index].segs[6].score}</td>
                   </tr>
                   <tr>
-                    <td>{wheelArray[index].value8}</td>
-                    <td>{wheelArray[index].score8}</td>
+                    <td>{wheelArray[index].segs[7].value}</td>
+                    <td>{wheelArray[index].segs[7].score}</td>
                   </tr>
                 </tbody>
               </Table>
