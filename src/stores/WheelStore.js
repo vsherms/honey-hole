@@ -31,7 +31,7 @@ export default class WheelStore {
       value8: 'Environmental',
       wheels: [],
       wheelDates: [],
-      min: 0,
+      min: 1,
       step: 1,
       historyIndex: 0
     });
