@@ -51,171 +51,173 @@ class Wheel extends React.Component{
     return (
       <div className="background-container2">
         <div className="container">
-          <Jumbotron style={{ textAlign: "center"}}>
+          <Jumbotron className="jumbotronHeader">
             <h1>How are you today?</h1>
             <h2>Rate yourself on a scale of 1-10.</h2>
           </Jumbotron>
-          <div>
-            <h3>{this.props.wheelStore.setDate()}</h3>
-          </div>
-          <Row>
-            <Col md={6}>
+            <div className="bodyText">
               <div>
-                <h2>{this.props.wheelStore.value1}</h2>
-                <ReactBootstrapSlider
-                  value={this.props.wheelStore.score1}
-                  change={this.changeScore1}
+                <h3>{this.props.wheelStore.setDate()}</h3>
+              </div>
+              <Row>
+                <Col md={6}>
+                  <div>
+                    <h2>{this.props.wheelStore.value1}</h2>
+                    <ReactBootstrapSlider
+                      value={this.props.wheelStore.score1}
+                      change={this.changeScore1}
+                      step={this.state.step}
+                      max={this.state.max}
+                      min={this.state.min}
+                      orientation="horizontal"/>
+                </div>
+              </Col>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.score1}</h2>
+                </div>
+              </Col>
+            </Row>
+              <Row>
+                <Col md={6}>
+                  <div>
+                    <h2>{this.props.wheelStore.value2}</h2>
+                    <ReactBootstrapSlider
+                      value={this.props.wheelStore.score2}
+                      change={this.changeScore2}
+                      step={this.state.step}
+                      max={this.state.max}
+                      min={this.state.min}
+                      orientation="horizontal"/>
+                  </div>
+                </Col>
+                <Col md={6}>
+                  <div>
+                    <h2>{this.props.wheelStore.score2}</h2>
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col md={6}>
+                  <div>
+                    <h2>{this.props.wheelStore.value3}</h2>
+                    <ReactBootstrapSlider
+                    value={this.props.wheelStore.score3}
+                    change={this.changeScore3}
+                    step={this.state.step}
+                    max={this.state.max}
+                    min={this.state.min}
+                    orientation="horizontal"/>
+                  </div>
+                </Col>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.score3}</h2>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.value4}</h2>
+                  <ReactBootstrapSlider
+                    value={this.props.wheelStore.score4}
+                    change={this.changeScore4}
+                    step={this.state.step}
+                    max={this.state.max}
+                    min={this.state.min}
+                    orientation="horizontal"/>
+                </div>
+              </Col>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.score4}</h2>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.value5}</h2>
+                  <ReactBootstrapSlider
+                  value={this.props.wheelStore.score5}
+                  change={this.changeScore5}
                   step={this.state.step}
                   max={this.state.max}
                   min={this.state.min}
                   orientation="horizontal"/>
-            </div>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.score1}</h2>
-            </div>
-          </Col>
-        </Row>
-          <Row>
-            <Col md={6}>
-              <div>
-                <h2>{this.props.wheelStore.value2}</h2>
-                <ReactBootstrapSlider
-                  value={this.props.wheelStore.score2}
-                  change={this.changeScore2}
+                </div>
+              </Col>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.score5}</h2>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.value6}</h2>
+                  <ReactBootstrapSlider
+                  value={this.props.wheelStore.score6}
+                  change={this.changeScore6}
                   step={this.state.step}
                   max={this.state.max}
                   min={this.state.min}
                   orientation="horizontal"/>
-              </div>
-            </Col>
-            <Col md={6}>
-              <div>
-                <h2>{this.props.wheelStore.score2}</h2>
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={6}>
-              <div>
-                <h2>{this.props.wheelStore.value3}</h2>
-                <ReactBootstrapSlider
-                value={this.props.wheelStore.score3}
-                change={this.changeScore3}
-                step={this.state.step}
-                max={this.state.max}
-                min={this.state.min}
-                orientation="horizontal"/>
-              </div>
-            </Col>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.score3}</h2>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.value4}</h2>
-              <ReactBootstrapSlider
-                value={this.props.wheelStore.score4}
-                change={this.changeScore4}
-                step={this.state.step}
-                max={this.state.max}
-                min={this.state.min}
-                orientation="horizontal"/>
-            </div>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.score4}</h2>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.value5}</h2>
-              <ReactBootstrapSlider
-              value={this.props.wheelStore.score5}
-              change={this.changeScore5}
-              step={this.state.step}
-              max={this.state.max}
-              min={this.state.min}
-              orientation="horizontal"/>
-            </div>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.score5}</h2>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.value6}</h2>
-              <ReactBootstrapSlider
-              value={this.props.wheelStore.score6}
-              change={this.changeScore6}
-              step={this.state.step}
-              max={this.state.max}
-              min={this.state.min}
-              orientation="horizontal"/>
-            </div>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.score6}</h2>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.value7}</h2>
-              <ReactBootstrapSlider
-              value={this.props.wheelStore.score7}
-              change={this.changeScore7}
-              step={this.state.step}
-              max={this.state.max}
-              min={this.state.min}
-              orientation="horizontal"/>
-            </div>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.score7}</h2>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.value8}</h2>
-              <ReactBootstrapSlider
-              value={this.props.wheelStore.score8}
-              change={this.changeScore8}
-              step={this.state.step}
-              max={this.state.max}
-              min={this.state.min}
-              orientation="horizontal"/>
-            </div>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.wheelStore.score8}</h2>
-            </div>
-          </Col>
-        </Row>
-        <br></br>
-        <Button style={{width: '280px', marginBottom: '10px'}}
-        onClick={this.props.wheelStore.addNewWheel} bsStyle="success"
-        Glyphicon glyph="plus-sign" block>Save Your Results!!</Button>
+                </div>
+              </Col>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.score6}</h2>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.value7}</h2>
+                  <ReactBootstrapSlider
+                  value={this.props.wheelStore.score7}
+                  change={this.changeScore7}
+                  step={this.state.step}
+                  max={this.state.max}
+                  min={this.state.min}
+                  orientation="horizontal"/>
+                </div>
+              </Col>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.score7}</h2>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.value8}</h2>
+                  <ReactBootstrapSlider
+                  value={this.props.wheelStore.score8}
+                  change={this.changeScore8}
+                  step={this.state.step}
+                  max={this.state.max}
+                  min={this.state.min}
+                  orientation="horizontal"/>
+                </div>
+              </Col>
+              <Col md={6}>
+                <div>
+                  <h2>{this.props.wheelStore.score8}</h2>
+                </div>
+              </Col>
+            </Row>
+            <br></br>
+            <Button style={{width: '280px', marginBottom: '10px'}}
+            onClick={this.props.wheelStore.addNewWheel} bsStyle="success"
+            Glyphicon glyph="plus-sign" block>Save Your Results!!</Button>
+        </div>
       </div>
-    </div>
+  </div>
     );
   }
 }
