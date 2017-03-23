@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const uriUtil = require('mongodb-uri');
 import User from '../src/models/user';
 import Wheel from '../src/models/wheel';
+import Goal from '../src/models/goal';
 const jwt = require('jsonwebtoken');
 const authConfig = require('./authConfig');
 const morgan = require('morgan');
@@ -28,6 +29,7 @@ app.set('superSecret', authConfig.secret);
 /* eslint-disable no-console */
 const compiler = webpack(config);
 const wheelRoutes = require('../src/routes/wheel');
+const goalRoutes = require('../src/routes/goal');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -112,6 +114,8 @@ app.get('/', function(req, res) {
 });
 
 app.use('/wheel', wheelRoutes);
+app.use('/goal', goalRoutes);
+
 app.use('/api', apiRoutes);
 
 const port = 3000;
