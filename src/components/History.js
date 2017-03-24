@@ -67,9 +67,9 @@ class History extends React.Component{
       return (
       <div className="background-container2">
         <div className="container">
-          <Jumbotron className="jumbotronHeader">
-            <h1>Your History</h1>
-          </Jumbotron>
+
+            <h1 className="jumbotronHeader2">Your History</h1>
+
           {wheelTable}
           <div>
             <h2 className="bodyText">Your History</h2>
@@ -90,9 +90,7 @@ class History extends React.Component{
       return (
         <div className="background-container2">
           <div className="container">
-            <Jumbotron className="jumbotronHeader">
-              <h1>Your History</h1>
-            </Jumbotron>
+              <h1 className="jumbotronHeader2">Your History</h1>
             <div>you have not filled out a wheel! </div>
           </div>
         </div>
