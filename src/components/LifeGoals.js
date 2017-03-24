@@ -23,9 +23,9 @@ class LifeGoals extends React.Component{
     return (
       <div className="background-container2">
         <div className="container">
-          <Jumbotron className="jumbotronHeader">
-            <h1>Life Goals</h1>
-          </Jumbotron>
+
+            <h1  className="jumbotronHeader2">Life Goals</h1>
+
           <form>
 
           <FormGroup controlId="formControlsSelect">
