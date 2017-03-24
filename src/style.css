@@ -76,8 +76,37 @@ body{
   letter-spacing: 5px;
 }
 
+.jumbotronHeader2{
+  margin-top: 10vh;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  letter-spacing: 5px;
+  font-size: 20vh;
+}
+
 .navigationBar{
   position: fixed;
   z-index: 1;
-  width: 100vw;
+  width:100vw;
+}
+
+.introForm{
+  background-color: tan;
+}
+
+.title{
+  color: white;
+}
+
+.submitForm {
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  width: 10vw;
+  padding:.5vh;
+}
+
+.submitForm:hover {
+  background-color: white;
+  cursor:pointer;
 }
