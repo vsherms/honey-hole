@@ -29,6 +29,8 @@ class Slider extends React.Component{
                 step= {1}
                 max={10}
                 min={0}
+                ticks = {[0,1,2,3,4,5,6,7,8,9,10]}
+
                 orientation="horizontal"/>
           </div>
         </Col>
@@ -42,8 +44,7 @@ class Slider extends React.Component{
     }
 
     return(
-      <div className="bodyText" >{sliderArr}</div>
-
+      <div className="bodyText">{sliderArr}</div>
 );
   }
 }

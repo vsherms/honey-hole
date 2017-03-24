@@ -11,7 +11,6 @@ class History extends React.Component{
     this.setTicksArr = this.setTicksArr.bind(this);
   }
 
-
   changeHistoryIndex(e){
     this.props.wheelStore.historyIndex = e.target.value - 1;
   }
@@ -31,6 +30,15 @@ class History extends React.Component{
       let index = this.props.wheelStore.historyIndex;
       let newArr = this.props.wheelStore.wheelDates.map(function(date){return date;});
       let ticksArr = this.setTicksArr();
+      let tableArr = [];
+      for(let i = 0; i < this.props.wheelStore.wheels.length; i++) {
+        tableArr.push(
+          <tr>
+            <td>{wheelArray[index].segs[i].value}</td>
+            <td>{wheelArray[index].segs[i].score}</td>
+          </tr>
+        );
+      }
 
       let wheelTable = (
           <div className="wheel-container">
@@ -49,55 +57,20 @@ class History extends React.Component{
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>{wheelArray[index].segs[0].value}</td>
-                    <td>{wheelArray[index].segs[0].score}</td>
-                  </tr>
-                  <tr>
-                    <td>{wheelArray[index].segs[1].value}</td>
-                    <td>{wheelArray[index].segs[1].score}</td>
-                  </tr>
-                  <tr>
-                    <td>{wheelArray[index].segs[2].value}</td>
-                    <td>{wheelArray[index].segs[2].score}</td>
-                  </tr>
-                  <tr>
-                    <td>{wheelArray[index].segs[3].value}</td>
-                    <td>{wheelArray[index].segs[3].score}</td>
-                  </tr>
-                  <tr>
-                    <td>{wheelArray[index].segs[4].value}</td>
-                    <td>{wheelArray[index].segs[4].score}</td>
-                  </tr>
-                  <tr>
-                    <td>{wheelArray[index].segs[5].value}</td>
-                    <td>{wheelArray[index].segs[5].score}</td>
-                  </tr>
-                  <tr>
-                    <td>{wheelArray[index].segs[6].value}</td>
-                    <td>{wheelArray[index].segs[6].score}</td>
-                  </tr>
-                  <tr>
-                    <td>{wheelArray[index].segs[7].value}</td>
-                    <td>{wheelArray[index].segs[7].score}</td>
-                  </tr>
+                  {tableArr}
                 </tbody>
               </Table>
             </div>
           </div>
-
     );
 
       return (
-
-
       <div className="background-container2">
         <div className="container">
 
             <h1 className="jumbotronHeader2">Your History</h1>
 
           {wheelTable}
-
           <div>
             <h2 className="bodyText">Your History</h2>
             <ReactBootstrapSlider className= "slider"
@@ -108,8 +81,7 @@ class History extends React.Component{
               min={this.props.wheelStore.min}
               ticks = {ticksArr}
               orientation="horizontal"/>
-        </div>
-
+          </div>
         </div>
       </div>
     );
