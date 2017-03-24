@@ -6,9 +6,9 @@ class LifeGoals extends React.Component{
     return (
       <div className="background-container2">
         <div className="container">
-          <Jumbotron className="jumbotronHeader">
-            <h1>Life Goals</h1>
-          </Jumbotron>
+
+            <h1 className="jumbotronHeader2">Life Goals</h1>
+
           <ul className ="bodyText">
             <li>
               <h3><strong>Career:</strong></h3><h4>Have a great job using my gifts and skills and prior education, to serve my community and make some additional income for my family.</h4>

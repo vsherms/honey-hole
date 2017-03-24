@@ -8,9 +8,9 @@ class Home extends React.Component{
 
       <div className="background-container2">
         <div className="container">
-          <Jumbotron className="jumbotronHeader">
-            <h1 className="title">Welcome </h1>
-          </Jumbotron>
+
+            <h1 className="jumbotronHeader2">Welcome </h1>
+
             <div className="bodyText">
               <h3>{this.props.userStore.firstName},</h3>
               <h3> If you are ready to realize your full potential, you have come to the right place.

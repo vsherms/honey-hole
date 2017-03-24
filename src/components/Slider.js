@@ -42,7 +42,7 @@ class Slider extends React.Component{
     }
 
     return(
-      <div>{sliderArr}</div>
+      <div className="bodyText" >{sliderArr}</div>
 
 );
   }

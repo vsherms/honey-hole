@@ -49,17 +49,17 @@ class Wheel extends React.Component{
     return (
       <div className="background-container2">
         <div className="container">
-          <Jumbotron className="jumbotronHeader">
-            <h1>How are you today?</h1>
+          <div className="jumbotronHeader2">
+            <h1 >How are you today?</h1>
             <h2>Rate yourself on a scale of 1-10.</h2>
-          </Jumbotron>
-          <div>
+          </div>
+          <div className="bodyText">
             <h3>{this.props.wheelStore.setDate()}</h3>
           </div>
           <div><Slider segs={this.props.wheelStore.segs}/></div>
         <br></br>
         <Button style={{width: '280px', marginBottom: '10px'}}
-        onClick={this.props.wheelStore.addNewWheel} bsStyle="success"
+        onClick={this.props.wheelStore.addNewWheel} bsStyle="primary"
         Glyphicon glyph="plus-sign" block>Save Your Results!!</Button>
       </div>
   </div>
