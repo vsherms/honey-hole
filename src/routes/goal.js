@@ -5,7 +5,8 @@ const goalRoutes = express.Router();
 
 goalRoutes.post('/goals',function(req, res){
   let goal = new Goal();
-  goal.goals = req.body.goals;
+  goal.value = req.body.value;
+  goal.lifeGoal = req.body.lifeGoal;
   goal.save(function(err, goal){
     if(err){
       res.send(err);
