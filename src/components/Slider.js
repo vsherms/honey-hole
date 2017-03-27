@@ -30,15 +30,14 @@ class Slider extends React.Component{
                 max={10}
                 min={0}
                 ticks = {[0,1,2,3,4,5,6,7,8,9,10]}
-
                 orientation="horizontal"/>
-          </div>
-        </Col>
-        <Col md={6}>
-          <div>
-            <h2>{this.props.segs[i].score}</h2>
-          </div>
-        </Col>
+            </div>
+          </Col>
+          <Col md={6}>
+            <div>
+              <h2>{this.props.segs[i].score}</h2>
+            </div>
+          </Col>
         </Row>
       );
     }

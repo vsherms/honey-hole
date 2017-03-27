@@ -1,33 +1,27 @@
 import React from 'react';
 import { Jumbotron, FormGroup, FormControl, ControlLabel, Button, MenuItem } from 'react-bootstrap';
+import DisplayLifeGoals from './DisplayLifeGoals';
 
 
 class LifeGoals extends React.Component{
   constructor(){
     super();
     this.state = {
-      value: "",
       lifeGoal: "",
-      valueArr: [
+      valuesArr: [
         "Career", "Financial", "Spiritual", "Health", "Intellectual", "Family",
         "Social", "Environmental"
       ],
-
-      //   [
-      //   {value: 'Career', lifeGoal: ""},
-      //   {value: 'Financial', lifeGoal: ""},
-      //   {value: 'Spiritual', lifeGoal: ""},
-      //   {value: 'Health', lifeGoal: ""},
-      //   {value: 'Intellectual', lifeGoal: ""},
-      //   {value: 'Family', lifeGoal: ""},
-      //   {value: 'Social', lifeGoal: ""},
-      //   {value: 'Environmental', lifeGoal: ""}
-      // ],
-      goalsArr: []
+      goalsArr: [],
+      optionIndex:'',
+      failedSelect: false,
+      failedWriteGoal: false
     };
     this.handleGoalChange = this.handleGoalChange.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
     this.addNewGoal = this.addNewGoal.bind(this);
+    this.prepareOptions = this.prepareOptions.bind(this);
+    this.handleGoalAdd = this.handleGoalAdd.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   componentDidMount(){
@@ -35,23 +29,21 @@ class LifeGoals extends React.Component{
   }
 
   handleGoalChange(e) {
-    // const goals = this.state.goals;
-    // goals[0].lifeGoal =  e.target.value;
-    this.setState({lifeGoal: e.target.value});
+    this.setState({lifeGoal: e.target.value, failedWriteGoal: false});
     console.log(this.state.lifeGoal);
   }
 
   handleSelect(e){
-    console.log(e);
-    let index= 0;
-    return index;
+    console.log(e.target.value);
+    if(e.target.value == "select"){
+      this.setState({optionIndex: '', failedSelect: true});
+    } else {
+      this.setState({failedSelect: false, optionIndex: e.target.value});
+    }
   }
 
-  addNewGoal(goal) {
-    let index = this.handleSelect();
-    // let goals = [{value: this.state.goals[index].value,
-    //     lifeGoal: this.state.goals[index].lifeGoal
-    //   }];
+  addNewGoal() {
+    let index = this.state.optionIndex;
     fetch('/goal/goals', {
       method: 'POST',
       headers: {
@@ -59,12 +51,27 @@ class LifeGoals extends React.Component{
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        value: this.state.valueArr[index],
+        value: this.state.valuesArr[index],
         lifeGoal: this.state.lifeGoal
       })
     })
     .then(result => result.json())
-    .then(result => this.state.goalsArr.push(result));
+    .then(result => this.state.goalsArr.push(result))
+    .then(result => this.setState({lifeGoal: ''}));
+  }
+
+  handleGoalAdd(e){
+    if(this.state.lifeGoal === ''){
+      this.setState({failedWriteGoal: true});
+      return;
+    }
+    if(this.state.optionIndex === '' || this.state.optionIndex === 'select'){
+      this.setState({failedSelect: true});
+      return;
+    }
+    else {
+      this.addNewGoal();
+    }
   }
 
   loadGoalsFromServer() {
@@ -74,42 +81,49 @@ class LifeGoals extends React.Component{
        .then(goals => console.log(this.state.goalsArr));
   }
 
+  prepareOptions(){
+    let optionArr = [];
+    this.state.valuesArr.forEach((value, index) =>
+        optionArr.push(<option key={index} value={index}>{value}</option>)
+    );
+    return optionArr;
+  }
 
   render(){
+    let selectValue = <div><h4>Please select a Life Category</h4></div>;
+    let writeGoal = <div><h4>Please write a Goal</h4></div>;
+    let optionArr = this.prepareOptions();
+    let goalForm = (
+      <form>
+        <FormGroup controlId="formControlsSelect">
+          <ControlLabel>Life Category</ControlLabel>
+            <FormControl onChange={this.handleSelect} componentClass="select" placeholder="select">
+              <option value="select">select</option>
+              {optionArr}
+            </FormControl>
+        </FormGroup>
+
+        <FormGroup controlId="formControlsTextarea">
+          <ControlLabel>Write your life goal</ControlLabel>
+            <FormControl onChange={this.handleGoalChange} componentClass="textarea" value={this.state.lifeGoal} placeholder="My goal is.." />
+        </FormGroup>
+        <div onClick={this.handleGoalAdd} className="submitForm" type="submit">Submit</div>
+      </form>
+    );
+
     return (
       <div className="background-container2">
         <div className="container">
           <Jumbotron className="jumbotronHeader">
             <h1>Life Goals</h1>
+            <h5>What life goals would you like to set for yourself?</h5>
           </Jumbotron>
-          <form>
-
-          <FormGroup controlId="formControlsSelect">
-        <ControlLabel>Life Category</ControlLabel>
-        <FormControl componentClass="select" placeholder="select">
-          <option value="select">select</option>
-          <option onSelect={this.handleSelect} eventKey= {1} value="other">{this.state.valueArr[0]}</option>
-          <option value="other">{this.state.valueArr[1]}</option>
-          <option value="other">{this.state.valueArr[2]}</option>
-          <option value="other">{this.state.valueArr[3]}</option>
-          <option value="other">{this.state.valueArr[4]}</option>
-          <option value="other">{this.state.valueArr[5]}</option>
-          <option value="other">{this.state.valueArr[6]}</option>
-          <option value="other">{this.state.valueArr[7]}</option>
-
-        </FormControl>
-      </FormGroup>
-
-      <FormGroup controlId="formControlsTextarea">
-        <ControlLabel>Write your goal</ControlLabel>
-        <FormControl onChange={this.handleGoalChange} componentClass="textarea" placeholder="explain goal" />
-      </FormGroup>
-
-
-      <div onClick={this.addNewGoal} className="submitForm" type="submit">
-        Submit
-      </div>
-    </form>
+           {goalForm}
+           {this.state.failedSelect ? selectValue : ""}
+           {this.state.failedWriteGoal ? writeGoal: ""}
+          <div>
+            <DisplayLifeGoals goalsArr={this.state.goalsArr} valuesArr={this.state.valuesArr} />
+          </div>
         </div>
       </div>
     );

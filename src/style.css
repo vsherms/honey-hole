@@ -69,6 +69,12 @@ body{
   color: rgba(53, 53, 53, 0.65);
 }
 
+.home-text{
+  margin-top: 25vh;
+  margin-bottom: 25vh;
+  text-align: center;
+}
+
 .jumbotronHeader{
   margin-top: 10vh;
   text-align: center;
@@ -109,4 +115,37 @@ body{
 .submitForm:hover {
   background-color: white;
   cursor:pointer;
+}
+
+.list-group1{
+  margin-top: 5vh;
+}
+
+.list-item{
+  margin-top: 1vh;
+}
+
+.history-slider{
+  text-align: center;
+}
+
+.home-link{
+  color: maroon;
+}
+
+.branded{
+  font-family: 'Lobster', cursive;
+  letter-spacing: 5px;
+}
+
+.subheader{
+  margin-top: 4vh;
+  font-family: 'Lobster', cursive;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.home-link:hover{
+  color: white;
+  cursor: pointer;
 }
