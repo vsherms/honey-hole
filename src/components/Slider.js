@@ -12,6 +12,7 @@ class Slider extends React.Component{
 
   changeScore(i, e){
     this.props.wheelStore.segs[i].score = e.target.value;
+    this.props.wheelStore.loadCanvas();
     console.log(this.props.wheelStore.segs[i].score, i);
   }
 
