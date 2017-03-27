@@ -149,3 +149,16 @@ body{
   color: white;
   cursor: pointer;
 }
+
+
+#Canvas1 {
+/*border: dotted 1px black;*/
+}
+
+.canvasFloat{
+  float:right;
+}
+
+.wheel-sliders{
+  float:left;
+}

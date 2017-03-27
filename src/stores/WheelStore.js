@@ -30,6 +30,7 @@ export default class WheelStore {
     this.loadWheelsFromServer = this.loadWheelsFromServer.bind(this);
     this.setDate = this.setDate.bind(this);
     this.addNewWheel = this.addNewWheel.bind(this);
+    this.loadCanvas = this.loadCanvas.bind(this);
   }
   setDate(){
     let date = new Date;
@@ -70,7 +71,64 @@ export default class WheelStore {
          "mm/dd/yy"))))
        .then(wheels => console.log(this.wheelDates));
   }
+
+  loadCanvas(){
+    let theCanvas = document.getElementById('Canvas1');
+    if (theCanvas && theCanvas.getContext) {
+      let ctx = theCanvas.getContext("2d");
+      if (ctx) {
+        let x = 350;
+        let y = 350;
+        let r = 325;
+        let a = 360/this.segs.length;
+        let colorArr = ["red", "orange", "yellow", "brown", "blue", "indigo", "violet", "pink"];
+        let symbolArr = [
+          // "Career", "Financial", "Spiritual", "Health", "Intellectual", "Family",
+          // "Social", "Environmental"
+          '\uf0b1',
+          '\uf155',
+          '\uf2dd',
+          '\uf21e',
+          '\uf02d',
+          '\uf0c0',
+          '\uf2b5',
+          '\uf0ac'
+
+        ];
+
+        let rad = a * (Math.PI / 180);
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "grey";
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.arc(x,y,r,0,2*Math.PI);
+        ctx.stroke();
+        ctx.fill();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 1;
+        for(let i = 0; i < this.segs.length; i++){
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.arc(x, y, this.segs[i].score * (r / 10), (i * rad), (i * rad) + rad, false);
+          ctx.fillStyle = colorArr[i];
+          ctx.fill();
+          ctx.stroke();
+        }
+        for(let i = 0; i < this.segs.length; i++){
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.lineTo( x + (r * Math.cos(i * rad)), y + (r * Math.sin(i * rad)));
+          ctx.stroke();
+          ctx.font='50px FontAwesome';
+          ctx.fillText(symbolArr[i], x + ((r * 0.75) * Math.cos((i * rad)+(rad/2))), y + ((r * 0.75) * Math.sin((i * rad)+(rad/2))));
+          // ctx.drawImage(symbolArr[i], x + (r * Math.cos(i * rad)), y + (r * Math.sin(i * rad)));
+        }
+      }
+    }
+    return theCanvas;
+  }
 }
+
 
 
 
