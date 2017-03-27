@@ -113,11 +113,10 @@ class LifeGoals extends React.Component{
 
     return (
       <div className="background-container2">
-        <div className="container">
-          <Jumbotron className="jumbotronHeader">
-            <h1>Life Goals</h1>
+        <div className="container">      
+            <h1  className="jumbotronHeader2">Life Goals</h1>
             <h5>What life goals would you like to set for yourself?</h5>
-          </Jumbotron>
+         
            {goalForm}
            {this.state.failedSelect ? selectValue : ""}
            {this.state.failedWriteGoal ? writeGoal: ""}
