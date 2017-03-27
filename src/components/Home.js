@@ -1,6 +1,7 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class Home extends React.Component{
   render(){
@@ -8,22 +9,15 @@ class Home extends React.Component{
 
       <div className="background-container2">
         <div className="container">
-
-            <h1 className="jumbotronHeader2">Welcome </h1>
-
             <div className="bodyText">
-              <h3>{this.props.userStore.firstName},</h3>
-              <h3> If you are ready to realize your full potential, you have come to the right place.
-              Life Coach™ is a tool to help you assess where you are in your life, set acheivable goals
-              and track your progress.
-               </h3>
-                <ul>
-                 <li><h3> With the Wheel of Life, rate your current standing.</h3></li>
-                 <li><h3> Brainstorm your own life goals.</h3></li>
-                 <li><h3> Do not forget to check out your progress over time. </h3></li>
-               </ul>
-              <h3> Enjoy, </h3>
-              <h3> The Life Coach Team. </h3>
+              <div className="home-text">
+                <h2> Are you ready to realize your full potential?</h2>
+                <h1>Welcome to <span  className="branded">Life Coach™</span></h1>
+                <br></br>
+                <h3> The <LinkContainer className="home-link" to={{pathname: '/wheel'}}><strong>Wheel of Life</strong></LinkContainer> helps you rate your current standing.</h3>
+                <h3> Then, dream of the future by making a list of <LinkContainer className="home-link" to={{pathname: '/lifegoals'}}><strong> life goals</strong></LinkContainer>.</h3>
+                <h3><LinkContainer className="home-link" to={{pathname: '/history'}}><strong>Track your progress</strong></LinkContainer> over time. </h3>
+              </div>
             </div>
         </div>
       </div>

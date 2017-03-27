@@ -6,14 +6,14 @@ import Slider from './Slider';
 
 
 class Wheel extends React.Component{
-  
+
   render(){
     return (
       <div className="background-container2">
         <div className="container">
-          <div className="jumbotronHeader2">
-            <h1 >How are you today?</h1>
-            <h2>Rate yourself on a scale of 1-10.</h2>
+          <div >
+            <h2 className="jumbotronHeader2">Wheel of Life</h2>
+            <h3 className="subheader">Rate yourself on a scale of 1-10.</h3>
           </div>
           <div className="bodyText">
 

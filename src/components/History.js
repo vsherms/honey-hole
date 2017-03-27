@@ -33,7 +33,7 @@ class History extends React.Component{
       let tableArr = [];
       for(let i = 0; i < this.props.wheelStore.wheels.length; i++) {
         tableArr.push(
-          <tr>
+          <tr key={i}>
             <td>{wheelArray[index].segs[i].value}</td>
             <td>{wheelArray[index].segs[i].score}</td>
           </tr>
@@ -68,10 +68,10 @@ class History extends React.Component{
       <div className="background-container2">
         <div className="container">
 
-            <h1 className="jumbotronHeader2">Your History</h1>
+            <h2 className="jumbotronHeader2">Your History</h2>
 
           {wheelTable}
-          <div>
+          <div className="history-slider">
             <h2 className="bodyText">Your History</h2>
             <ReactBootstrapSlider className= "slider"
               value={index + 1}
