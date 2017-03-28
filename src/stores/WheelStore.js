@@ -82,7 +82,8 @@ export default class WheelStore {
         let y = 350;
         let r = 325;
         let a = 360/this.segs.length;
-        let colorArr = ["red", "orange", "yellow", "brown", "blue", "indigo", "violet", "pink"];
+        let colorArr = ["#ff5500", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ff9933", "#cc6666"];
+        let backgroundColorArr = ["#cc6699", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffe6cc", "#f2d9d9"];
         let symbolArr = [
           // "Career", "Financial", "Spiritual", "Health", "Intellectual", "Family",
           // "Social", "Environmental"
