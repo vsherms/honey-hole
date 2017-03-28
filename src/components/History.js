@@ -36,39 +36,6 @@ class History extends React.Component{
       let wheelArray = this.props.wheelStore.wheels;
       let index = this.props.wheelStore.historyIndex;
       let ticksArr = this.setTicksArr();
-      // let tableArr = [];
-      // for(let i = 0; i < this.props.wheelStore.segs.length; i++) {
-      //   tableArr.push(
-      //     <tr key={i}>
-      //       <td>{wheelArray[index].segs[i].value}</td>
-      //       <td>{wheelArray[index].segs[i].score}</td>
-      //     </tr>
-      //   );
-      // }
-
-    //   let wheelTable = (
-    //       <div className="wheel-container">
-    //         <div className="history">
-    //           <Table striped bordered condensed hover>
-    //             <thead>
-    //               <tr>
-    //                 <th colSpan="2">
-    //                   {dateFormat(wheelArray[index].date,
-    //                      "dddd, mmmm dS, yyyy, h:MM TT")}
-    //                 </th>
-    //               </tr>
-    //               <tr>
-    //                 <th>Life Categories</th>
-    //                 <th>Score</th>
-    //               </tr>
-    //             </thead>
-    //             <tbody>
-    //               {tableArr}
-    //             </tbody>
-    //           </Table>
-    //         </div>
-    //       </div>
-    // );
 
       return (
       <div className="background-container2">

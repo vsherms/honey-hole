@@ -82,10 +82,10 @@ export default class WheelStore {
         let y = 350;
         let r = 325;
         let a = 360/this.segs.length;
-        let colorArr = ["red", "orange", "yellow", "brown", "blue", "indigo", "violet", "pink"];
+        let rad = a * (Math.PI / 180);
+        let colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
+        let backgroundColorArr = ["#ffddcc", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffffcc", "#f2e6d9"];
         let symbolArr = [
-          // "Career", "Financial", "Spiritual", "Health", "Intellectual", "Family",
-          // "Social", "Environmental"
           '\uf0b1',
           ' \uf155',
           '\uf2dd',
@@ -94,37 +94,22 @@ export default class WheelStore {
           '\uf0c0',
           '\uf2b5',
           '\uf0ac'
-
         ];
 
-        let rad = a * (Math.PI / 180);
-        ctx.strokeStyle = "black";
-        ctx.fillStyle = "#caff70";
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.arc(x,y,r,0,2*Math.PI);
-        // ctx.stroke();
-        ctx.fill();
-        ctx.strokeStyle = "black";
-
         for(let i = 0; i < this.segs.length; i++){
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
+          ctx.fillStyle = backgroundColorArr[i];
+          ctx.fill();
           ctx.beginPath();
           ctx.moveTo(x,y);
           ctx.arc(x, y, this.segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
           ctx.fillStyle = colorArr[i];
           ctx.fill();
-          // ctx.stroke();
-        }
-        for(let i = 0; i < this.segs.length; i++){
-          ctx.fillStyle = "black";
-          ctx.beginPath();
-          ctx.moveTo(x,y);
-          ctx.lineTo( x + (r * Math.cos(i * -rad)), y + (r * Math.sin(i * -rad)));
-          ctx.stroke();
           ctx.fillStyle = "maroon";
           ctx.font='50px FontAwesome';
           ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
-          // ctx.drawImage(symbolArr[i], x + (r * Math.cos(i * rad)), y + (r * Math.sin(i * rad)));
         }
       }
     }
@@ -140,11 +125,11 @@ export default class WheelStore {
         let x = 275;
         let y = 275;
         let r = 250;
-        let a = 360/this.segs.length;
-        let colorArr = ["red", "orange", "yellow", "brown", "blue", "indigo", "violet", "pink"];
+        let a = 360/this.wheels[this.historyIndex].segs.length;
+        let rad = a * (Math.PI / 180);
+        let colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
+        let backgroundColorArr = ["#ffddcc", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffffcc", "#f2e6d9"];
         let symbolArr = [
-          // "Career", "Financial", "Spiritual", "Health", "Intellectual", "Family",
-          // "Social", "Environmental"
           '\uf0b1',
           ' \uf155',
           '\uf2dd',
@@ -153,37 +138,22 @@ export default class WheelStore {
           '\uf0c0',
           '\uf2b5',
           '\uf0ac'
-
         ];
 
-        let rad = a * (Math.PI / 180);
-        ctx.strokeStyle = "black";
-        ctx.fillStyle = "#caff70";
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.arc(x,y,r,0,2*Math.PI);
-        // ctx.stroke();
-        ctx.fill();
-        ctx.strokeStyle = "black";
-
-        for(let i = 0; i < this.segs.length; i++){
+        for(let i = 0; i < this.wheels[this.historyIndex].segs.length; i++){
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
+          ctx.fillStyle = backgroundColorArr[i];
+          ctx.fill();
           ctx.beginPath();
           ctx.moveTo(x,y);
           ctx.arc(x, y, this.wheels[this.historyIndex].segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
           ctx.fillStyle = colorArr[i];
           ctx.fill();
-          // ctx.stroke();
-        }
-        for(let i = 0; i < this.segs.length; i++){
-          ctx.fillStyle = "black";
-          ctx.beginPath();
-          ctx.moveTo(x,y);
-          ctx.lineTo( x + (r * Math.cos(i * -rad)), y + (r * Math.sin(i * -rad)));
-          ctx.stroke();
           ctx.fillStyle = "maroon";
           ctx.font='50px FontAwesome';
           ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
-          // ctx.drawImage(symbolArr[i], x + (r * Math.cos(i * rad)), y + (r * Math.sin(i * rad)));
         }
       }
     }
