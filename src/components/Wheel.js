@@ -18,9 +18,6 @@ class Wheel extends React.Component{
           </div>
           <WheelCanvas />
           <div className="wheel-sliders">
-          <div className="bodyText">
-            <h3>{this.props.wheelStore.setDate()}</h3>
-          </div>
           <div><Slider segs={this.props.wheelStore.segs}/></div>
         <br></br>
         <Button style={{width: '280px', marginBottom: '10px'}}
