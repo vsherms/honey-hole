@@ -11,9 +11,16 @@ class History extends React.Component{
     this.setTicksArr = this.setTicksArr.bind(this);
   }
 
+  componentDidMount(){
+    this.props.wheelStore.loadHistoryCanvas();
+  }
+
   changeHistoryIndex(e){
     this.props.wheelStore.historyIndex = e.target.value - 1;
+    this.props.wheelStore.loadHistoryCanvas();
   }
+
+
 
   setTicksArr(){
     let ticksArr = [];
@@ -28,49 +35,54 @@ class History extends React.Component{
     if(this.props.wheelStore.wheels.length > 0){
       let wheelArray = this.props.wheelStore.wheels;
       let index = this.props.wheelStore.historyIndex;
-      let newArr = this.props.wheelStore.wheelDates.map(function(date){return date;});
       let ticksArr = this.setTicksArr();
-      let tableArr = [];
-      for(let i = 0; i < this.props.wheelStore.wheels.length; i++) {
-        tableArr.push(
-          <tr key={i}>
-            <td>{wheelArray[index].segs[i].value}</td>
-            <td>{wheelArray[index].segs[i].score}</td>
-          </tr>
-        );
-      }
+      // let tableArr = [];
+      // for(let i = 0; i < this.props.wheelStore.segs.length; i++) {
+      //   tableArr.push(
+      //     <tr key={i}>
+      //       <td>{wheelArray[index].segs[i].value}</td>
+      //       <td>{wheelArray[index].segs[i].score}</td>
+      //     </tr>
+      //   );
+      // }
 
-      let wheelTable = (
-          <div className="wheel-container">
-            <div className="history">
-              <Table striped bordered condensed hover>
-                <thead>
-                  <tr>
-                    <th colSpan="2">
-                      {dateFormat(wheelArray[index].date,
-                         "dddd, mmmm dS, yyyy, h:MM TT")}
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>Life Categories</th>
-                    <th>Score</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tableArr}
-                </tbody>
-              </Table>
-            </div>
-          </div>
-    );
+    //   let wheelTable = (
+    //       <div className="wheel-container">
+    //         <div className="history">
+    //           <Table striped bordered condensed hover>
+    //             <thead>
+    //               <tr>
+    //                 <th colSpan="2">
+    //                   {dateFormat(wheelArray[index].date,
+    //                      "dddd, mmmm dS, yyyy, h:MM TT")}
+    //                 </th>
+    //               </tr>
+    //               <tr>
+    //                 <th>Life Categories</th>
+    //                 <th>Score</th>
+    //               </tr>
+    //             </thead>
+    //             <tbody>
+    //               {tableArr}
+    //             </tbody>
+    //           </Table>
+    //         </div>
+    //       </div>
+    // );
 
       return (
       <div className="background-container2">
         <div className="container">
 
-            <h2 className="jumbotronHeader2">Your History</h2>
+            <h2 className="subheader2">Your History</h2>
 
-          {wheelTable}
+            <div className="canvasCenter">
+            <h3>
+                {dateFormat(wheelArray[index].date,
+                   "dddd, mmmm dS, yyyy, h:MM TT")}
+            </h3>
+              <canvas id="Canvas1" width="550" height="550">Your browser does not support canvas.</canvas>
+            </div>
           <div className="history-slider">
             <h2 className="bodyText">Your History</h2>
             <ReactBootstrapSlider className= "slider"
