@@ -82,9 +82,11 @@ export default class WheelStore {
         let y = 350;
         let r = 325;
         let a = 360/this.segs.length;
+
         let rad = a * (Math.PI / 180);
         let colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
         let backgroundColorArr = ["#ffddcc", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffffcc", "#f2e6d9"];
+
         let symbolArr = [
           '\uf0b1',
           ' \uf155',
