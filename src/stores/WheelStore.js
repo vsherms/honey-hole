@@ -31,6 +31,7 @@ export default class WheelStore {
     this.setDate = this.setDate.bind(this);
     this.addNewWheel = this.addNewWheel.bind(this);
     this.loadCanvas = this.loadCanvas.bind(this);
+    this.loadHistoryCanvas = this.loadHistoryCanvas.bind(this);
   }
   setDate(){
     let date = new Date;
@@ -98,11 +99,11 @@ export default class WheelStore {
 
         let rad = a * (Math.PI / 180);
         ctx.strokeStyle = "black";
-        ctx.fillStyle = "grey";
+        ctx.fillStyle = "#caff70";
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.arc(x,y,r,0,2*Math.PI);
-        ctx.stroke();
+        // ctx.stroke();
         ctx.fill();
         ctx.strokeStyle = "black";
 
@@ -115,10 +116,71 @@ export default class WheelStore {
           // ctx.stroke();
         }
         for(let i = 0; i < this.segs.length; i++){
+          ctx.fillStyle = "black";
           ctx.beginPath();
           ctx.moveTo(x,y);
           ctx.lineTo( x + (r * Math.cos(i * -rad)), y + (r * Math.sin(i * -rad)));
           ctx.stroke();
+          ctx.fillStyle = "maroon";
+          ctx.font='50px FontAwesome';
+          ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
+          // ctx.drawImage(symbolArr[i], x + (r * Math.cos(i * rad)), y + (r * Math.sin(i * rad)));
+        }
+      }
+    }
+    return theCanvas;
+  }
+
+
+  loadHistoryCanvas(){
+    let theCanvas = document.getElementById('Canvas1');
+    if (theCanvas && theCanvas.getContext) {
+      let ctx = theCanvas.getContext("2d");
+      if (ctx) {
+        let x = 275;
+        let y = 275;
+        let r = 250;
+        let a = 360/this.segs.length;
+        let colorArr = ["red", "orange", "yellow", "brown", "blue", "indigo", "violet", "pink"];
+        let symbolArr = [
+          // "Career", "Financial", "Spiritual", "Health", "Intellectual", "Family",
+          // "Social", "Environmental"
+          '\uf0b1',
+          ' \uf155',
+          '\uf2dd',
+          '\uf21e',
+          '\uf02d',
+          '\uf0c0',
+          '\uf2b5',
+          '\uf0ac'
+
+        ];
+
+        let rad = a * (Math.PI / 180);
+        ctx.strokeStyle = "black";
+        ctx.fillStyle = "#caff70";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(x,y,r,0,2*Math.PI);
+        // ctx.stroke();
+        ctx.fill();
+        ctx.strokeStyle = "black";
+
+        for(let i = 0; i < this.segs.length; i++){
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.arc(x, y, this.wheels[this.historyIndex].segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
+          ctx.fillStyle = colorArr[i];
+          ctx.fill();
+          // ctx.stroke();
+        }
+        for(let i = 0; i < this.segs.length; i++){
+          ctx.fillStyle = "black";
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.lineTo( x + (r * Math.cos(i * -rad)), y + (r * Math.sin(i * -rad)));
+          ctx.stroke();
+          ctx.fillStyle = "maroon";
           ctx.font='50px FontAwesome';
           ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
           // ctx.drawImage(symbolArr[i], x + (r * Math.cos(i * rad)), y + (r * Math.sin(i * rad)));
@@ -128,6 +190,7 @@ export default class WheelStore {
     return theCanvas;
   }
 }
+
 
 
 
