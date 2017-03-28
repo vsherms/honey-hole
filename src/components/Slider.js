@@ -34,11 +34,6 @@ class Slider extends React.Component{
                 orientation="horizontal"/>
             </div>
           </Col>
-          <Col md={6}>
-            <div>
-              <h2>{this.props.segs[i].score}</h2>
-            </div>
-          </Col>
         </Row>
       );
     }
