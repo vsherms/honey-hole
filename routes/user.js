@@ -17,8 +17,7 @@ app.post('/newuser', function(req, res) {
   user.save(function(err) {
     if (err) throw err;
     // console.log('User saved successfully');
-    res.json({ success: true,
-               user: user});
+    res.json({ success: true, user: user});
   });
 });
 
@@ -77,4 +76,4 @@ userRoutes.get('/users', function(req, res) {
   });
 });
 
-module.exports = userRoutes;
+export default userRoutes;

@@ -15,7 +15,7 @@ export default class DisplayLifeGoals extends React.Component{
             {goals}
           </ListGroup>
         </div>
-    );
+      );
     } else {
       return(
         <div>

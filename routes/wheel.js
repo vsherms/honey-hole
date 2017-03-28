@@ -36,4 +36,4 @@ wheelRoutes.delete('/wheels/:wheel_id', function(req, res){
   });
 });
 
-module.exports = wheelRoutes;
+export default wheelRoutes;

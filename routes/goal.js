@@ -36,4 +36,4 @@ goalRoutes.delete('/goals/:goal_id', function(req, res){
   });
 });
 
-module.exports = goalRoutes;
+export default goalRoutes;
