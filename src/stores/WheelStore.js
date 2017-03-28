@@ -86,7 +86,7 @@ export default class WheelStore {
           // "Career", "Financial", "Spiritual", "Health", "Intellectual", "Family",
           // "Social", "Environmental"
           '\uf0b1',
-          '\uf155',
+          ' \uf155',
           '\uf2dd',
           '\uf21e',
           '\uf02d',
@@ -99,28 +99,28 @@ export default class WheelStore {
         let rad = a * (Math.PI / 180);
         ctx.strokeStyle = "black";
         ctx.fillStyle = "grey";
-        ctx.lineWidth = 5;
+        ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.arc(x,y,r,0,2*Math.PI);
         ctx.stroke();
         ctx.fill();
         ctx.strokeStyle = "black";
-        ctx.lineWidth = 1;
+
         for(let i = 0; i < this.segs.length; i++){
           ctx.beginPath();
           ctx.moveTo(x,y);
-          ctx.arc(x, y, this.segs[i].score * (r / 10), (i * rad), (i * rad) + rad, false);
+          ctx.arc(x, y, this.segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
           ctx.fillStyle = colorArr[i];
           ctx.fill();
-          ctx.stroke();
+          // ctx.stroke();
         }
         for(let i = 0; i < this.segs.length; i++){
           ctx.beginPath();
           ctx.moveTo(x,y);
-          ctx.lineTo( x + (r * Math.cos(i * rad)), y + (r * Math.sin(i * rad)));
+          ctx.lineTo( x + (r * Math.cos(i * -rad)), y + (r * Math.sin(i * -rad)));
           ctx.stroke();
           ctx.font='50px FontAwesome';
-          ctx.fillText(symbolArr[i], x + ((r * 0.75) * Math.cos((i * rad)+(rad/2))), y + ((r * 0.75) * Math.sin((i * rad)+(rad/2))));
+          ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
           // ctx.drawImage(symbolArr[i], x + (r * Math.cos(i * rad)), y + (r * Math.sin(i * rad)));
         }
       }
