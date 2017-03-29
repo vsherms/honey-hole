@@ -5,7 +5,8 @@ const WheelSchema = new mongoose.Schema({
   segs: [{
     value: String,
     score: Number
-  }]
+  }],
+  owner: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
 export default mongoose.model('Wheel', WheelSchema);

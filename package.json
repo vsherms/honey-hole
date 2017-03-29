@@ -10,7 +10,7 @@
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
     "lint:watch": "npm run lint -- --watch",
     "test": "npm run lint && npm run testonly",
-    "testonly": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
+    "testonly": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\" \"models/*.test.js\" ",
     "testonly:watch": "npm run test -- --watch",
     "build": "npm run clean && npm run build:webpack && npm run build:server",
     "clean": "rimraf dist distServer",

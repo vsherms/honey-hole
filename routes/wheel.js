@@ -7,6 +7,7 @@ wheelRoutes.post('/wheels',function(req, res){
   let wheel = new Wheel();
   wheel.date = req.body.date;
   wheel.segs = req.body.segs;
+  wheel.owner = req.body.owner;
   wheel.save(function(err, wheel){
     if(err){
       res.send(err);
@@ -16,8 +17,8 @@ wheelRoutes.post('/wheels',function(req, res){
   });
 });
 
-wheelRoutes.get('/wheels', function(req, res, next){
-  Wheel.find(function(err, wheels){
+wheelRoutes.get('/wheels/:owner_id', function(req, res, next){
+  Wheel.find({owner: req.params.owner_id}).populate('owner').exec(function(err, wheels){
     if(err){
       next(err);
     } else {

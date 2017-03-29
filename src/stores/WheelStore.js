@@ -38,7 +38,7 @@ export default class WheelStore {
   //   this.date = date;
   //   return dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT");
   // }
-  addNewWheel(wheel) {
+  addNewWheel(ownerId) {
     let segs = [];
     for(let i = 0; i < this.segs.length; i++){
       segs.push({
@@ -54,7 +54,8 @@ export default class WheelStore {
       },
       body: JSON.stringify({
         date: new Date,
-        segs: segs
+        segs: segs,
+        owner: ownerId
       })
     })
     .then(result => result.json())
@@ -62,8 +63,8 @@ export default class WheelStore {
   }
 
 
-  loadWheelsFromServer() {
-    fetch('/wheel/wheels')
+  loadWheelsFromServer(ownerId) {
+    fetch('/wheel/wheels/' + ownerId)
        .then(result => result.json())
        .then(wheels => this.wheels = wheels)
        .then(wheels => wheels.forEach(wheel => this.wheelDates.push(dateFormat(wheel.date,
