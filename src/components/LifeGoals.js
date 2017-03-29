@@ -1,6 +1,7 @@
 import React from 'react';
 import { Jumbotron, FormGroup, FormControl, ControlLabel, Button, MenuItem } from 'react-bootstrap';
 import DisplayLifeGoals from './DisplayLifeGoals';
+import { inject, observer } from 'mobx-react';
 
 
 class LifeGoals extends React.Component{
@@ -25,7 +26,7 @@ class LifeGoals extends React.Component{
   }
 
   componentDidMount(){
-    this.loadGoalsFromServer();
+    this.loadGoalsFromServer(this.props.userStore.userId);
   }
 
   handleGoalChange(e) {
@@ -52,7 +53,8 @@ class LifeGoals extends React.Component{
       },
       body: JSON.stringify({
         value: this.state.valuesArr[index],
-        lifeGoal: this.state.lifeGoal
+        lifeGoal: this.state.lifeGoal,
+        owner: this.props.userStore.userId
       })
     })
     .then(result => result.json())
@@ -74,8 +76,8 @@ class LifeGoals extends React.Component{
     }
   }
 
-  loadGoalsFromServer() {
-    fetch('/goal/goals')
+  loadGoalsFromServer(ownerId) {
+    fetch('/goal/goals/' + ownerId)
        .then(result => result.json())
        .then(goals => this.setState({goalsArr: goals}))
        .then(goals => console.log(this.state.goalsArr));
@@ -128,4 +130,8 @@ class LifeGoals extends React.Component{
   }
 }
 
-export default LifeGoals;
+LifeGoals.propTypes = {
+  userStore: React.PropTypes.object
+};
+
+export default inject ('userStore') (observer (LifeGoals));

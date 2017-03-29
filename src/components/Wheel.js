@@ -7,6 +7,16 @@ import WheelCanvas from './WheelCanvas';
 
 
 class Wheel extends React.Component{
+  constructor(){
+    super();
+
+    this.handleAddWheel = this.handleAddWheel.bind(this);
+  }
+
+  handleAddWheel(){
+    let ownerId = this.props.userStore.userId;
+    this.props.wheelStore.addNewWheel(ownerId);
+  }
 
   render(){
     return (
@@ -21,7 +31,7 @@ class Wheel extends React.Component{
           <div><Slider segs={this.props.wheelStore.segs}/></div>
         <br></br>
         <Button style={{width: '280px', marginBottom: '10px'}}
-        onClick={this.props.wheelStore.addNewWheel} bsStyle="primary"
+        onClick={this.handleAddWheel} bsStyle="primary"
         Glyphicon glyph="plus-sign" block>Save Your Results!!</Button>
         </div>
       </div>
@@ -31,7 +41,8 @@ class Wheel extends React.Component{
 }
 
 Wheel.propTypes = {
-  wheelStore: React.PropTypes.object
+  wheelStore: React.PropTypes.object,
+  userStore: React.PropTypes.object
 };
 
-export default inject('wheelStore')(observer(Wheel));
+export default inject('wheelStore', 'userStore')(observer(Wheel));
