@@ -2117,94 +2117,6 @@ module.exports = emptyFunction;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var core = module.exports = { version: '2.4.0' };
-if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var store = __webpack_require__(106)('wks'),
-    uid = __webpack_require__(73),
-    _Symbol = __webpack_require__(36).Symbol,
-    USE_SYMBOL = typeof _Symbol == 'function';
-
-var $exports = module.exports = function (name) {
-  return store[name] || (store[name] = USE_SYMBOL && _Symbol[name] || (USE_SYMBOL ? _Symbol : uid)('Symbol.' + name));
-};
-
-$exports.store = store;
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2014-2015, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = function warning() {};
-
-if (process.env.NODE_ENV !== 'production') {
-  warning = function warning(condition, format, args) {
-    var len = arguments.length;
-    args = new Array(len > 2 ? len - 2 : 0);
-    for (var key = 2; key < len; key++) {
-      args[key - 2] = arguments[key];
-    }
-    if (format === undefined) {
-      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-
-    if (format.length < 10 || /^[s\W]*$/.test(format)) {
-      throw new Error('The warning format should be able to uniquely identify this ' + 'warning. Please, use a more descriptive format than: ' + format);
-    }
-
-    if (!condition) {
-      var argIndex = 0;
-      var message = 'Warning: ' + format.replace(/%s/g, function () {
-        return args[argIndex++];
-      });
-      if (typeof console !== 'undefined') {
-        console.error(message);
-      }
-      try {
-        // This error was thrown as a convenience so that you can use this stack
-        // to find the callsite that caused this warning to fire.
-        throw new Error(message);
-      } catch (x) {}
-    }
-  };
-}
-
-module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
 
 var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -3303,6 +3215,94 @@ var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbo
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(235)(module)))
 
 /***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var core = module.exports = { version: '2.4.0' };
+if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var store = __webpack_require__(106)('wks'),
+    uid = __webpack_require__(73),
+    _Symbol = __webpack_require__(36).Symbol,
+    USE_SYMBOL = typeof _Symbol == 'function';
+
+var $exports = module.exports = function (name) {
+  return store[name] || (store[name] = USE_SYMBOL && _Symbol[name] || (USE_SYMBOL ? _Symbol : uid)('Symbol.' + name));
+};
+
+$exports.store = store;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2014-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = function warning() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  warning = function warning(condition, format, args) {
+    var len = arguments.length;
+    args = new Array(len > 2 ? len - 2 : 0);
+    for (var key = 2; key < len; key++) {
+      args[key - 2] = arguments[key];
+    }
+    if (format === undefined) {
+      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (format.length < 10 || /^[s\W]*$/.test(format)) {
+      throw new Error('The warning format should be able to uniquely identify this ' + 'warning. Please, use a more descriptive format than: ' + format);
+    }
+
+    if (!condition) {
+      var argIndex = 0;
+      var message = 'Warning: ' + format.replace(/%s/g, function () {
+        return args[argIndex++];
+      });
+      if (typeof console !== 'undefined') {
+        console.error(message);
+      }
+      try {
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+      } catch (x) {}
+    }
+  };
+}
+
+module.exports = warning;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
 /* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4362,7 +4362,7 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 
 
 var global = __webpack_require__(36),
-    core = __webpack_require__(26),
+    core = __webpack_require__(27),
     ctx = __webpack_require__(98),
     hide = __webpack_require__(51),
     PROTOTYPE = 'prototype';
@@ -4842,7 +4842,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _warning = __webpack_require__(28);
+var _warning = __webpack_require__(29);
 
 var _warning2 = _interopRequireDefault(_warning);
 
@@ -7341,7 +7341,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _warning = __webpack_require__(28);
+var _warning = __webpack_require__(29);
 
 var _warning2 = _interopRequireDefault(_warning);
 
@@ -12583,7 +12583,7 @@ exports.f = Object.getOwnPropertySymbols;
 
 var def = __webpack_require__(42).f,
     has = __webpack_require__(41),
-    TAG = __webpack_require__(27)('toStringTag');
+    TAG = __webpack_require__(28)('toStringTag');
 
 module.exports = function (it, tag, stat) {
   if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
@@ -12671,7 +12671,7 @@ module.exports = function (it, S) {
 
 
 var global = __webpack_require__(36),
-    core = __webpack_require__(26),
+    core = __webpack_require__(27),
     LIBRARY = __webpack_require__(101),
     wksExt = __webpack_require__(111),
     defineProperty = __webpack_require__(42).f;
@@ -12687,7 +12687,7 @@ module.exports = function (name) {
 "use strict";
 
 
-exports.f = __webpack_require__(27);
+exports.f = __webpack_require__(28);
 
 /***/ }),
 /* 112 */
@@ -12891,7 +12891,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _warning = __webpack_require__(28);
+var _warning = __webpack_require__(29);
 
 var _warning2 = _interopRequireDefault(_warning);
 
@@ -12919,7 +12919,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _warning = __webpack_require__(28);
+var _warning = __webpack_require__(29);
 
 var _warning2 = _interopRequireDefault(_warning);
 
@@ -17092,7 +17092,7 @@ var LIBRARY = __webpack_require__(101),
     $iterCreate = __webpack_require__(267),
     setToStringTag = __webpack_require__(104),
     getPrototypeOf = __webpack_require__(275),
-    ITERATOR = __webpack_require__(27)('iterator'),
+    ITERATOR = __webpack_require__(28)('iterator'),
     BUGGY = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
 ,
     FF_ITERATOR = '@@iterator',
@@ -18035,7 +18035,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _warning = __webpack_require__(28);
+var _warning = __webpack_require__(29);
 
 var _warning2 = _interopRequireDefault(_warning);
 
@@ -18181,7 +18181,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _warning = __webpack_require__(28);
+var _warning = __webpack_require__(29);
 
 var _warning2 = _interopRequireDefault(_warning);
 
@@ -18446,7 +18446,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _warning = __webpack_require__(28);
+var _warning = __webpack_require__(29);
 
 var _warning2 = _interopRequireDefault(_warning);
 
@@ -18751,7 +18751,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _warning = __webpack_require__(28);
+var _warning = __webpack_require__(29);
 
 var _warning2 = _interopRequireDefault(_warning);
 
@@ -25499,7 +25499,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _mobxReact = __webpack_require__(29);
+var _mobxReact = __webpack_require__(26);
 
 var _reactRouter = __webpack_require__(59);
 
@@ -25637,7 +25637,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = __webpack_require__(59);
 
-var _mobxReact = __webpack_require__(29);
+var _mobxReact = __webpack_require__(26);
 
 var _reactBootstrap = __webpack_require__(31);
 
@@ -25812,7 +25812,7 @@ var _SignUp = __webpack_require__(150);
 
 var _SignUp2 = _interopRequireDefault(_SignUp);
 
-var _mobxReact = __webpack_require__(29);
+var _mobxReact = __webpack_require__(26);
 
 var _Wheel = __webpack_require__(526);
 
@@ -29706,7 +29706,7 @@ function isnan(val) {
 
 __webpack_require__(162);
 __webpack_require__(280);
-module.exports = __webpack_require__(26).Array.from;
+module.exports = __webpack_require__(27).Array.from;
 
 /***/ }),
 /* 250 */
@@ -29716,7 +29716,7 @@ module.exports = __webpack_require__(26).Array.from;
 
 
 __webpack_require__(282);
-module.exports = __webpack_require__(26).Object.assign;
+module.exports = __webpack_require__(27).Object.assign;
 
 /***/ }),
 /* 251 */
@@ -29726,7 +29726,7 @@ module.exports = __webpack_require__(26).Object.assign;
 
 
 __webpack_require__(283);
-var $Object = __webpack_require__(26).Object;
+var $Object = __webpack_require__(27).Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
 };
@@ -29739,7 +29739,7 @@ module.exports = function create(P, D) {
 
 
 __webpack_require__(287);
-module.exports = __webpack_require__(26).Object.entries;
+module.exports = __webpack_require__(27).Object.entries;
 
 /***/ }),
 /* 253 */
@@ -29749,7 +29749,7 @@ module.exports = __webpack_require__(26).Object.entries;
 
 
 __webpack_require__(284);
-module.exports = __webpack_require__(26).Object.setPrototypeOf;
+module.exports = __webpack_require__(27).Object.setPrototypeOf;
 
 /***/ }),
 /* 254 */
@@ -29759,7 +29759,7 @@ module.exports = __webpack_require__(26).Object.setPrototypeOf;
 
 
 __webpack_require__(288);
-module.exports = __webpack_require__(26).Object.values;
+module.exports = __webpack_require__(27).Object.values;
 
 /***/ }),
 /* 255 */
@@ -29772,7 +29772,7 @@ __webpack_require__(286);
 __webpack_require__(285);
 __webpack_require__(289);
 __webpack_require__(290);
-module.exports = __webpack_require__(26).Symbol;
+module.exports = __webpack_require__(27).Symbol;
 
 /***/ }),
 /* 256 */
@@ -29846,7 +29846,7 @@ module.exports = function (IS_INCLUDES) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
 var cof = __webpack_require__(97),
-    TAG = __webpack_require__(27)('toStringTag')
+    TAG = __webpack_require__(28)('toStringTag')
 // ES3 wrong here
 ,
     ARG = cof(function () {
@@ -29928,7 +29928,7 @@ module.exports = __webpack_require__(36).document && document.documentElement;
 
 // check on default Array iterator
 var Iterators = __webpack_require__(63),
-    ITERATOR = __webpack_require__(27)('iterator'),
+    ITERATOR = __webpack_require__(28)('iterator'),
     ArrayProto = Array.prototype;
 
 module.exports = function (it) {
@@ -29981,7 +29981,7 @@ var create = __webpack_require__(102),
     IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-__webpack_require__(51)(IteratorPrototype, __webpack_require__(27)('iterator'), function () {
+__webpack_require__(51)(IteratorPrototype, __webpack_require__(28)('iterator'), function () {
   return this;
 });
 
@@ -29997,7 +29997,7 @@ module.exports = function (Constructor, NAME, next) {
 "use strict";
 
 
-var ITERATOR = __webpack_require__(27)('iterator'),
+var ITERATOR = __webpack_require__(28)('iterator'),
     SAFE_CLOSING = false;
 
 try {
@@ -30318,9 +30318,9 @@ module.exports = function (index, length) {
 
 
 var classof = __webpack_require__(260),
-    ITERATOR = __webpack_require__(27)('iterator'),
+    ITERATOR = __webpack_require__(28)('iterator'),
     Iterators = __webpack_require__(63);
-module.exports = __webpack_require__(26).getIteratorMethod = function (it) {
+module.exports = __webpack_require__(27).getIteratorMethod = function (it) {
   if (it != undefined) return it[ITERATOR] || it['@@iterator'] || Iterators[classof(it)];
 };
 
@@ -30475,7 +30475,7 @@ var global = __webpack_require__(36),
     shared = __webpack_require__(106),
     setToStringTag = __webpack_require__(104),
     uid = __webpack_require__(73),
-    wks = __webpack_require__(27),
+    wks = __webpack_require__(28),
     wksExt = __webpack_require__(111),
     wksDefine = __webpack_require__(110),
     keyOf = __webpack_require__(270),
@@ -30768,7 +30768,7 @@ __webpack_require__(281);
 var global = __webpack_require__(36),
     hide = __webpack_require__(51),
     Iterators = __webpack_require__(63),
-    TO_STRING_TAG = __webpack_require__(27)('toStringTag');
+    TO_STRING_TAG = __webpack_require__(28)('toStringTag');
 
 for (var collections = ['NodeList', 'DOMTokenList', 'MediaList', 'StyleSheetList', 'CSSRuleList'], i = 0; i < 5; i++) {
   var NAME = collections[i],
@@ -32570,7 +32570,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _warning = __webpack_require__(28);
+var _warning = __webpack_require__(29);
 
 var _warning2 = _interopRequireDefault(_warning);
 
@@ -32640,7 +32640,7 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { 'default': obj };
 }
 
-var _warning = __webpack_require__(28);
+var _warning = __webpack_require__(29);
 
 var _warning2 = _interopRequireDefault(_warning);
 
@@ -66662,7 +66662,7 @@ var _Navigation2 = _interopRequireDefault(_Navigation);
 
 var _reactRouter = __webpack_require__(59);
 
-var _mobxReact = __webpack_require__(29);
+var _mobxReact = __webpack_require__(26);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -66684,7 +66684,7 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.props.wheelStore.loadWheelsFromServer();
+      this.props.wheelStore.loadWheelsFromServer(this.props.userStore.userId);
       console.log(this.props.wheelStore.wheels);
     }
   }, {
@@ -66703,10 +66703,11 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 App.propTypes = {
-  wheelStore: _react2.default.PropTypes.object
+  wheelStore: _react2.default.PropTypes.object,
+  userStore: _react2.default.PropTypes.object
 };
 
-exports.default = (0, _mobxReact.inject)('wheelStore')((0, _mobxReact.observer)(App));
+exports.default = (0, _mobxReact.inject)('wheelStore', 'userStore')((0, _mobxReact.observer)(App));
 
 /***/ }),
 /* 519 */
@@ -66808,7 +66809,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = __webpack_require__(59);
 
-var _mobxReact = __webpack_require__(29);
+var _mobxReact = __webpack_require__(26);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -66945,7 +66946,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _mobxReact = __webpack_require__(29);
+var _mobxReact = __webpack_require__(26);
 
 var _reactBootstrap = __webpack_require__(31);
 
@@ -67021,7 +67022,7 @@ var History = function (_React$Component) {
               { className: 'canvasCenter' },
               _react2.default.createElement(
                 'h3',
-                null,
+                { className: 'subheader' },
                 dateFormat(wheelArray[index].date, "dddd, mmmm dS, yyyy, h:MM TT")
               ),
               _react2.default.createElement(
@@ -67063,8 +67064,8 @@ var History = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              null,
-              'you have not filled out a wheel! '
+              { className: 'subheader3' },
+              'You have not filled out any wheels yet! '
             )
           )
         );
@@ -67100,7 +67101,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactBootstrap = __webpack_require__(31);
 
-var _mobxReact = __webpack_require__(29);
+var _mobxReact = __webpack_require__(26);
 
 var _reactRouterBootstrap = __webpack_require__(224);
 
@@ -67235,6 +67236,8 @@ var _DisplayLifeGoals = __webpack_require__(519);
 
 var _DisplayLifeGoals2 = _interopRequireDefault(_DisplayLifeGoals);
 
+var _mobxReact = __webpack_require__(26);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67270,7 +67273,7 @@ var LifeGoals = function (_React$Component) {
   _createClass(LifeGoals, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.loadGoalsFromServer();
+      this.loadGoalsFromServer(this.props.userStore.userId);
     }
   }, {
     key: 'handleGoalChange',
@@ -67302,7 +67305,8 @@ var LifeGoals = function (_React$Component) {
         },
         body: JSON.stringify({
           value: this.state.valuesArr[index],
-          lifeGoal: this.state.lifeGoal
+          lifeGoal: this.state.lifeGoal,
+          owner: this.props.userStore.userId
         })
       }).then(function (result) {
         return result.json();
@@ -67328,10 +67332,10 @@ var LifeGoals = function (_React$Component) {
     }
   }, {
     key: 'loadGoalsFromServer',
-    value: function loadGoalsFromServer() {
+    value: function loadGoalsFromServer(ownerId) {
       var _this3 = this;
 
-      fetch('/goal/goals').then(function (result) {
+      fetch('/goal/goals/' + ownerId).then(function (result) {
         return result.json();
       }).then(function (goals) {
         return _this3.setState({ goalsArr: goals });
@@ -67445,7 +67449,11 @@ var LifeGoals = function (_React$Component) {
   return LifeGoals;
 }(_react2.default.Component);
 
-exports.default = LifeGoals;
+LifeGoals.propTypes = {
+  userStore: _react2.default.PropTypes.object
+};
+
+exports.default = (0, _mobxReact.inject)('userStore')((0, _mobxReact.observer)(LifeGoals));
 
 /***/ }),
 /* 525 */
@@ -67470,7 +67478,7 @@ var _reactBootstrapSlider2 = _interopRequireDefault(_reactBootstrapSlider);
 
 var _reactBootstrap = __webpack_require__(31);
 
-var _mobxReact = __webpack_require__(29);
+var _mobxReact = __webpack_require__(26);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -67571,7 +67579,7 @@ var _reactBootstrapSlider = __webpack_require__(118);
 
 var _reactBootstrapSlider2 = _interopRequireDefault(_reactBootstrapSlider);
 
-var _mobxReact = __webpack_require__(29);
+var _mobxReact = __webpack_require__(26);
 
 var _reactBootstrap = __webpack_require__(31);
 
@@ -67597,10 +67605,19 @@ var Wheel = function (_React$Component) {
   function Wheel() {
     _classCallCheck(this, Wheel);
 
-    return _possibleConstructorReturn(this, (Wheel.__proto__ || Object.getPrototypeOf(Wheel)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Wheel.__proto__ || Object.getPrototypeOf(Wheel)).call(this));
+
+    _this.handleAddWheel = _this.handleAddWheel.bind(_this);
+    return _this;
   }
 
   _createClass(Wheel, [{
+    key: 'handleAddWheel',
+    value: function handleAddWheel() {
+      var ownerId = this.props.userStore.userId;
+      this.props.wheelStore.addNewWheel(ownerId);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -67636,7 +67653,7 @@ var Wheel = function (_React$Component) {
             _react2.default.createElement(
               _reactBootstrap.Button,
               { style: { width: '280px', marginBottom: '10px' },
-                onClick: this.props.wheelStore.addNewWheel, bsStyle: 'primary',
+                onClick: this.handleAddWheel, bsStyle: 'primary',
                 Glyphicon: true, glyph: 'plus-sign', block: true },
               'Save Your Results!!'
             )
@@ -67650,10 +67667,11 @@ var Wheel = function (_React$Component) {
 }(_react2.default.Component);
 
 Wheel.propTypes = {
-  wheelStore: _react2.default.PropTypes.object
+  wheelStore: _react2.default.PropTypes.object,
+  userStore: _react2.default.PropTypes.object
 };
 
-exports.default = (0, _mobxReact.inject)('wheelStore')((0, _mobxReact.observer)(Wheel));
+exports.default = (0, _mobxReact.inject)('wheelStore', 'userStore')((0, _mobxReact.observer)(Wheel));
 
 /***/ }),
 /* 527 */
@@ -67672,7 +67690,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _mobxReact = __webpack_require__(29);
+var _mobxReact = __webpack_require__(26);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -67852,32 +67870,31 @@ var WheelStore = function () {
     _classCallCheck(this, WheelStore);
 
     (0, _mobx.extendObservable)(this, {
-      date: "",
+      // date: "",
       segs: [{ value: 'Career', score: 0 }, { value: 'Financial', score: 0 }, { value: 'Spiritual', score: 0 }, { value: 'Health', score: 0 }, { value: 'Intellectual', score: 0 }, { value: 'Family', score: 0 }, { value: 'Social', score: 0 }, { value: 'Environmental', score: 0 }],
       wheels: [],
-      wheelDates: [],
+      // wheelDates: [],
       min: 1,
       step: 1,
       historyIndex: 0
     });
     // this.handleDelete = this.handleDelete.bind(this);
     this.loadWheelsFromServer = this.loadWheelsFromServer.bind(this);
-    this.setDate = this.setDate.bind(this);
+    // this.setDate = this.setDate.bind(this);
     this.addNewWheel = this.addNewWheel.bind(this);
     this.loadCanvas = this.loadCanvas.bind(this);
     this.loadHistoryCanvas = this.loadHistoryCanvas.bind(this);
   }
+  // setDate(){
+  //   let date = new Date;
+  //   this.date = date;
+  //   return dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT");
+  // }
+
 
   _createClass(WheelStore, [{
-    key: 'setDate',
-    value: function setDate() {
-      var date = new Date();
-      this.date = date;
-      return dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT");
-    }
-  }, {
     key: 'addNewWheel',
-    value: function addNewWheel(wheel) {
+    value: function addNewWheel(ownerId) {
       var _this = this;
 
       var segs = [];
@@ -67894,23 +67911,22 @@ var WheelStore = function () {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          date: this.date,
-          segs: segs
+          date: new Date(),
+          segs: segs,
+          owner: ownerId
         })
       }).then(function (result) {
         return result.json();
       }).then(function (result) {
         return _this.wheels.push(result);
-      }).then(function (result) {
-        return _this.wheelDates.push(dateFormat(wheel.date, "mm/dd/yy"));
       });
     }
   }, {
     key: 'loadWheelsFromServer',
-    value: function loadWheelsFromServer() {
+    value: function loadWheelsFromServer(ownerId) {
       var _this2 = this;
 
-      fetch('/wheel/wheels').then(function (result) {
+      fetch('/wheel/wheels/' + ownerId).then(function (result) {
         return result.json();
       }).then(function (wheels) {
         return _this2.wheels = wheels;
@@ -67933,9 +67949,11 @@ var WheelStore = function () {
           var y = 350;
           var r = 325;
           var a = 360 / this.segs.length;
+
           var rad = a * (Math.PI / 180);
           var colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
           var backgroundColorArr = ["#ffddcc", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffffcc", "#f2e6d9"];
+
           var symbolArr = ['\uF0B1', ' \uF155', '\uF2DD', '\uF21E', '\uF02D', '\uF0C0', '\uF2B5', '\uF0AC'];
 
           for (var i = 0; i < this.segs.length; i++) {
