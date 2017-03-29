@@ -9,7 +9,7 @@ const dateFormat = require('dateformat');
 export default class WheelStore {
   constructor(){
     extendObservable(this, {
-      date: "",
+      // date: "",
       segs: [
         {value: 'Career', score: 0},
         {value: 'Financial', score: 0},
@@ -21,23 +21,23 @@ export default class WheelStore {
         {value: 'Environmental', score: 0}
       ],
       wheels: [],
-      wheelDates: [],
+      // wheelDates: [],
       min: 1,
       step: 1,
       historyIndex: 0
     });
     // this.handleDelete = this.handleDelete.bind(this);
     this.loadWheelsFromServer = this.loadWheelsFromServer.bind(this);
-    this.setDate = this.setDate.bind(this);
+    // this.setDate = this.setDate.bind(this);
     this.addNewWheel = this.addNewWheel.bind(this);
     this.loadCanvas = this.loadCanvas.bind(this);
     this.loadHistoryCanvas = this.loadHistoryCanvas.bind(this);
   }
-  setDate(){
-    let date = new Date;
-    this.date = date;
-    return dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT");
-  }
+  // setDate(){
+  //   let date = new Date;
+  //   this.date = date;
+  //   return dateFormat(date, "dddd, mmmm dS, yyyy, h:MM TT");
+  // }
   addNewWheel(wheel) {
     let segs = [];
     for(let i = 0; i < this.segs.length; i++){
@@ -53,14 +53,12 @@ export default class WheelStore {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        date: this.date,
+        date: new Date,
         segs: segs
       })
     })
     .then(result => result.json())
-    .then(result => this.wheels.push(result))
-    .then(result => this.wheelDates.push(dateFormat(wheel.date,
-      "mm/dd/yy")));
+    .then(result => this.wheels.push(result));
   }
 
 
