@@ -20,6 +20,7 @@ goalRoutes.post('/goals', function (req, res) {
   var goal = new _goal2.default();
   goal.value = req.body.value;
   goal.lifeGoal = req.body.lifeGoal;
+  goal.owner = req.body.owner;
   goal.save(function (err, goal) {
     if (err) {
       res.send(err);
@@ -29,8 +30,8 @@ goalRoutes.post('/goals', function (req, res) {
   });
 });
 
-goalRoutes.get('/goals', function (req, res, next) {
-  _goal2.default.find(function (err, goals) {
+goalRoutes.get('/goals/:owner_id', function (req, res, next) {
+  _goal2.default.find({ owner: req.params.owner_id }).populate('owner').exec(function (err, goals) {
     if (err) {
       next(err);
     } else {

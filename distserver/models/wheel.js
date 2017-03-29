@@ -10,7 +10,8 @@ var WheelSchema = new mongoose.Schema({
   segs: [{
     value: String,
     score: Number
-  }]
+  }],
+  owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 exports.default = mongoose.model('Wheel', WheelSchema);

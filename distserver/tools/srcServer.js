@@ -151,7 +151,7 @@ apiRoutes.get('/users', function (req, res) {
   });
 });
 app.get('/', function (req, res) {
-  res.sendFile(_path2.default.join(__dirname, '../src/index.html'));
+  res.sendFile(_path2.default.join(__dirname, '../public/index.html'));
 });
 
 app.use('/wheel', _wheel4.default);
