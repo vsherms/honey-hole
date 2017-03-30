@@ -60,5 +60,6 @@ export default class UserStore {
     this.failedLogin= false;
     this.userId= "";
     console.log(this.isLoggedIn);
+    browserHistory.replace("/");
   }
 }

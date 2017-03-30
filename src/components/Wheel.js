@@ -28,7 +28,7 @@ class Wheel extends React.Component{
           </div>
           <WheelCanvas />
           <div className="wheel-sliders">
-          <div><Slider segs={this.props.wheelStore.segs}/></div>
+          <div><Slider segs={this.props.wheelStore.segs} display={this.props.wheelStore.display}/></div>
         <br></br>
         <Button style={{width: '280px', marginBottom: '10px'}}
         onClick={this.handleAddWheel} bsStyle="primary"
