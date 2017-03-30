@@ -3,13 +3,21 @@ import {extendObservable} from 'mobx';
 import { Button, Glyphicon } from 'react-bootstrap';
 const dateFormat = require('dateformat');
 
-
-
-
 export default class WheelStore {
   constructor(){
     extendObservable(this, {
       // date: "",
+
+      sliderSegs: [
+        {value: <i className="fa fa-briefcase" aria-hidden="true"> Career</i> , score: 0},
+        {value: <i className="fa fa-usd" aria-hidden="true"> Finacial</i> , score: 0},
+        {value: <i className="fa fa-universal-access" aria-hidden="true"> Spiritual</i> , score: 0},
+        {value: <i className="fa fa-heartbeat" aria-hidden="true"> Health</i> , score: 0},
+        {value: <i className="fa fa-book" aria-hidden="true"> Intellectual</i> , score: 0},
+        {value: <i className="fa fa-users" aria-hidden="true"> Family</i> , score: 0},
+        {value: <i className="fa fa-handshake-o" aria-hidden="true"> Social</i> , score: 0},
+        {value: <i className="fa fa-globe" aria-hidden="true"> Enviromental</i> , score: 0},
+      ],
       segs: [
         {value: 'Career', score: 0},
         {value: 'Financial', score: 0},
@@ -89,7 +97,7 @@ export default class WheelStore {
         let symbolArr = [
           '\uf0b1',
           ' \uf155',
-          '\uf2dd',
+          '\uf29a',
           '\uf21e',
           '\uf02d',
           '\uf0c0',
@@ -133,7 +141,7 @@ export default class WheelStore {
         let symbolArr = [
           '\uf0b1',
           ' \uf155',
-          '\uf2dd',
+          '\uf29a',
           '\uf21e',
           '\uf02d',
           '\uf0c0',

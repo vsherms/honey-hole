@@ -71,7 +71,7 @@ export default class SignUp extends React.Component {
             <div className="form-group">
               <input onChange={this.handlePasswordChange} value={this.state.password}type="password" className="form-control" id="password" placeholder="password"/>
             </div>
-            <div onClick={this.addUserToDatabase} type="submit" className="submitForm"><strong>Sign Up</strong></div>
+            <button onClick={this.addUserToDatabase} type="submit" className="submitForm"><strong>Sign Up</strong></button>
          </form>
 
        </div>
