@@ -3,19 +3,19 @@ import webpack from 'webpack';
 import path from 'path';
 import config from '../webpack.config.dev';
 import open from 'open';
-const bodyParser = require('body-parser');
-const uriUtil = require('mongodb-uri');
+import bodyParser from 'body-parser';
+import uriUtil from 'mongodb-uri';
 import User from '../models/user';
 import Wheel from '../models/wheel';
 import Goal from '../models/goal';
 import wheelRoutes from '../routes/wheel';
 import goalRoutes from '../routes/goal';
-const jwt = require('jsonwebtoken');
-const authConfig = require('./authConfig');
-const morgan = require('morgan');
+import jwt from 'jsonwebtoken';
+import authConfig from './authConfig';
+import morgan from 'morgan';
+import hash from 'password-hash';
+import mongoose from 'mongoose';
 const apiRoutes = express.Router();
-const hash = require('password-hash');
-const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost/lifecoach';
 const mongooseUri = uriUtil.formatMongoose(mongodbUri);
@@ -53,7 +53,7 @@ if (PROD) {
   app.use(morgan('dev'));
 }
 
-app.post('/newuser', function(req, res) {
+app.post('/newuser', function(req, res, next) {
   let user = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -61,17 +61,23 @@ app.post('/newuser', function(req, res) {
     password: hash.generate(req.body.password)
   });
   user.save(function(err) {
-    if (err) throw err;
-    console.log('User saved successfully');
-    res.json({ success: true, user: user});
+    if (err){
+      next (err);
+    }
+    else{
+      console.log('User saved successfully');
+      res.json({ success: true, user: user});
+    }
   });
 });
-apiRoutes.post('/authenticate', function(req, res) {
+apiRoutes.post('/authenticate', function(req, res, next) {
   User.findOne({
     email: req.body.email
   }, function(err, user) {
-    if (err) throw err;
-    if (!user) {
+    if (err){
+      next(err);
+    }
+    else if (!user) {
       res.json({ success: false, message: 'Authentication failed. User not found.'});
     } else if(user) {
       console.log(req.body.email, req.body.password, user);

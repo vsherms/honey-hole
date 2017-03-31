@@ -3,14 +3,14 @@ import Wheel from '../models/wheel';
 
 const wheelRoutes = express.Router();
 
-wheelRoutes.post('/wheels',function(req, res){
+wheelRoutes.post('/wheels',function(req, res, next){
   let wheel = new Wheel();
   wheel.date = req.body.date;
   wheel.segs = req.body.segs;
   wheel.owner = req.body.owner;
   wheel.save(function(err, wheel){
     if(err){
-      res.send(err);
+      next(err);
     } else {
       res.json(wheel);
     }
@@ -27,10 +27,10 @@ wheelRoutes.get('/wheels/:owner_id', function(req, res, next){
   });
 });
 
-wheelRoutes.delete('/wheels/:wheel_id', function(req, res){
+wheelRoutes.delete('/wheels/:wheel_id', function(req, res, next){
   Wheel.remove({_id: req.params.wheel_id}, function(err, wheel){
     if(err){
-      console.log(err);
+      next(err);
     } else {
       res.json({title: 'Wheel was successfully deleted!'});
     }

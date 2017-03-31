@@ -23,6 +23,7 @@ class History extends React.Component{
 
 
   setTicksArr(){
+    this.props.wheelStore.loadHistoryCanvas();
     let ticksArr = [];
     for (let i=1; i <= this.props.wheelStore.wheels.length; i++) {
       ticksArr.push(i);
