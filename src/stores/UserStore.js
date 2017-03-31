@@ -12,7 +12,8 @@ export default class UserStore {
       admin: false,
       isLoggedIn: false,
       failedLogin: false,
-      userId: ""
+      userId: "",
+      userCreated: false
     });
     this.authUser = this.authUser.bind(this);
     this.setUser = this.setUser.bind(this);
@@ -48,6 +49,7 @@ export default class UserStore {
   setUser(user) {
     this.email = user.email;
     this.password = user.password;
+    this.userCreated = true;
   }
 
   logUserOut() {

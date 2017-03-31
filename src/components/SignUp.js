@@ -1,8 +1,10 @@
 import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
+import { observer, inject } from 'mobx-react';
 
 
-export default class SignUp extends React.Component {
+
+class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,10 +48,12 @@ export default class SignUp extends React.Component {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
       })
     });
-    this.setState({firstName: "", lastName: "", email: "", password: ""});
+    this.setState({firstName: "", lastName: "", email: "", password: "",});
+    let user = {email: this.state.email, password: this.state.password};
+    this.props.userStore.setUser(user);
   }
 
 
@@ -60,27 +64,74 @@ export default class SignUp extends React.Component {
         <form method="" role="form">
             <h1 className="jumbotronHeader">Please Sign Up</h1>
             <div className="form-group">
-              <input onChange={this.handleFirstNameChange} value={this.state.firstName} type="text" className="form-control" id="first-name" placeholder="first name"/>
+              <input
+                onChange={this.handleFirstNameChange}
+                value={this.state.firstName}
+                type="text"
+                className="form-control"
+                id="first-name"
+                placeholder="first name"/>
             </div>
             <div className="form-group">
-              <input onChange={this.handleLastNameChange} value={this.state.lastName} type="text" className="form-control" id="last-name" placeholder="last name"/>
+              <input
+                onChange={this.handleLastNameChange}
+                value={this.state.lastName}
+                type="text"
+                className="form-control"
+                id="last-name"
+                placeholder="last name"/>
             </div>
             <div className="form-group">
-              <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>
+              <input
+                onChange={this.handleEmailChange}
+                value={this.state.email}
+                type="text"
+                className="form-control"
+                id="email"
+                placeholder="email"/>
             </div>
             <div className="form-group">
-              <input onChange={this.handlePasswordChange} value={this.state.password}type="password" className="form-control" id="password" placeholder="password"/>
+              <input
+                onChange={this.handlePasswordChange}
+                value={this.state.password}
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="password"/>
             </div>
-            <button onClick={this.addUserToDatabase} type="submit" className="submitForm"><strong>Sign Up</strong></button>
+            <button
+              onClick={this.addUserToDatabase}
+              type="submit"
+              className="submitForm">
+              <strong>
+                Sign Up
+              </strong>
+            </button>
          </form>
 
        </div>
     );
-    return (
-      <div>
-        {signUpForm}
-      </div>
-
-    );
+    if(this.props.userStore.userCreated){
+      return(
+          <div>
+            {signUpForm}
+            <h3 style={{color: "blue"}}>
+              Welcome to Life Coach!  Go ahead and log in!
+            </h3>
+          </div>
+      );
+    } else {
+      return (
+          <div>
+            {signUpForm}
+          </div>
+      );
+    }
   }
 }
+
+SignUp.propTypes = {
+  userStore: React.PropTypes.object
+};
+
+export default inject('userStore')(observer(SignUp));

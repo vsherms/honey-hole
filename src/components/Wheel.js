@@ -22,20 +22,27 @@ class Wheel extends React.Component{
     return (
       <div className="background-container2">
         <div className="container">
-          <div >
+          <div>
             <h2 className="jumbotronHeader2">Wheel of Life</h2>
             <h3 className="subheader">Rate yourself on a scale of 1-10.</h3>
           </div>
           <WheelCanvas />
           <div className="wheel-sliders">
-          <div><Slider segs={this.props.wheelStore.segs} display={this.props.wheelStore.display}/></div>
-        <br></br>
-        <Button style={{width: '280px', marginBottom: '10px'}}
-        onClick={this.handleAddWheel} bsStyle="primary"
-        Glyphicon glyph="plus-sign" block>Save Your Results!!</Button>
+            <div>
+              <Slider segs={this.props.wheelStore.segs} display={this.props.wheelStore.display}/>
+            </div>
+            <br/>
+             <Button
+                style={{width: '280px', marginBottom: '10px'}}
+                onClick={this.handleAddWheel}
+                bsStyle="primary"
+                Glyphicon glyph="plus-sign"
+                block>
+                  Save Your Results!!
+             </Button>
+          </div>
         </div>
       </div>
-  </div>
     );
   }
 }

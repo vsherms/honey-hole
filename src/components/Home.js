@@ -13,10 +13,16 @@ class Home extends React.Component{
               <div className="home-text">
                 <h2> Are you ready to realize your full potential?</h2>
                 <h1>Welcome to <span  className="branded">Life Coach™</span></h1>
-                <br></br>
-                <h3> The <LinkContainer className="home-link" to={{pathname: '/wheel'}}><strong>Wheel of Life</strong></LinkContainer> helps you rate your current standing.</h3>
-                <h3> Then, dream of the future by making a list of <LinkContainer className="home-link" to={{pathname: '/lifegoals'}}><strong> life goals</strong></LinkContainer>.</h3>
-                <h3><LinkContainer className="home-link" to={{pathname: '/history'}}><strong>Track your progress</strong></LinkContainer> over time. </h3>
+                <br/>
+                <h3> The <LinkContainer className="home-link" to={{pathname: '/wheel'}}>
+                  <strong>Wheel of Life</strong></LinkContainer> helps you rate your current standing.
+                </h3>
+                <h3> Then, dream of the future by making a list of <LinkContainer className="home-link"
+                  to={{pathname: '/lifegoals'}}><strong> life goals</strong></LinkContainer>.
+                </h3>
+                <h3><LinkContainer className="home-link" to={{pathname: '/history'}}>
+                  <strong>Track your progress</strong></LinkContainer> over time.
+                </h3>
               </div>
             </div>
         </div>

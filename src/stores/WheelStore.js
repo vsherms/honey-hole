@@ -177,12 +177,6 @@ export default class WheelStore {
     return theCanvas;
   }
 }
-
-
-
-
-
-
 //   handleDelete(imgId) {
 //     let newList = this.images.filter(img => img._id !== imgId);
 //     let allnewList = this.allImages.filter(img => img._id !== imgId);

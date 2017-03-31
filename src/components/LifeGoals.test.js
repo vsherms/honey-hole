@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import LifeGoals from './components/LifeGoals';
+import LifeGoals from './LifeGoals';
 
 describe('LifeGoals', () => {
   it('has a state', (done) => {
