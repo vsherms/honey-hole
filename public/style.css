@@ -93,6 +93,7 @@ body{
  text-align: center;
  width: 10vw;
  padding:.5vh;
+ background: rgba(0, 0, 0, 0);
 }
 .submitForm:hover {
  background-color: white;

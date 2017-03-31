@@ -68,8 +68,7 @@ export default class WheelStore {
        .then(result => result.json())
        .then(wheels => this.wheels = wheels)
        .then(wheels => wheels.forEach(wheel => this.wheelDates.push(dateFormat(wheel.date,
-         "mm/dd/yy"))))
-       .then(wheels => console.log(this.wheelDates));
+         "mm/dd/yy"))));
   }
 
   loadCanvas(){
