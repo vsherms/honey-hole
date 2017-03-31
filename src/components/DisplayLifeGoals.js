@@ -5,7 +5,9 @@ export default class DisplayLifeGoals extends React.Component{
 
   render(){
     let goals = this.props.goalsArr.map((goal, index) =>
-        (<ListGroupItem className="list-item" key={index} header={goal.value}>{goal.lifeGoal}</ListGroupItem>)
+        (<ListGroupItem className="list-item" key={index} header={goal.value}>
+          {goal.lifeGoal}
+        </ListGroupItem>)
       );
 
     if(this.props.goalsArr.length > 0){

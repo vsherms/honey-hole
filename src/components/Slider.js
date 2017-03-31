@@ -21,9 +21,9 @@ class Slider extends React.Component{
     for(let i = 0; i < this.props.segs.length; i++){
       sliderArr.push(
         <Row>
-          <Col md={6}>
+          <Col md={10}>
             <div>
-              <h2>{this.props.segs[i].value}</h2>
+              <h2 className="slideFont">{this.props.segs[i].value}{this.props.display[i]}</h2>
               <ReactBootstrapSlider
                 value={this.props.wheelStore.segs[i].score}
                 change={this.changeScore.bind(null, i)}
