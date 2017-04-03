@@ -18,7 +18,32 @@ body{
  width: 50vw;
  float: right;
  padding: 2vw;
+ position: relative;
+ height: 60vh;
 }
+
+.invalidUser{
+  position: absolute;
+  right: 8vw;
+  bottom: 22.5vh;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+}
+
+.signup-form{
+  width: 50vw;
+  padding: 2vw;
+  position:relative;
+}
+
+.signup-message{
+  float: left;
+  margin-left: 2vw;
+  bottom: 25vh;
+  text-align: center;
+  font-family: 'Lobster', cursive;
+}
+
 .wheel-container{
  width:25vw;
  margin: auto;
@@ -152,4 +177,55 @@ body{
 }
 .canvasCenter{
  text-align: center;
+}
+
+.invalidUser{
+  color: red;
+  text-align: center;
+  float: right;
+}
+
+.wheelDiv{
+}
+
+.smallWheelDiv{
+  display:none;
+}
+@media (max-width:1200px){
+
+  .wheel-containerFB{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .fbbox{
+    justify-content:center;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+
+  }
+
+  .canvasFloat{
+   margin-left: auto;
+   margin-right: auto;
+  }
+
+  .wheel-sliders{
+   text-align: center;
+  }
+
+  .wheelFB{
+    text-align:center;
+    width:30vw;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+@media (max-width:650px){
+  .canvasFloat{
+  display:none;
+  }
 }
