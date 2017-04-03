@@ -4,7 +4,6 @@ import { observer, inject } from 'mobx-react';
 import {Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import Slider from './Slider';
 import WheelCanvas from './WheelCanvas';
-import HistoryWheelCanvas from './HistoryWheelCanvas';
 
 
 class Wheel extends React.Component{
