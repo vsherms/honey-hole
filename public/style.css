@@ -119,6 +119,7 @@ body{
  width: 10vw;
  padding:.5vh;
  background-color:rgba(0, 0, 0, 0);
+ cursor: pointer;
 }
 .submitForm:hover {
  background-color: white;
@@ -185,46 +186,25 @@ body{
   float: right;
 }
 
-.wheelDiv{
+@media (max-width:1300px){
+
+.canvasFloat{
+float:none;
+margin-left: auto;
+margin-right: auto;
+display: flex;
+justify-content: center;
 }
 
-.smallWheelDiv{
-  display:none;
-}
-@media (max-width:1200px){
-
-  .wheel-containerFB{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .fbbox{
-    justify-content:center;
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-
-  }
-
-  .canvasFloat{
-   margin-left: auto;
-   margin-right: auto;
-  }
-
-  .wheel-sliders{
-   text-align: center;
-  }
-
-  .wheelFB{
-    text-align:center;
-    width:30vw;
-    margin-left:auto;
-    margin-right:auto;
-  }
+.wheel-sliders{
+float: none;
+margin-left: auto;
+margin-right: auto;
+display:flex;
+justify-content: center;
 }
 
-@media (max-width:650px){
+@media (max-width:750px){
   .canvasFloat{
   display:none;
   }

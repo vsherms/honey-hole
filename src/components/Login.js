@@ -2,6 +2,10 @@ import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { browserHistory, Link } from 'react-router';
 import { Jumbotron, Button } from 'react-bootstrap';
+import Tappable from 'react-tappable/lib/Tappable';
+import Pinchable from 'react-tappable/lib/Pinchable';
+import TapAndPinchable from 'react-tappable/lib/TapAndPinchable';
+
 
 class Login extends React.Component {
   constructor() {
@@ -40,7 +44,7 @@ class Login extends React.Component {
             <div className="form-group">
               <input onChange={this.handlePasswordChange} value={this.state.password}type="password" className="form-control" id="password" placeholder="password"/>
             </div>
-            <Button onClick={this.handleUserAuth} onTouchTap={this.handleUserAuth} type="submit" className="submitForm"><strong>Log In</strong></Button>
+            <button onClick={this.handleUserAuth} onTap={this.handleUserAuth} type="submit" className="submitForm"><strong>Log In</strong></button>
           </form>
       </div>
     </div>);
