@@ -4,6 +4,7 @@ import { observer, inject } from 'mobx-react';
 import {Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import Slider from './Slider';
 import WheelCanvas from './WheelCanvas';
+import HistoryWheelCanvas from './HistoryWheelCanvas';
 
 
 class Wheel extends React.Component{
@@ -26,20 +27,28 @@ class Wheel extends React.Component{
             <h2 className="jumbotronHeader2">Wheel of Life</h2>
             <h3 className="subheader">Rate yourself on a scale of 1-10.</h3>
           </div>
-          <WheelCanvas />
-          <div className="wheel-sliders">
-            <div>
-              <Slider segs={this.props.wheelStore.segs} display={this.props.wheelStore.display}/>
+          <div className="wheel-containerFB">
+            <div className="fbbox">
+              <div className="wheelDiv">
+                <WheelCanvas />
+              </div>
+            <div className="wheel-sliders">
+              <div className="wheelFB">
+                <Slider segs={this.props.wheelStore.segs} display={this.props.wheelStore.display}/>
+
+                <br/>
+                 <Button
+                    style={{width: '280px', marginBottom: '10px'}}
+                    onClick={this.handleAddWheel}
+                    bsStyle="primary"
+                    Glyphicon glyph="plus-sign"
+
+                    block>
+                      Save Your Results!!
+                 </Button>
+                </div>
+              </div>
             </div>
-            <br/>
-             <Button
-                style={{width: '280px', marginBottom: '10px'}}
-                onClick={this.handleAddWheel}
-                bsStyle="primary"
-                Glyphicon glyph="plus-sign"
-                block>
-                  Save Your Results!!
-             </Button>
           </div>
         </div>
       </div>
