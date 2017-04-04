@@ -2,9 +2,6 @@ import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { browserHistory, Link } from 'react-router';
 import { Jumbotron, Button } from 'react-bootstrap';
-import Tappable from 'react-tappable/lib/Tappable';
-import Pinchable from 'react-tappable/lib/Pinchable';
-import TapAndPinchable from 'react-tappable/lib/TapAndPinchable';
 
 
 class Login extends React.Component {
