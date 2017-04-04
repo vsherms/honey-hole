@@ -7,6 +7,7 @@ goalRoutes.post('/goals',function(req, res, next){
   let goal = new Goal();
   goal.value = req.body.value;
   goal.lifeGoal = req.body.lifeGoal;
+  goal.status = req.body.status;
   goal.owner= req.body.owner;
   goal.save(function(err, goal){
     if(err){
@@ -23,6 +24,23 @@ goalRoutes.get('/goals/:owner_id', function(req, res, next){
       next(err);
     } else {
       res.json(goals);
+    }
+  });
+});
+
+goalRoutes.put('/goals/:goal_id', function(req, res, next){
+  Goal.findById({_id: req.params.goal_id}, function(err, goal){
+    if(err){
+      next(err);
+    } else {
+      goal.status = req.body.status;
+      goal.save(function(err, goal){
+        if(err){
+          next(err);
+        } else {
+          res.json(goal);
+        }
+      });
     }
   });
 });

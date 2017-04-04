@@ -1,21 +1,25 @@
 import React from 'react';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Button } from 'react-bootstrap';
+import {inject, observer} from 'mobx-react';
 
-export default class DisplayLifeGoals extends React.Component{
+class DisplayLifeGoals extends React.Component{
 
   render(){
-    let goals = this.props.goalsArr.map((goal, index) =>
-        (<ListGroupItem className="list-item" key={index} header={goal.value}>
-          {goal.lifeGoal}
-        </ListGroupItem>)
+    let goals = this.props.goalStore.goalsArr.map((goal, index) =>
+        ( <div style={{border:'1px solid black', width:'100%', textAlign: 'center', marginTop: '1vh', marginBottom: '1vh'}}>
+            <h4>{goal.value}</h4>
+              <p>{goal.lifeGoal}</p>
+              <div style={{display:'flex', justifyContent: 'space-between'}}>
+              <button  bsStyle="primary"><i className="fa fa-arrow-left" aria-hidden="true"></i></button>
+              <button  bsStyle="primary"><i className="fa fa-arrow-right" aria-hidden="true"></i></button>
+              </div>
+          </div>)
       );
 
-    if(this.props.goalsArr.length > 0){
+    if(this.props.goalStore.goalsArr.length > 0){
       return(
         <div>
-          <ListGroup className="list-group1">
             {goals}
-          </ListGroup>
         </div>
       );
     } else {
@@ -29,5 +33,8 @@ export default class DisplayLifeGoals extends React.Component{
 }
 
 DisplayLifeGoals.propTypes = {
-  goalsArr: React.PropTypes.array
+  goalsArr: React.PropTypes.array,
+  goalStore: React.PropTypes.object
 };
+
+export default inject('goalStore')(observer(DisplayLifeGoals));
