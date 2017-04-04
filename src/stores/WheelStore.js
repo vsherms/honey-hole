@@ -33,7 +33,6 @@ export default class WheelStore {
 
       ],
       wheels: [],
-      // wheelDates: [],
       min: 1,
       step: 1,
       historyIndex: 0
@@ -82,10 +81,7 @@ export default class WheelStore {
   loadWheelsFromServer(ownerId) {
     fetch('/wheel/wheels/' + ownerId)
        .then(result => result.json())
-       .then(wheels => this.wheels = wheels)
-       .then(wheels => wheels.forEach(wheel => this.wheelDates.push(dateFormat(wheel.date,
-         "mm/dd/yy"))))
-       .then(wheels => console.log(this.wheelDates));
+       .then(wheels => this.wheels = wheels);
   }
 
   loadCanvas(){

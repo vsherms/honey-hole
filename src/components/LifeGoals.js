@@ -1,8 +1,11 @@
 import React from 'react';
-import { Jumbotron, FormGroup, FormControl, ControlLabel, Button, MenuItem } from 'react-bootstrap';
+import { Jumbotron, FormGroup, FormControl, ControlLabel, Button, MenuItem, Row, Col } from 'react-bootstrap';
 import DisplayLifeGoals from './DisplayLifeGoals';
 import { inject, observer } from 'mobx-react';
-
+import BacklogColumn from './BacklogColumn';
+import PriorityColumn from './PriorityColumn';
+import TodayColumn from './TodayColumn';
+import CompleteColumn from './CompleteColumn';
 
 class LifeGoals extends React.Component{
   constructor(){
@@ -13,20 +16,28 @@ class LifeGoals extends React.Component{
         "Career", "Financial", "Spiritual", "Health", "Intellectual", "Family",
         "Social", "Environmental"
       ],
-      goalsArr: [],
+      status:"",
       optionIndex:'',
       failedSelect: false,
-      failedWriteGoal: false
+      failedWriteGoal: false,
     };
     this.handleGoalChange = this.handleGoalChange.bind(this);
     this.addNewGoal = this.addNewGoal.bind(this);
     this.prepareOptions = this.prepareOptions.bind(this);
     this.handleGoalAdd = this.handleGoalAdd.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.prepareColumns = this.prepareColumns.bind(this);
+    this.prepareLabels = this.prepareLabels.bind(this);
+    this.filterGoals = this.filterGoals.bind(this);
   }
 
   componentDidMount(){
-    this.loadGoalsFromServer(this.props.userStore.userId);
+    this.props.goalStore.loadGoalsFromServer(this.props.userStore.userId);
+  }
+
+  filterGoals(goals){
+    let backlogArr = goals.filter(goal => goal.status == "backlog");
+    console.log(backlogArr);
   }
 
   handleGoalChange(e) {
@@ -54,11 +65,12 @@ class LifeGoals extends React.Component{
       body: JSON.stringify({
         value: this.state.valuesArr[index],
         lifeGoal: this.state.lifeGoal,
+        status: "backlog",
         owner: this.props.userStore.userId
       })
     })
     .then(result => result.json())
-    .then(result => this.state.goalsArr.push(result))
+    .then(result => this.props.goalStore.goalsArr.push(result))
     .then(result => this.setState({lifeGoal: ''}));
   }
 
@@ -76,25 +88,43 @@ class LifeGoals extends React.Component{
     }
   }
 
-  loadGoalsFromServer(ownerId) {
-    fetch('/goal/goals/' + ownerId)
-       .then(result => result.json())
-       .then(goals => this.setState({goalsArr: goals}))
-       .then(goals => console.log(this.state.goalsArr));
-  }
-
   prepareOptions(){
     let optionArr = [];
-    this.state.valuesArr.forEach((value, index) =>
+    this.props.goalStore.valuesArr.forEach((value, index) =>
         optionArr.push(<option key={index} value={index}>{value}</option>)
     );
     return optionArr;
   }
 
+  prepareLabels(){
+    let labelArr = [];
+    this.props.goalStore.columnLabels.forEach((label, index) =>
+      labelArr.push(
+        <Col md={3} style={{textAlign: 'center'}}>
+          <h3 className="column-labels">{this.props.goalStore.columnLabels[index].toUpperCase()}</h3>
+        </Col>
+      ));
+    labelArr.pop();
+    return labelArr;
+  }
+
+  prepareColumns(){
+    let columnArr = [];
+    this.props.goalStore.columnLabels.forEach((label, index) =>
+      columnArr.push(
+          <Column key={index}>
+            Goals
+          </Column>
+      ));
+    return columnArr;
+  }
+
   render(){
+    let labelArr = this.prepareLabels();
     let selectValue = <div><h4>Please select a Life Category</h4></div>;
     let writeGoal = <div><h4>Please write a Goal</h4></div>;
     let optionArr = this.prepareOptions();
+    // let columnArr = this.prepareColumns();
     let goalForm = (
       <form>
         <FormGroup controlId="formControlsSelect">
@@ -121,9 +151,15 @@ class LifeGoals extends React.Component{
          {goalForm}
          {this.state.failedSelect ? selectValue : ""}
          {this.state.failedWriteGoal ? writeGoal: ""}
-        <div>
-            <DisplayLifeGoals goalsArr={this.state.goalsArr} valuesArr={this.state.valuesArr} />
-          </div>
+        <Row >
+          <Row>
+            {labelArr}
+          </Row>
+          <BacklogColumn goalsArr={this.state.goalsArr}/>
+          <PriorityColumn/>
+          <TodayColumn/>
+          <CompleteColumn/>
+          </Row>
         </div>
       </div>
     );
@@ -131,7 +167,8 @@ class LifeGoals extends React.Component{
 }
 
 LifeGoals.propTypes = {
-  userStore: React.PropTypes.object
+  userStore: React.PropTypes.object,
+  goalStore: React.PropTypes.object
 };
 
-export default inject ('userStore') (observer (LifeGoals));
+export default inject ('userStore', 'goalStore') (observer (LifeGoals));

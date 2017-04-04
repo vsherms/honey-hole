@@ -3,6 +3,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 
 export default class EntryPage extends React.Component {
+
   render() {
     return(
 
