@@ -11,8 +11,8 @@ class TodayColumn extends React.Component{
             <h4>{goal.value}</h4>
               <p>{goal.lifeGoal}</p>
               <div style={{display:'flex', justifyContent: 'space-between'}}>
-                <button  bsStyle="primary"><i className="fa fa-arrow-left" aria-hidden="true"></i></button>
-                <button  bsStyle="primary"><i className="fa fa-arrow-right" aria-hidden="true"></i></button>
+                <button onClick={this.props.goalStore.makePriority.bind(null, goal)} bsStyle="primary"><i className="fa fa-arrow-left" aria-hidden="true"></i></button>
+                <button onClick={this.props.goalStore.makeComplete.bind(null, goal)} bsStyle="primary"><i className="fa fa-arrow-right" aria-hidden="true"></i></button>
               </div>
           </div>)
       );

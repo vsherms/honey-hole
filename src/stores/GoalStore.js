@@ -14,8 +14,15 @@ export default class GoalStore {
       backlogArr: [],
       priorityArr: [],
       optionIndex:'',
-      columnLabels: ["Backlog", "Priority", "Today", "Complete"]
+      columnLabels: ["backlog", "priority", "today", "complete", "trash"]
     });
+    this.changeStatus = this.changeStatus.bind(this);
+    this.makePriority = this.makePriority.bind(this);
+    this.makeToday = this.makeToday.bind(this);
+    this.makeBacklog = this.makeBacklog.bind(this);
+    this.makeComplete = this.makeComplete.bind(this);
+    this.makeTrash = this.makeTrash.bind(this);
+
   }
 
   loadGoalsFromServer(ownerId) {
@@ -32,11 +39,51 @@ export default class GoalStore {
   }
 
   changeStatus(goalId, index){
-    fetch('/goal/goals' + goalId, {
+    fetch('/goal/goals/' + goalId, {
       method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
-        status: this.colmnLabels[index]
+        status: this.columnLabels[index]
       })
     });
   }
+
+  makeBacklog(goal, e){
+    this.changeStatus(goal._id, 0);
+    this.goalsArr = this.goalsArr.filter(g => g._id !== goal._id);
+    goal.status = "backlog";
+    this.goalsArr.push(goal);
+  }
+
+  makePriority(goal, e){
+    this.changeStatus(goal._id, 1);
+    this.goalsArr = this.goalsArr.filter(g => g._id !== goal._id);
+    goal.status = "priority";
+    this.goalsArr.push(goal);
+  }
+
+  makeToday(goal, e){
+    this.changeStatus(goal._id, 2);
+    this.goalsArr = this.goalsArr.filter(g => g._id !== goal._id);
+    goal.status = "today";
+    this.goalsArr.push(goal);
+  }
+
+  makeComplete(goal, e){
+    this.changeStatus(goal._id, 3);
+    this.goalsArr = this.goalsArr.filter(g => g._id !== goal._id);
+    goal.status = "complete";
+    this.goalsArr.push(goal);
+  }
+
+  makeTrash(goal, e){
+    this.changeStatus(goal._id, 4);
+    this.goalsArr = this.goalsArr.filter(g => g._id !== goal._id);
+    goal.status = "trash";
+    this.goalsArr.push(goal);
+  }
+
 }

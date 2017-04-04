@@ -100,10 +100,11 @@ class LifeGoals extends React.Component{
     let labelArr = [];
     this.props.goalStore.columnLabels.forEach((label, index) =>
       labelArr.push(
-        <Col md={3}>
-          {this.props.goalStore.columnLabels[index]}
+        <Col md={3} style={{textAlign: 'center'}}>
+          <h3 className="column-labels">{this.props.goalStore.columnLabels[index].toUpperCase()}</h3>
         </Col>
       ));
+    labelArr.pop();
     return labelArr;
   }
 

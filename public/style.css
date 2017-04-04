@@ -153,3 +153,7 @@ body{
 .canvasCenter{
  text-align: center;
 }
+.column-labels{
+  color:maroon;
+  font-family: 'Rokkitt', serif;
+}

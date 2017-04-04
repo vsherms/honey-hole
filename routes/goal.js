@@ -29,7 +29,7 @@ goalRoutes.get('/goals/:owner_id', function(req, res, next){
 });
 
 goalRoutes.put('/goals/:goal_id', function(req, res, next){
-  Goal.find({_id: req.params.goal_id}, function(err, goal){
+  Goal.findById({_id: req.params.goal_id}, function(err, goal){
     if(err){
       next(err);
     } else {
