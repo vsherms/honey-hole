@@ -13,22 +13,27 @@ class BacklogColumn extends React.Component{
   render(){
     let backlogGoals = this.props.goalStore.goalsArr.filter(goal => goal.status == 'backlog');
     let displayBacklogGoals = backlogGoals.map((goal, index) =>
-        ( <div key={index} style={{border:'1px solid black', width:'100%', textAlign: 'center', marginTop: '1vh', marginBottom: '1vh'}}>
-            <h4>{goal.value}</h4>
+        ( <div key={index} style={{border:'1px solid black', width:'100%', background:'white',  textAlign: 'center', marginTop: '1vh', marginBottom: '1vh'}}>
+            <h4 style={{color: `${this.props.goalStore.cardColor(goal)}`}}>{goal.value}</h4>
               <p>{goal.lifeGoal}</p>
               <div style={{display:'flex', justifyContent: 'flex-end'}}>
                 <button onClick={this.props.goalStore.makePriority.bind(null, goal)} bsStyle="primary"><i className="fa fa-arrow-right" aria-hidden="true"></i></button>
               </div>
           </div>)
       );
-    return(
-      <Col md={3} style={{
-
-        border: '1px solid black'
-      }}>
-        {displayBacklogGoals}
-      </Col>
-    );
+    if(this.props.goalStore.goalsArr.filter(goal => goal.status == 'backlog').length > 0){
+      return(
+            <Col md={3}>
+              {displayBacklogGoals}
+            </Col>
+      );
+    } else {
+      return(
+          <Col md={3}>
+            <h4>New goals will display below</h4>
+          </Col>
+      );
+    }
   }
 }
 

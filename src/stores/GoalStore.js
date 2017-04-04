@@ -14,7 +14,9 @@ export default class GoalStore {
       backlogArr: [],
       priorityArr: [],
       optionIndex:'',
-      columnLabels: ["backlog", "priority", "today", "complete", "trash"]
+      columnLabels: ["backlog", "priority", "today", "complete", "trash"],
+      backgroundColorArr: ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"]
+
     });
     this.changeStatus = this.changeStatus.bind(this);
     this.makePriority = this.makePriority.bind(this);
@@ -22,6 +24,7 @@ export default class GoalStore {
     this.makeBacklog = this.makeBacklog.bind(this);
     this.makeComplete = this.makeComplete.bind(this);
     this.makeTrash = this.makeTrash.bind(this);
+    this.cardColor = this.cardColor.bind(this);
 
   }
 
@@ -84,6 +87,14 @@ export default class GoalStore {
     this.goalsArr = this.goalsArr.filter(g => g._id !== goal._id);
     goal.status = "trash";
     this.goalsArr.push(goal);
+  }
+
+  cardColor(goal){
+    for(let i = 0; i < this.valuesArr.length; i++){
+      if(goal.value == this.valuesArr[i]){
+        return this.backgroundColorArr[i];
+      }
+    }
   }
 
 }
