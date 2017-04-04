@@ -59,8 +59,7 @@ class SignUp extends React.Component {
 
   render() {
     let signUpForm = (
-      <div className="login-form">
-
+      <div className="signup-form">
         <form method="" role="form">
             <h1 className="jumbotronHeader">Please Sign Up</h1>
             <div className="form-group">
@@ -108,14 +107,13 @@ class SignUp extends React.Component {
               </strong>
             </button>
          </form>
-
-       </div>
+      </div>
     );
     if(this.props.userStore.userCreated){
       return(
           <div>
             {signUpForm}
-            <h3 style={{color: "blue"}}>
+            <h3 className="signup-message">
               Welcome to Life Coach!  Go ahead and log in!
             </h3>
           </div>
