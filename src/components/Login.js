@@ -1,7 +1,11 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { browserHistory, Link } from 'react-router';
-import { Jumbotron } from 'react-bootstrap';
+import { Jumbotron, Button } from 'react-bootstrap';
+import Tappable from 'react-tappable/lib/Tappable';
+import Pinchable from 'react-tappable/lib/Pinchable';
+import TapAndPinchable from 'react-tappable/lib/TapAndPinchable';
+
 
 class Login extends React.Component {
   constructor() {
@@ -41,7 +45,7 @@ class Login extends React.Component {
             <div className="form-group">
               <input onChange={this.handlePasswordChange} value={this.state.password} type="password" className="form-control" id="password" placeholder="password"/>
             </div>
-            <button onClick={this.handleUserAuth} type="submit" className="submitForm"><strong>Log In</strong></button>
+            <button onClick={this.handleUserAuth} onTap={this.handleUserAuth} type="submit" className="submitForm"><strong>Log In</strong></button>
           </form>
       </div>
     </div>);
@@ -49,7 +53,7 @@ class Login extends React.Component {
       return(
         <div>
           {loginForm}
-          <h4 style={{color: "red"}}>Please enter valid username and password.</h4>
+          <h3 className="invalidUser">Please enter valid username and password.</h3>
         </div>
       );
     } else {
