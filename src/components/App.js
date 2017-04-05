@@ -11,7 +11,6 @@ class App extends React.Component{
 
   componentDidMount() {
     this.props.wheelStore.loadWheelsFromServer(this.props.userStore.userId);
-    console.log(this.props.wheelStore.wheels);
   }
   render() {
     return(

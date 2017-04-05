@@ -37,6 +37,8 @@ class SignUp extends React.Component {
   }
 
   addUserToDatabase(e){
+    this.props.userStore.userCreated = false;
+    this.props.userStore.failedEmailPassword = false;
     e.preventDefault();
     fetch('/newuser', {
       method: 'POST',
@@ -51,15 +53,30 @@ class SignUp extends React.Component {
         password: this.state.password,
       })
     });
-    this.setState({firstName: "", lastName: "", email: "", password: "",});
-    let user = {email: this.state.email, password: this.state.password};
-    this.props.userStore.setUser(user);
+    if(this.state.email && this.state.password){
+      this.props.userStore.displayWelcome();
+      this.setState({firstName: "", lastName: "", email: "", password: "",});
+    } else {
+      this.props.userStore.failedEmailPassword = true;
+    }
   }
 
 
   render() {
+    let logInMessage = (
+      <h3 className="signup-message">
+      Welcome to Life Coach!  Go ahead and log in!
+      </h3>
+    );
+
+    let noEmail = (
+      <h3 className="signup-message">
+        Please enter a valid e-mail and password.
+      </h3>
+    );
+
     let signUpForm = (
-      <div className="signup-form">
+      <div style={{marginTop: "35vh"}}>
         <form method="" role="form">
             <h1 className="jumbotronHeader">Please Sign Up</h1>
             <div className="form-group">
@@ -109,24 +126,16 @@ class SignUp extends React.Component {
          </form>
       </div>
     );
-    if(this.props.userStore.userCreated){
-      return(
-          <div>
-            {signUpForm}
-            <h3 className="signup-message">
-              Welcome to Life Coach!  Go ahead and log in!
-            </h3>
-          </div>
-      );
-    } else {
-      return (
-          <div>
-            {signUpForm}
-          </div>
-      );
-    }
+    return(
+        <div>
+          {signUpForm}
+          {this.props.userStore.userCreated ? logInMessage: ""}
+          {this.props.userStore.failedEmailPassword ? noEmail: ""}
+        </div>
+    );
   }
 }
+
 
 SignUp.propTypes = {
   userStore: React.PropTypes.object

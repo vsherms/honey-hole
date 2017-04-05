@@ -88,7 +88,6 @@ body{
  text-align: center;
 }
 .jumbotronHeader{
- margin-top: 10vh;
  text-align: center;
  font-family: 'Lobster', cursive;
  letter-spacing: 5px;
@@ -125,6 +124,24 @@ body{
  background-color: white;
  cursor:pointer;
 }
+
+.submitForm2 {
+ border: 1px solid rgb(70, 70, 70);
+ border-radius: 5px;
+ text-align: center;
+ width: 10vw;
+ padding:.5vh;
+ background-color:rgb(70, 70, 70);
+ cursor: pointer;
+ margin-left: 1vw;
+ color: white;
+}
+.submitForm2:hover {
+ background-color: white;
+ color: maroon;
+ cursor:pointer;
+}
+
 .list-group1{
  margin-top: 5vh;
 }
@@ -172,6 +189,9 @@ body{
 }
 .canvasFloat{
  float:right;
+ color: maroon;
+ text-align: center;
+ font-family: 'Lobster', cursive;
 }
 .wheel-sliders{
  float:left;
@@ -189,6 +209,16 @@ body{
   color: red;
   text-align: center;
   float: right;
+  z-index: 1;
+}
+.left-container{
+  width:50vw;
+  height: 100vh;
+
+}
+.right-container{
+  width:50vw;
+  height: 100vh;
 }
 
 @media (max-width:1300px){

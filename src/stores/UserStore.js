@@ -13,11 +13,13 @@ export default class UserStore {
       isLoggedIn: false,
       failedLogin: false,
       userId: "",
-      userCreated: false
+      userCreated: false,
+      failedEmailPassword: false
     });
     this.authUser = this.authUser.bind(this);
     this.setUser = this.setUser.bind(this);
     this.logUserOut = this.logUserOut.bind(this);
+    this.displayWelcome = this.displayWelcome.bind(this);
   }
 
   authUser(user) {
@@ -49,6 +51,9 @@ export default class UserStore {
   setUser(user) {
     this.email = user.email;
     this.password = user.password;
+  }
+
+  displayWelcome(){
     this.userCreated = true;
   }
 
@@ -61,7 +66,6 @@ export default class UserStore {
     this.password= "";
     this.failedLogin= false;
     this.userId= "";
-    console.log(this.isLoggedIn);
     browserHistory.replace("/");
   }
 }

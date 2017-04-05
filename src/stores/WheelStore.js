@@ -33,6 +33,7 @@ export default class WheelStore {
 
       ],
       wheels: [],
+      wheelSaved: false,
       min: 1,
       step: 1,
       historyIndex: 0
@@ -74,7 +75,7 @@ export default class WheelStore {
     for(let i = 0; i < this.segs.length; i++){
       this.segs[i].score = 0;
     }
-    browserHistory.replace("/history");
+    this.wheelSaved = true;
   }
 
 
@@ -128,52 +129,6 @@ export default class WheelStore {
     }
     return theCanvas;
   }
-
-  loadSmallCanvas(){
-    let theCanvas = document.getElementById('Canvas1');
-    if (theCanvas && theCanvas.getContext) {
-      let ctx = theCanvas.getContext("2d");
-      if (ctx) {
-        let x = 250;
-        let y = 250;
-        let r = 225;
-        let a = 360/this.segs.length;
-
-        let rad = a * (Math.PI / 180);
-        let colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
-        let backgroundColorArr = ["#ffddcc", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffffcc", "#f2e6d9"];
-
-        let symbolArr = [
-          '\uf0b1',
-          ' \uf155',
-          '\uf29a',
-          '\uf21e',
-          '\uf02d',
-          '\uf0c0',
-          '\uf2b5',
-          '\uf0ac'
-        ];
-
-        for(let i = 0; i < this.segs.length; i++){
-          ctx.beginPath();
-          ctx.moveTo(x,y);
-          ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
-          ctx.fillStyle = backgroundColorArr[i];
-          ctx.fill();
-          ctx.beginPath();
-          ctx.moveTo(x,y);
-          ctx.arc(x, y, this.segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
-          ctx.fillStyle = colorArr[i];
-          ctx.fill();
-          ctx.fillStyle = "maroon";
-          ctx.font='50px FontAwesome';
-          ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
-        }
-      }
-    }
-    return theCanvas;
-  }
-
 
   loadHistoryCanvas(){
     let theCanvas = document.getElementById('Canvas1');

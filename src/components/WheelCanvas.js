@@ -8,12 +8,19 @@ class WheelCanvas extends React.Component{
   }
   componentDidMount(){
     this.props.wheelStore.loadCanvas();
+    this.props.wheelStore.wheelSaved = false;
   }
 
   render(){
+    let wheelSaved = (
+      <div>
+        <h3>Your wheel is saved!</h3>
+      </div>
+    );
     return (
       <div className="canvasFloat">
-        <canvas id="Canvas1" width="700" height="700">Your browser does not support canvas.</canvas>
+        <canvas id="Canvas1" width="675" height="675">Your browser does not support canvas.</canvas>
+        {this.props.wheelStore.wheelSaved ? wheelSaved : ""}
       </div>
     );
   }

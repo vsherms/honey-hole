@@ -37,16 +37,13 @@ class LifeGoals extends React.Component{
 
   filterGoals(goals){
     let backlogArr = goals.filter(goal => goal.status == "backlog");
-    console.log(backlogArr);
   }
 
   handleGoalChange(e) {
     this.setState({lifeGoal: e.target.value, failedWriteGoal: false});
-    console.log(this.state.lifeGoal);
   }
 
   handleSelect(e){
-    console.log(e.target.value);
     if(e.target.value == "select"){
       this.setState({optionIndex: '', failedSelect: true});
     } else {

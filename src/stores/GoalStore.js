@@ -11,11 +11,9 @@ export default class GoalStore {
         "Social", "Environmental"
       ],
       goalsArr: [],
-      backlogArr: [],
-      priorityArr: [],
       optionIndex:'',
       columnLabels: ["backlog", "priority", "today", "complete", "trash"],
-      backgroundColorArr: ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"]
+      backgroundColorArr: ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#cccc00", "#cc9966"]
 
     });
     this.changeStatus = this.changeStatus.bind(this);
@@ -25,20 +23,12 @@ export default class GoalStore {
     this.makeComplete = this.makeComplete.bind(this);
     this.makeTrash = this.makeTrash.bind(this);
     this.cardColor = this.cardColor.bind(this);
-
   }
 
   loadGoalsFromServer(ownerId) {
-
     fetch('/goal/goals/' + ownerId)
        .then(result => result.json())
-       .then(goals => this.goalsArr = goals)
-       .then(goals => console.log(this.goalsArr))
-       .then(goals => this.backlogArr.push(this.goalsArr.forEach(function(goal){
-         if(goal.status == "backlog"){
-           return goal;
-         }})))
-        .then(goals => console.log(this.backlogArr));
+       .then(goals => this.goalsArr = goals);
   }
 
   changeStatus(goalId, index){
