@@ -21,7 +21,7 @@ class Home extends React.Component{
                   to={{pathname: '/lifegoals'}}><strong> life goals</strong></LinkContainer>.
                 </h3>
                 <h3><LinkContainer className="home-link" to={{pathname: '/history'}}>
-                  <strong>Track your progress</strong></LinkContainer> over time.
+                  <strong>Track your progress</strong></LinkContainer> over time. testtest 
                 </h3>
               </div>
             </div>
