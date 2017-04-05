@@ -31,30 +31,23 @@ class Login extends React.Component {
     this.setState({email: "", password: ""});
   }
   render(){
+    let invalidUser = <h3 className="invalidUser">Please enter valid username and password.</h3>;
     let loginForm = (
       <div style={{marginRight:'5vw'}}>
         <form method="" role="form">
-          <div className="form-group" style={{display: 'flex', flexDirection: 'row', alignItems:'center', height:'15vh'}}>
+          <div className="form-group" style={{marginBottom: '0px', display: 'flex', flexDirection: 'row', alignItems:'center', height:'15vh'}}>
             <input style={{margin:'1vw'}} onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>
             <input onChange={this.handlePasswordChange} value={this.state.password} type="password" className="form-control" id="password" placeholder="password"/>
             <button onClick={this.handleUserAuth} type="submit" className="submitForm2"><strong>Log In</strong></button>
           </div>
         </form>
+        {this.props.userStore.failedLogin ? invalidUser : ""}
     </div>);
-    if(this.props.userStore.failedLogin){
-      return(
-        <div>
-          {loginForm}
-          <h3 className="invalidUser">Please enter valid username and password.</h3>
-        </div>
-      );
-    } else {
-      return (
+    return(
         <div>
           {loginForm}
         </div>
-      );
-    }
+    );
   }
 }
 Login.propTypes = {

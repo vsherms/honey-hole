@@ -22,14 +22,6 @@ body{
  height: 60vh;
 }
 
-.invalidUser{
-  position: absolute;
-  right: 8vw;
-  bottom: 22.5vh;
-  text-align: center;
-  font-family: 'Lobster', cursive;
-}
-
 .signup-form{
   width: 50vw;
   padding: 2vw;
@@ -64,8 +56,12 @@ body{
  margin:auto;
  text-align:center;
  font-family: 'Lobster', cursive;
- font-size: 15vh;
+ font-size: 8vw;
  color:white;
+ margin-bottom: 4vh;
+ margin-left: auto;
+ margin-right:'auto';
+ width:45vw
 }
 .lifecoach-header{
  font-family: 'Lobster', cursive;
@@ -208,18 +204,18 @@ body{
 }
 
 .invalidUser{
-  color: red;
+  color: white;
+  font-family: 'Lobster', cursive;
   text-align: center;
-  float: right;
-  z-index: 1;
+  margin-top: 0px;
 }
 .left-container{
-  width:50vw;
+  width:60vw;
   height: 100vh;
 
 }
 .right-container{
-  width:50vw;
+  width:40vw;
   height: 100vh;
 }
 

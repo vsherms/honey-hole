@@ -8,14 +8,14 @@ export default class EntryPage extends React.Component {
     return(
       <div className="background-container" >
         <div style={{width: "100vw", position: "absolute",display:'flex', justifyContent:'space-around', background:'maroon'}}>
-          <h1 className="lifecoach" style={{marginBottom: "4vh", marginLeft:'auto', marginRight:'auto', width:'45vw'}}>Life Coach</h1>
+          <h1 className="lifecoach">Life Coach</h1>
           <Login/>
         </div>
         <div style={{display:'flex', justifyContent:'space-around'}}>
 
             <div className="left-container">
                 <div className="bodyText">
-                  <div className="home-text" style={{ marginTop:"35vh", color: "rgb(70,70,70)"}}>
+                  <div className="home-text" style={{marginLeft:'auto', marginRight:'auto', marginTop:"35vh", color: "rgb(70,70,70)"}}>
                     <h2> Are you ready to realize your full potential?</h2>
                     <h1>Welcome to <span  style={{color: "maroon"}} className="branded">Life Coach™</span></h1>
                     <br/>
