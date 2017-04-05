@@ -31,9 +31,9 @@ class LifeGoals extends React.Component{
     this.filterGoals = this.filterGoals.bind(this);
   }
 
-  componentDidMount(){
-    this.props.goalStore.loadGoalsFromServer(this.props.userStore.userId);
-  }
+  // componentDidMount(){
+  //   this.props.goalStore.loadGoalsFromServer(this.props.userStore.userId);
+  // }
 
   filterGoals(goals){
     let backlogArr = goals.filter(goal => goal.status == "backlog");

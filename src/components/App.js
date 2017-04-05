@@ -11,6 +11,9 @@ class App extends React.Component{
 
   componentDidMount() {
     this.props.wheelStore.loadWheelsFromServer(this.props.userStore.userId);
+    this.props.goalStore.loadGoalsFromServer(this.props.userStore.userId);
+
+    console.log('hi');
   }
   render() {
     return(
@@ -24,7 +27,8 @@ class App extends React.Component{
 
 App.propTypes = {
   wheelStore: React.PropTypes.object,
-  userStore: React.PropTypes.object
+  userStore: React.PropTypes.object,
+  goalStore: React.PropTypes.object
 };
 
-export default inject('wheelStore', 'userStore')(observer(App));
+export default inject('wheelStore', 'userStore', 'goalStore')(observer(App));
