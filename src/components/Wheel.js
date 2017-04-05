@@ -22,12 +22,13 @@ class Wheel extends React.Component{
     return (
       <div className="background-container2">
         <div className="container">
-          <div>
-            <h2 className="jumbotronHeader2">Wheel of Life</h2>
-            <h3 className="subheader">Rate yourself on a scale of 1-10.</h3>
-          </div>
+            <div>
+              <h2 className="jumbotronHeader2">Wheel of Life</h2>
+              <h3 className="subheader">Rate yourself on a scale of 1-10.</h3>
+            </div>
           <div className="wheel-containerFB">
             <div className="fbbox">
+
               <div className="wheelDiv">
                 <WheelCanvas />
               </div>
@@ -44,6 +45,7 @@ class Wheel extends React.Component{
                     block>
                      <Glyphicon glyph="plus-sign"/>  Save Your Results!!
                  </Button>
+
                 </div>
               </div>
             </div>
