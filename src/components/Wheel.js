@@ -45,7 +45,6 @@ class Wheel extends React.Component{
                     block>
                      <Glyphicon glyph="plus-sign"/>  Save Your Results!!
                  </Button>
-
                 </div>
               </div>
             </div>
