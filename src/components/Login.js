@@ -2,9 +2,6 @@ import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { browserHistory, Link } from 'react-router';
 import { Jumbotron, Button } from 'react-bootstrap';
-import Tappable from 'react-tappable/lib/Tappable';
-import Pinchable from 'react-tappable/lib/Pinchable';
-import TapAndPinchable from 'react-tappable/lib/TapAndPinchable';
 
 
 class Login extends React.Component {
@@ -35,19 +32,14 @@ class Login extends React.Component {
   }
   render(){
     let loginForm = (
-      <div>
-      <div className="login-form" id="login">
-          <form method="" role="form">
-            <h1 className="jumbotronHeader">Please Log In</h1>
-            <div className="form-group">
-              <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>
-            </div>
-            <div className="form-group">
-              <input onChange={this.handlePasswordChange} value={this.state.password} type="password" className="form-control" id="password" placeholder="password"/>
-            </div>
-            <button onClick={this.handleUserAuth} onTap={this.handleUserAuth} type="submit" className="submitForm"><strong>Log In</strong></button>
-          </form>
-      </div>
+      <div style={{marginRight:'5vw'}}>
+        <form method="" role="form">
+          <div className="form-group" style={{display: 'flex', flexDirection: 'row', alignItems:'center', height:'15vh'}}>
+            <input style={{margin:'1vw'}} onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>
+            <input onChange={this.handlePasswordChange} value={this.state.password} type="password" className="form-control" id="password" placeholder="password"/>
+            <button onClick={this.handleUserAuth} type="submit" className="submitForm2"><strong>Log In</strong></button>
+          </div>
+        </form>
     </div>);
     if(this.props.userStore.failedLogin){
       return(

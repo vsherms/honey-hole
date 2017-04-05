@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
 import { observer, inject } from 'mobx-react';
-import {Row, Col, Button, Jumbotron } from 'react-bootstrap';
+import {Row, Col, Button, Jumbotron, Glyphicon } from 'react-bootstrap';
 import Slider from './Slider';
 import WheelCanvas from './WheelCanvas';
 
@@ -28,22 +28,24 @@ class Wheel extends React.Component{
             </div>
           <div className="wheel-containerFB">
             <div className="fbbox">
-                <div className="wheelDiv">
-                  <WheelCanvas />
+
+              <div className="wheelDiv">
+                <WheelCanvas />
+              </div>
+
             <div className="wheel-sliders">
               <div className="wheelFB">
                 <Slider segs={this.props.wheelStore.segs} display={this.props.wheelStore.display}/>
-                  <br/>
-                   <Button
-                      style={{width: '280px', marginBottom: '10px'}}
-                      onClick={this.handleAddWheel}
-                      bsStyle="primary"
-                      Glyphicon glyph="plus-sign"
 
-                      block>
-                        Save Your Results!!
-                   </Button>
-                  </div>
+                <br/>
+                 <Button
+                    style={{width: '280px', marginBottom: '10px'}}
+                    onClick={this.handleAddWheel}
+                    bsStyle="primary"
+                    block>
+                     <Glyphicon glyph="plus-sign"/>  Save Your Results!!
+                 </Button>
+
                 </div>
               </div>
             </div>

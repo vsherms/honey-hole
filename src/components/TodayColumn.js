@@ -7,8 +7,8 @@ class TodayColumn extends React.Component{
   render(){
     let todayGoals = this.props.goalStore.goalsArr.filter(goal => goal.status == 'today');
     let displayTodayColumnGoals = todayGoals.map((goal, index) =>
-        ( <div key={index} style={{border:'1px solid black', width:'100%', textAlign: 'center', marginTop: '1vh', marginBottom: '1vh'}}>
-            <h4>{goal.value}</h4>
+        ( <div key={index} style={{padding:"15px", borderRadius: "15px", background:"rgba(255,255,255,0.6)", border:'1px solid black', width:'100%', textAlign: 'center', marginTop: '1vh', marginBottom: '1vh'}}>
+            <h4 style={{color: `${this.props.goalStore.cardColor(goal)}`}}>{goal.value}</h4>
               <p>{goal.lifeGoal}</p>
               <div style={{display:'flex', justifyContent: 'space-between'}}>
                 <button onClick={this.props.goalStore.makePriority.bind(null, goal)} bsStyle="primary"><i className="fa fa-arrow-left" aria-hidden="true"></i></button>
@@ -16,22 +16,11 @@ class TodayColumn extends React.Component{
               </div>
           </div>)
       );
-    if(this.props.goalStore.goalsArr.filter(goal => goal.status == 'today').length > 0){
-      return(
-          <Col md={3} style={{
-            border: '1px solid black'
-          }}>
-            {displayTodayColumnGoals}
-          </Col>
-      );
-    } else {
-      return(
-        <Col md={3} style={{
-          border: '1px solid black'}}>
-          <h4>Todays goals will display below</h4>
+    return(
+        <Col md={3}>
+          {displayTodayColumnGoals}
         </Col>
-      );
-    }
+    );
   }
 }
 

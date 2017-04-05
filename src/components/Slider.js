@@ -13,14 +13,13 @@ class Slider extends React.Component{
   changeScore(i, e){
     this.props.wheelStore.segs[i].score = e.target.value;
     this.props.wheelStore.loadCanvas();
-    console.log(this.props.wheelStore.segs[i].score, i);
   }
 
   render(){
     let sliderArr = [];
     for(let i = 0; i < this.props.segs.length; i++){
       sliderArr.push(
-        <Row>
+        <Row key={i}>
           <Col md={10}>
             <div>
               <h2 className="slideFont">{this.props.segs[i].value}{this.props.display[i]}</h2>
