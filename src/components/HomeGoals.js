@@ -13,9 +13,11 @@ class HomeGoals extends React.Component{
           </div>)
       );
     return(
-        <Col md={3}>
+      <div >
+        <Col md={3} style={{right:'-17px', height:'77vh', overflow: 'scroll'}}>
           {displayTrashColumnGoals}
         </Col>
+      </div>
     );
   }
 }

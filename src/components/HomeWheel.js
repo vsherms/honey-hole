@@ -6,12 +6,6 @@ class HomeWheel extends React.Component{
     super();
     // this.loadCanvas = this.loadCanvas.bind(this);
   }
-  // componentDidMount(){
-  //   this.props.wheelStore.loadWheelsFromServer(this.props.userStore.userId);
-  //   // this.props.wheelStore.loadHomeCanvas();
-  //   console.log('I ran');
-  //   console.log(this.props.wheelStore.wheels.length);
-  // }
 
   render(){
 

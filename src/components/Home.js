@@ -9,6 +9,12 @@ class Home extends React.Component{
   constructor(){
     super();
   }
+
+  componentDidMount() {
+    this.props.wheelStore.loadWheelsFromServer(this.props.userStore.userId);
+    this.props.goalStore.loadGoalsFromServer(this.props.userStore.userId);
+  }
+
   render(){
     return (
 
@@ -28,7 +34,8 @@ class Home extends React.Component{
 }
 Home.propTypes={
   userStore: React.PropTypes.object,
-  wheelStore: React.PropTypes.object
+  wheelStore: React.PropTypes.object,
+  goalStore: React.PropTypes.object
 };
 
-export default inject('userStore', 'wheelStore')(observer(Home));
+export default inject('userStore', 'wheelStore', 'goalStore')(observer(Home));

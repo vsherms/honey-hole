@@ -9,12 +9,6 @@ class App extends React.Component{
     super();
   }
 
-  componentDidMount() {
-    this.props.wheelStore.loadWheelsFromServer(this.props.userStore.userId);
-    this.props.goalStore.loadGoalsFromServer(this.props.userStore.userId);
-
-    console.log('hi');
-  }
   render() {
     return(
       <div>
