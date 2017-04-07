@@ -218,9 +218,14 @@ body{
   width:40vw;
   height: 100vh;
 }
+@media (min-width:1000px){
+  .wheelDiv{
+    float:right;
+    width:50vw;
+  }
+}
 
-
-@media (max-width:1400px) {
+@media (max-width:1000px) {
 
   .canvasFloat{
   float: none;

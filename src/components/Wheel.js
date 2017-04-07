@@ -29,7 +29,7 @@ class Wheel extends React.Component{
           <div className="wheel-containerFB">
             <div className="fbbox">
 
-              <div className="wheelDiv">
+              <div className="wheelDiv" >
                 <WheelCanvas />
               </div>
 
