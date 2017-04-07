@@ -44,6 +44,7 @@ export default class WheelStore {
     this.addNewWheel = this.addNewWheel.bind(this);
     this.loadCanvas = this.loadCanvas.bind(this);
     this.loadHistoryCanvas = this.loadHistoryCanvas.bind(this);
+    this.loadHomeCanvas = this.loadHomeCanvas.bind(this);
   }
   // setDate(){
   //   let date = new Date;
@@ -82,7 +83,8 @@ export default class WheelStore {
   loadWheelsFromServer(ownerId) {
     fetch('/wheel/wheels/' + ownerId)
        .then(result => result.json())
-       .then(wheels => this.wheels = wheels);
+       .then(wheels => this.wheels = wheels)
+       .then(wheels => this.loadHomeCanvas());
   }
 
   loadCanvas(){
@@ -138,7 +140,7 @@ export default class WheelStore {
         let x = 275;
         let y = 275;
         let r = 250;
-        let a = 360/this.wheels[this.historyIndex].segs.length;
+        let a = 360/this.segs.length;
         let rad = a * (Math.PI / 180);
         let colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
         let backgroundColorArr = ["#ffddcc", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffffcc", "#f2e6d9"];
@@ -153,7 +155,7 @@ export default class WheelStore {
           '\uf0ac'
         ];
 
-        for(let i = 0; i < this.wheels[this.historyIndex].segs.length; i++){
+        for(let i = 0; i < this.segs.length; i++){
           ctx.beginPath();
           ctx.moveTo(x,y);
           ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
@@ -167,6 +169,50 @@ export default class WheelStore {
           ctx.fillStyle = "maroon";
           ctx.font='50px FontAwesome';
           ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
+        }
+      }
+    }
+    return theCanvas;
+  }
+
+  loadHomeCanvas(){
+    let theCanvas = document.getElementById('Canvas2');
+    if (theCanvas && theCanvas.getContext) {
+      let ctx = theCanvas.getContext("2d");
+      if (ctx) {
+        let lastWheelIndex = this.wheels.length - 1;
+        let x = 200;
+        let y = 200;
+        let r = 190;
+        let a = 360/this.segs.length;
+        let rad = a * (Math.PI / 180);
+        let colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
+        let backgroundColorArr = ["#ffddcc", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffffcc", "#f2e6d9"];
+        let symbolArr = [
+          '\uf0b1',
+          ' \uf155',
+          '\uf29a',
+          '\uf21e',
+          '\uf02d',
+          '\uf0c0',
+          '\uf2b5',
+          '\uf0ac'
+        ];
+
+        for(let i = 0; i < this.segs.length; i++){
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
+          ctx.fillStyle = backgroundColorArr[i];
+          ctx.fill();
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.arc(x, y, this.wheels[lastWheelIndex].segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
+          ctx.fillStyle = colorArr[i];
+          ctx.fill();
+          ctx.fillStyle = "maroon";
+          ctx.font='30px FontAwesome';
+          ctx.fillText(symbolArr[i], x - 15 + ((r * 0.85) * Math.cos((i * -rad) - (rad/2))), y + 10 + ((r * 0.85) * Math.sin((i * -rad) - (rad/2))));
         }
       }
     }

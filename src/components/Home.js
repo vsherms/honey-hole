@@ -2,8 +2,19 @@ import React from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 import { LinkContainer } from 'react-router-bootstrap';
+import HomeWheel from './HomeWheel';
+import HomeGoals from './HomeGoals';
 
 class Home extends React.Component{
+  constructor(){
+    super();
+  }
+
+  componentDidMount() {
+    this.props.wheelStore.loadWheelsFromServer(this.props.userStore.userId);
+    this.props.goalStore.loadGoalsFromServer(this.props.userStore.userId);
+  }
+
   render(){
     return (
 
@@ -11,18 +22,9 @@ class Home extends React.Component{
         <div className="container">
             <div className="bodyText">
               <div className="home-text">
-                <h2> Are you ready to realize your full potential?</h2>
-                <h1>Welcome to <span  className="branded">Life Coach™</span></h1>
-                <br/>
-                <h3> The <LinkContainer className="home-link" to={{pathname: '/wheel'}}>
-                  <strong>Wheel of Life</strong></LinkContainer> helps you rate your current standing.
-                </h3>
-                <h3> Then, dream of the future by making a list of <LinkContainer className="home-link"
-                  to={{pathname: '/lifegoals'}}><strong> life goals</strong></LinkContainer>.
-                </h3>
-                <h3><LinkContainer className="home-link" to={{pathname: '/history'}}>
-                  <strong>Track your progress</strong></LinkContainer> over time.
-                </h3>
+                <h1 style={{fontSize:'7vw', color:'maroon'}}>Welcome, {this.props.userStore.firstName}! </h1>
+                <HomeWheel/>
+                <HomeGoals/>
               </div>
             </div>
         </div>
@@ -31,7 +33,9 @@ class Home extends React.Component{
   }
 }
 Home.propTypes={
-  userStore: React.PropTypes.object
+  userStore: React.PropTypes.object,
+  wheelStore: React.PropTypes.object,
+  goalStore: React.PropTypes.object
 };
 
-export default inject('userStore')(observer(Home));
+export default inject('userStore', 'wheelStore', 'goalStore')(observer(Home));

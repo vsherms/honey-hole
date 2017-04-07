@@ -10,7 +10,6 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import { Provider } from 'mobx-react';
 import Wheel from './components/Wheel';
-import About from './components/About';
 import UserStore from './stores/UserStore';
 import WheelStore from './stores/WheelStore';
 import GoalStore from './stores/GoalStore';

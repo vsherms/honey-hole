@@ -18,6 +18,9 @@ class PriorityColumn extends React.Component{
       );
     return(
         <Col md={3}>
+          <h3 className="column-labels">
+            {this.props.goalStore.columnLabels[1].toUpperCase()}
+          </h3>
           {displayPriorityColumnGoals}
         </Col>
     );
