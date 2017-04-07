@@ -18,6 +18,9 @@ class TodayColumn extends React.Component{
       );
     return(
         <Col md={3}>
+          <h3 className="column-labels">
+            {this.props.goalStore.columnLabels[2].toUpperCase()}
+          </h3>
           {displayTodayColumnGoals}
         </Col>
     );

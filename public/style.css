@@ -79,7 +79,7 @@ body{
  color: rgba(53, 53, 53, 0.65);
 }
 .home-text{
- margin-top: 15vh;
+ margin-top: 10vh;
  margin-bottom: 25vh;
  text-align: center;
 }
@@ -200,6 +200,7 @@ body{
 
 .column-labels{
   color:maroon;
+  text-align: center;
   font-family: 'Rokkitt', serif;
 }
 
@@ -218,9 +219,24 @@ body{
   width:40vw;
   height: 100vh;
 }
+.home-scroll{
+  /*right:'-17px';*/
+  height:480px;
+  overflow-y: scroll;
+  /*border-radius: 15px;*/
+  background: white;
+  float:right;
+  width:400px;
+}
+.home-wheel{
+  width:400px;
+  background: maroon;
+  color:white;
+  font-family: 'Rokkitt', serif;
+}
 
 
-@media (max-width:1400px) {
+@media (max-width:1200px) {
 
   .canvasFloat{
   float: none;
@@ -233,4 +249,5 @@ body{
     display: flex;
     justify-content: center;
   }
+
 }

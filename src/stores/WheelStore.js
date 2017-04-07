@@ -181,9 +181,9 @@ export default class WheelStore {
       let ctx = theCanvas.getContext("2d");
       if (ctx) {
         let lastWheelIndex = this.wheels.length - 1;
-        let x = 250;
-        let y = 250;
-        let r = 240;
+        let x = 200;
+        let y = 200;
+        let r = 190;
         let a = 360/this.segs.length;
         let rad = a * (Math.PI / 180);
         let colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
@@ -211,8 +211,8 @@ export default class WheelStore {
           ctx.fillStyle = colorArr[i];
           ctx.fill();
           ctx.fillStyle = "maroon";
-          ctx.font='50px FontAwesome';
-          ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
+          ctx.font='30px FontAwesome';
+          ctx.fillText(symbolArr[i], x - 15 + ((r * 0.85) * Math.cos((i * -rad) - (rad/2))), y + 10 + ((r * 0.85) * Math.sin((i * -rad) - (rad/2))));
         }
       }
     }

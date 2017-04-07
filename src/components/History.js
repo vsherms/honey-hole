@@ -2,7 +2,7 @@ import React from 'react';
 import { inject, observer } from 'mobx-react';
 import { Table, Jumbotron } from 'react-bootstrap';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
-const dateFormat = require('dateformat');
+import dateFormat from 'dateformat';
 
 class History extends React.Component{
   constructor() {
@@ -41,9 +41,7 @@ class History extends React.Component{
       return (
       <div className="background-container2">
         <div className="container">
-
             <h2 className="subheader2">Your History</h2>
-
             <div className="canvasCenter">
             <h3 className="subheader">
                 {dateFormat(wheelArray[index].date,

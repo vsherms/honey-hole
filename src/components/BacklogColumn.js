@@ -24,6 +24,9 @@ class BacklogColumn extends React.Component{
     if(this.props.goalStore.goalsArr.filter(goal => goal.status == 'backlog').length > 0){
       return(
             <Col md={3}>
+              <h3 className="column-labels">
+                {this.props.goalStore.columnLabels[0].toUpperCase()}
+              </h3>
               {displayBacklogGoals}
             </Col>
       );

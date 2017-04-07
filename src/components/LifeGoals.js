@@ -117,7 +117,6 @@ class LifeGoals extends React.Component{
   }
 
   render(){
-    let labelArr = this.prepareLabels();
     let selectValue = <div><h4>Please select a Life Category</h4></div>;
     let writeGoal = <div><h4>Please write a Goal</h4></div>;
     let optionArr = this.prepareOptions();
@@ -149,9 +148,6 @@ class LifeGoals extends React.Component{
          {this.state.failedSelect ? selectValue : ""}
          {this.state.failedWriteGoal ? writeGoal: ""}
         <Row >
-          <Row>
-            {labelArr}
-          </Row>
           <BacklogColumn goalsArr={this.state.goalsArr}/>
           <PriorityColumn/>
           <TodayColumn/>

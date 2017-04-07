@@ -22,7 +22,7 @@ class Home extends React.Component{
         <div className="container">
             <div className="bodyText">
               <div className="home-text">
-                <h1>Welcome, {this.props.userStore.firstName}! </h1>
+                <h1 style={{fontSize:'7vw', color:'maroon'}}>Welcome, {this.props.userStore.firstName}! </h1>
                 <HomeWheel/>
                 <HomeGoals/>
               </div>
