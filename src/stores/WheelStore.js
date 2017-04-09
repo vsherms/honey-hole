@@ -22,14 +22,14 @@ export default class WheelStore {
         {value: 'Environmental  ', score: 0}
       ],
       display: [
-        <i key={0} className="fa fa-briefcase" aria-hidden="true" style={{color:"#ff7733"}}></i>,
-        <i key={1} className="fa fa-usd" aria-hidden="true" style={{color:"#cc6699"}}></i>,
-        <i key={2} className="fa fa-universal-access" aria-hidden="true" style={{color:"#9933ff"}}></i>,
-        <i key={3} className="fa fa-heartbeat" aria-hidden="true" style={{color:"#3377ff"}}></i>,
-        <i key={4} className="fa fa-book" aria-hidden="true" style={{color:"#66cc99"}}></i>,
-        <i key={5} className="fa fa-users" aria-hidden="true" style={{color:"#bbbb77"}}></i>,
-        <i key={6} className="fa fa-handshake-o" aria-hidden="true" style={{color:"#ffff33"}}></i>,
-        <i key={7} className="fa fa-globe" aria-hidden="true" style={{color:"#cc9966"}}></i>
+        <i key={0} className="fa fa-briefcase" aria-hidden="true" style={{color:"#FF3251"}}></i>,
+        <i key={1} className="fa fa-usd" aria-hidden="true" style={{color:"#FF7A32"}}></i>,
+        <i key={2} className="fa fa-universal-access" aria-hidden="true" style={{color:"#3251FF"}}></i>,
+        <i key={3} className="fa fa-heartbeat" aria-hidden="true" style={{color:"#32FF7A"}}></i>,
+        <i key={4} className="fa fa-book" aria-hidden="true" style={{color:"#7A32FF"}}></i>,
+        <i key={5} className="fa fa-users" aria-hidden="true" style={{color:"#E032FF"}}></i>,
+        <i key={6} className="fa fa-handshake-o" aria-hidden="true" style={{color:"#FFE032"}}></i>,
+        <i key={7} className="fa fa-globe" aria-hidden="true" style={{color:"#32B7FF"}}></i>
 
       ],
       wheels: [],
@@ -92,14 +92,14 @@ export default class WheelStore {
     if (theCanvas && theCanvas.getContext) {
       let ctx = theCanvas.getContext("2d");
       if (ctx) {
-        let x = 350;
-        let y = 350;
-        let r = 325;
+        let x = 275;
+        let y = 275;
+        let r = 260;
         let a = 360/this.segs.length;
 
         let rad = a * (Math.PI / 180);
-        let colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
-        let backgroundColorArr = ["#ffddcc", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffffcc", "#f2e6d9"];
+        let colorArr = ["#FF3251", "#FF7A32", "#3251FF", "#32FF7A", "#7A32FF", "#E032FF", "#FFE032", "#32B7FF"];
+        let backgroundColorArr = ["#FFB2BC", "#FFCEB2", "#B2E2FF", "#BCFFB2", "#CEB2FF", "#F4B2FF", "#FFF4B2", "#B2FFF4"];
 
         let symbolArr = [
           '\uf0b1',
@@ -123,9 +123,9 @@ export default class WheelStore {
           ctx.arc(x, y, this.segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
           ctx.fillStyle = colorArr[i];
           ctx.fill();
-          ctx.fillStyle = "maroon";
-          ctx.font='50px FontAwesome';
-          ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
+          ctx.fillStyle = "rgb(70,70,70)";
+          ctx.font='40px FontAwesome';
+          ctx.fillText(symbolArr[i], x - 20 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
         }
       }
     }
@@ -142,8 +142,8 @@ export default class WheelStore {
         let r = 250;
         let a = 360/this.segs.length;
         let rad = a * (Math.PI / 180);
-        let colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
-        let backgroundColorArr = ["#ffddcc", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffffcc", "#f2e6d9"];
+        let colorArr = ["#FF3251", "#FF7A32", "#3251FF", "#32FF7A", "#7A32FF", "#E032FF", "#FFE032", "#32B7FF"];
+        let backgroundColorArr = ["#FFB2BC", "#FFCEB2", "#B2E2FF", "#BCFFB2", "#CEB2FF", "#F4B2FF", "#FFF4B2", "#B2FFF4"];
         let symbolArr = [
           '\uf0b1',
           ' \uf155',
@@ -166,7 +166,7 @@ export default class WheelStore {
           ctx.arc(x, y, this.wheels[this.historyIndex].segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
           ctx.fillStyle = colorArr[i];
           ctx.fill();
-          ctx.fillStyle = "maroon";
+          ctx.fillStyle = "rgb(70,70,70)";
           ctx.font='50px FontAwesome';
           ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
         }
@@ -186,8 +186,8 @@ export default class WheelStore {
         let r = 190;
         let a = 360/this.segs.length;
         let rad = a * (Math.PI / 180);
-        let colorArr = ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#ffff33", "#cc9966"];
-        let backgroundColorArr = ["#ffddcc", "#f2d9e6", "#e6ccff", "#ccddff", "#d9f2e6", "#eeeedd", "#ffffcc", "#f2e6d9"];
+        let colorArr = ["#FF3251", "#FF7A32", "#3251FF", "#32FF7A", "#7A32FF", "#E032FF", "#FFE032", "#32B7FF"];
+        let backgroundColorArr = ["#FFB2BC", "#FFCEB2", "#B2E2FF", "#BCFFB2", "#CEB2FF", "#F4B2FF", "#FFF4B2", "#B2FFF4"];
         let symbolArr = [
           '\uf0b1',
           ' \uf155',
@@ -210,7 +210,7 @@ export default class WheelStore {
           ctx.arc(x, y, this.wheels[lastWheelIndex].segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
           ctx.fillStyle = colorArr[i];
           ctx.fill();
-          ctx.fillStyle = "maroon";
+          ctx.fillStyle = "rgb(70,70,70)";
           ctx.font='30px FontAwesome';
           ctx.fillText(symbolArr[i], x - 15 + ((r * 0.85) * Math.cos((i * -rad) - (rad/2))), y + 10 + ((r * 0.85) * Math.sin((i * -rad) - (rad/2))));
         }

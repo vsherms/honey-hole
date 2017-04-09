@@ -3,16 +3,23 @@ width: 100vw;
 height: 100vh;
 }
 body{
- background: url(./caspar-rubin-398212.jpg) no-repeat center center fixed;
+ background: url(IMG_2036.jpg) no-repeat center center fixed;
+ /*url(./caspar-rubin-398212.jpg) no-repeat center center fixed;*/
  -webkit-background-size: cover;
  -moz-background-size: cover;
  -o-background-size: cover;
  background-size: cover;
 }
+
+/*body{
+  background: #32FF7A;
+}*/
+
 .app-container{
  width: 100vw;
  height: 100vh;
  position: relative;
+
 }
 .login-form{
  width: 50vw;
@@ -41,7 +48,7 @@ body{
  margin: auto;
 }
 .background-container{
- background-image: url(./caspar-rubin-39821.jpg);
+ background-image: url(IMG_2036.jpg);
  width: 100vw;
  height: 100vh;
  background-position: center;
@@ -74,9 +81,8 @@ body{
  width: 10vw;
 }
 .bodyText{
- text-transform:full-width;
  font-family: 'Rokkitt', serif;
- color: rgba(53, 53, 53, 0.65);
+ color:rgba(255,255,255, 0.8);
 }
 .home-text{
  margin-top: 10vh;
@@ -87,14 +93,16 @@ body{
  text-align: center;
  font-family: 'Lobster', cursive;
  letter-spacing: 5px;
- color: maroon;
+ color: #3251FF;
 }
 .jumbotronHeader2{
- margin-top: 10vh;
+ margin-top: 8vh;
  text-align: center;
- font-family: 'Lobster', cursive;
+ font-family: 'Rokkitt', serif;
  letter-spacing: 5px;
  font-size: 7vh;
+ color: #FF3251;
+ margin-bottom: 0;
 }
 .navigationBar{
  position: fixed;
@@ -108,13 +116,14 @@ body{
  color: white;
 }
 .submitForm {
- border: 1px solid black;
+ border: 1px solid rgba(255,255,255, 0.8);
  border-radius: 5px;
  text-align: center;
  width: 10vw;
  padding:.5vh;
  background-color:rgba(0, 0, 0, 0);
  cursor: pointer;
+ color:rgba(255,255,255, 0.8);
 }
 .submitForm:hover {
  background-color: white;
@@ -155,11 +164,11 @@ body{
  letter-spacing: 5px;
 }
 .subheader{
- margin-top: 4vh;
- font-family: 'Lobster', cursive;
+ margin-top: 0;
+ font-family: 'Rokkitt', serif;
  letter-spacing: 5px;
  text-align: center;
- color:maroon;
+ color:#FF3251;
 }
 .subheader2{
  margin-top: 8vh;
@@ -193,6 +202,7 @@ body{
 
 .wheel-sliders{
  float:left;
+ color: "rgba(255,255,255, 0.8)"
 }
 .canvasCenter{
  text-align: center;
@@ -236,7 +246,69 @@ body{
   font-family: 'Rokkitt', serif;
 }
 
-@media (min-width:1000px){
+.welcome-header{
+font-size:7vw;
+color:#FF3251;
+margin-top: 10vh;
+margin-bottom: 2vh;
+text-align: center;
+font-family: 'Rokkitt', serif;
+}
+
+.home-well{
+  border:1px solid black;
+  width:100%;
+  padding:20px;
+  border-radius: 15px;
+  background-color: #32FFE0;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Rokkitt', serif;
+}
+
+#well1:hover{
+  background: #ffff33;
+  cursor: pointer;
+}
+#well2:hover{
+  background: #FF7A32;
+  cursor: pointer;
+}
+#well3:hover{
+  background: #B7FF32;
+  cursor: pointer;
+}
+
+.description{
+  width: 66%;
+  text-align: center;
+}
+
+.home-title{
+  color: rgb(70,70,70);
+}
+.icon1{
+  color:#FF3251;
+}
+.icon2{
+  color:#32B7FF;
+}
+.icon3{
+  color:#E032FF;
+}
+
+.wheel-page{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+/*@media (min-width:1000px){
   .wheelDiv{
     float:right;
     width:50vw;
@@ -244,7 +316,6 @@ body{
 }
 
 @media (max-width:1000px) {
-
 
   .canvasFloat{
   float: none;
@@ -258,4 +329,4 @@ body{
     justify-content: center;
   }
 
-}
+}*/

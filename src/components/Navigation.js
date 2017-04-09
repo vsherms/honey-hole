@@ -17,7 +17,7 @@ class Navigation extends React.Component {
         <Navbar inverse collapseOnSelect id="nav-margin">
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/" className="lifecoach-header">Life Coach</Link>
+              <Link to="/home" className="lifecoach-header">Life Coach</Link>
             </Navbar.Brand>
             <Navbar.Toggle/>
           </Navbar.Header>
@@ -43,7 +43,7 @@ class Navigation extends React.Component {
               <Navbar.Text>
                 <i className="fa fa-user" aria-hidden="true"></i> Welcome, {this.props.userStore.firstName}!
               </Navbar.Text>
-              <LinkContainer onClick={this.props.userStore.logUserOut} to={{pathname: '/entrypage'}}>
+              <LinkContainer onClick={this.props.userStore.logUserOut} to={{pathname: '/'}}>
                 <NavItem>
                   <i className="fa fa-sign-out" aria-hidden="true"></i>
                 </NavItem>

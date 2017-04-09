@@ -19,38 +19,37 @@ class Wheel extends React.Component{
   }
 
   render(){
+    let wheelSaved = (
+      <div>
+        <h3>Your wheel is saved!!</h3>
+      </div>
+    );
+    let save = <h3><Glyphicon glyph="plus-sign"/>  Save Your Wheel</h3>;
     return (
-      <div className="background-container2">
         <div className="container">
             <div>
-              <h2 className="jumbotronHeader2">Wheel of Life</h2>
+              <h2 className="jumbotronHeader2"><strong>Wheel of Life</strong></h2>
               <h3 className="subheader">Rate yourself on a scale of 1-10.</h3>
             </div>
-          <div className="wheel-containerFB">
-            <div className="fbbox">
+            <div className="wheel-page">
 
-              <div className="wheelDiv" >
-                <WheelCanvas />
-              </div>
-
-            <div className="wheel-sliders">
-              <div className="wheelFB">
+              <div>
                 <Slider segs={this.props.wheelStore.segs} display={this.props.wheelStore.display}/>
-
                 <br/>
-                 <Button
-                    style={{width: '280px', marginBottom: '10px'}}
-                    onClick={this.handleAddWheel}
-                    bsStyle="primary"
-                    block>
-                     <Glyphicon glyph="plus-sign"/>  Save Your Results!!
-                 </Button>
-                </div>
+              </div>
+              <div style={{textAlign:'center'}}>
+              <WheelCanvas/>
+                <button
+                  style={{padding:"15px", borderRadius: "15px", background:"#FF7A32", border:'1px solid black', width:'50%', height:'100px'}}
+                  onClick={this.handleAddWheel}
+                  bsStyle="primary"
+                  block>
+                  {this.props.wheelStore.wheelSaved ? wheelSaved : save}
+                </button>
+
               </div>
             </div>
-          </div>
         </div>
-      </div>
     );
   }
 }
