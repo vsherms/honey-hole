@@ -6,7 +6,7 @@ class EnsureLoggedInContainer extends React.Component {
   componentDidMount() {
 
     if (!this.props.userStore.isLoggedIn) {
-      browserHistory.replace("/entrypage");
+      browserHistory.replace("/");
     }
   }
 

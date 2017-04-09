@@ -23,9 +23,9 @@ const goalStore = new GoalStore();
 render((
   <Provider wheelStore={wheelStore} userStore={userStore} goalStore={goalStore}>
     <Router history={browserHistory}>
-    <Route path="/entrypage" component={EntryPage}/>
+    <Route path="/" component={EntryPage}/>
       <Route component={EnsureLoggedInContainer}>
-        <Route path="/" component={App}>
+        <Route path="/home" component={App}>
           <IndexRoute component={Home}/>
           <Route path="/wheel" component={Wheel}/>
           <Route path="/lifegoals" component={LifeGoals}/>

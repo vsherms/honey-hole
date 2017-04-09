@@ -20,19 +20,16 @@ class Slider extends React.Component{
     for(let i = 0; i < this.props.segs.length; i++){
       sliderArr.push(
         <Row key={i}>
-          <Col md={10}>
-            <div>
-              <h2 className="slideFont">{this.props.segs[i].value}{this.props.display[i]}</h2>
-              <ReactBootstrapSlider
-                value={this.props.wheelStore.segs[i].score}
-                change={this.changeScore.bind(null, i)}
-                step= {1}
-                max={10}
-                min={0}
-                ticks = {[0,1,2,3,4,5,6,7,8,9,10]}
-                orientation="horizontal"/>
-            </div>
-          </Col>
+          <div style={{padding:"15px", borderRadius: "15px", background:"#B7FF32", border:'1px solid black', width:'100%'}}>
+            <h4 style={{width:'220px', marginTop:'0', color:'rgb(70,70,70)'}}>{this.props.segs[i].value}{this.props.display[i]}</h4>
+            <ReactBootstrapSlider
+              value={this.props.wheelStore.segs[i].score}
+              change={this.changeScore.bind(null, i)}
+              step= {1}
+              max={10}
+              min={0}
+              orientation="horizontal"/>
+          </div>
         </Row>
       );
     }

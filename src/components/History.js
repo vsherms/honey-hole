@@ -3,6 +3,7 @@ import { inject, observer } from 'mobx-react';
 import { Table, Jumbotron } from 'react-bootstrap';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
 import dateFormat from 'dateformat';
+import HomeGoals from './HomeGoals';
 
 class History extends React.Component{
   constructor() {
@@ -60,6 +61,7 @@ class History extends React.Component{
               ticks = {ticksArr}
               orientation="horizontal"/>
           </div>
+          <HomeGoals/>
         </div>
       </div>
       );

@@ -29,6 +29,7 @@ class Login extends React.Component {
     this.props.userStore.authUser(user);
     this.props.userStore.setUser(user);
     this.setState({email: "", password: ""});
+    
   }
   render(){
     let invalidUser = <h3 className="invalidUser">Please enter valid username and password.</h3>;

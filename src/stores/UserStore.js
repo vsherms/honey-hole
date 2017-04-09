@@ -41,7 +41,7 @@ export default class UserStore {
       this.firstName = res.firstName;
       if(res.token){
         this.isLoggedIn = true;
-        browserHistory.replace("/");
+        browserHistory.replace("/home");
       } else {
         this.failedLogin = true;
       }
@@ -67,5 +67,6 @@ export default class UserStore {
     this.failedLogin= false;
     this.userId= "";
     browserHistory.replace("/");
+    location.reload();
   }
 }
