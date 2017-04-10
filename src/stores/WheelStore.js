@@ -204,11 +204,6 @@ export default class WheelStore {
           ctx.fillStyle = "rgb(70,70,70)";
           ctx.font='50px FontAwesome';
           ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
-          ctx.beginPath();
-          ctx.moveTo(x,y);
-          ctx.lineTo(x + r, y);
-          ctx.stroke();
-
         }
       }
     }
