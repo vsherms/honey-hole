@@ -41,12 +41,11 @@ class Wheel extends React.Component{
               <h3 className="subheader">Rate yourself on a scale of 1-10.</h3>
             </div>
             <div className="wheel-page">
-
-              <div>
+              <div style={{marginTop: '25px'}}>
                 <Slider segs={this.props.wheelStore.segs} display={this.props.wheelStore.display}/>
                 <br/>
               </div>
-              <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+              <div style={{display:'flex', flexDirection:'column', alignItems:'center', border:'1px solid black', borderRadius:'15px', background:'#ededed', padding:'15px'}}>
               <WheelCanvas/>
               {this.props.wheelStore.wheelSaved ? wheelSaved : save}
               </div>

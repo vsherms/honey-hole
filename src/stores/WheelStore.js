@@ -113,19 +113,33 @@ export default class WheelStore {
         ];
 
         for(let i = 0; i < this.segs.length; i++){
+          ctx.strokeStyle = 'grey';
+          ctx.lineWidth = 3;
+          ctx.fillStyle = 'white';
           ctx.beginPath();
           ctx.moveTo(x,y);
           ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
-          ctx.fillStyle = backgroundColorArr[i];
           ctx.fill();
+          ctx.stroke();
+          // ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
+          // ctx.fillStyle = backgroundColorArr[i];
+          // ctx.fill();
           ctx.beginPath();
           ctx.moveTo(x,y);
           ctx.arc(x, y, this.segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
           ctx.fillStyle = colorArr[i];
           ctx.fill();
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.lineTo(x + (r * Math.cos(i * -rad)), y + (r * Math.sin(i * -rad)));
+          ctx.stroke();
           ctx.fillStyle = "rgb(70,70,70)";
           ctx.font='40px FontAwesome';
           ctx.fillText(symbolArr[i], x - 20 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.lineTo(x + r, y);
+          ctx.stroke();
         }
       }
     }
@@ -156,19 +170,45 @@ export default class WheelStore {
         ];
 
         for(let i = 0; i < this.segs.length; i++){
+          ctx.strokeStyle = 'grey';
+          ctx.lineWidth = 3;
+          ctx.fillStyle = 'white';
           ctx.beginPath();
           ctx.moveTo(x,y);
           ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
+          ctx.fill();
+          ctx.stroke();
+
+          // ctx.beginPath();
+          // ctx.moveTo(x,y);
+          // ctx.arc(x,y,r,(i * -rad), (i * -rad) - rad, true);
+          // ctx.fillStyle = backgroundColorArr[i];
+          // ctx.fill();
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.arc(x, y, this.wheels[this.historyIndex].segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
           ctx.fillStyle = backgroundColorArr[i];
           ctx.fill();
           ctx.beginPath();
           ctx.moveTo(x,y);
-          ctx.arc(x, y, this.wheels[this.historyIndex].segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
-          ctx.fillStyle = colorArr[i];
-          ctx.fill();
+          ctx.lineTo(x + (r * Math.cos(i * -rad)), y + (r * Math.sin(i * -rad)));
+          ctx.stroke();
+          ctx.strokeStyle = colorArr[i];
+          ctx.lineWidth = 7;
+          ctx.beginPath();
+          ctx.moveTo(x + (this.wheels[this.wheels.length - 1].segs[i].score * (r / 10) * Math.cos(i * -rad)), y + (this.wheels[this.wheels.length - 1].segs[i].score * (r/10) * Math.sin(i * -rad)));
+          ctx.arc(x, y, this.wheels[this.wheels.length - 1].segs[i].score * (r / 10), (i * -rad), (i * -rad) - rad, true);
+          ctx.stroke();
+          ctx.strokeStyle = 'grey';
+          ctx.lineWidth = 3;
           ctx.fillStyle = "rgb(70,70,70)";
           ctx.font='50px FontAwesome';
           ctx.fillText(symbolArr[i], x - 28 + ((r * 0.75) * Math.cos((i * -rad) - (rad/2))), y + 15 + ((r * 0.75) * Math.sin((i * -rad) - (rad/2))));
+          ctx.beginPath();
+          ctx.moveTo(x,y);
+          ctx.lineTo(x + r, y);
+          ctx.stroke();
+
         }
       }
     }
