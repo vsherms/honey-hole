@@ -14,10 +14,10 @@ class Navigation extends React.Component {
     return (
 
       <div className="navigationBar">
-        <Navbar inverse collapseOnSelect id="nav-margin">
+        <Navbar collapseOnSelect style={{backgroundColor:'#3251FF', border: 'none'}}>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/home" className="lifecoach-header">Life Coach</Link>
+              <Link to="/home" className="lifecoach-header" style={{color:'white'}}>Life Coach</Link>
             </Navbar.Brand>
             <Navbar.Toggle/>
           </Navbar.Header>
@@ -25,27 +25,27 @@ class Navigation extends React.Component {
             <Nav>
               <LinkContainer to={{pathname: '/wheel'}}>
                 <NavItem>
-                  <i className="fa fa-pie-chart" aria-hidden="true"></i>
+                  <i style={{color:'#FF3251'}} className="fa fa-pie-chart fa-lg" aria-hidden="true"></i>
                 </NavItem>
               </LinkContainer>
               <LinkContainer to={{pathname: '/lifegoals'}}>
                 <NavItem>
-                  <i className="fa fa-heart" aria-hidden="true"></i>
+                  <i style={{color:'#32B7FF'}} className="fa fa-heart fa-lg" aria-hidden="true"></i>
                 </NavItem>
               </LinkContainer>
               <LinkContainer to={{pathname: '/history'}}>
                 <NavItem>
-                  <i className="fa fa-database" aria-hidden="true"></i>
+                  <i style={{color:'#E032FF'}} className="fa fa-database fa-lg" aria-hidden="true"></i>
                 </NavItem>
               </LinkContainer>
             </Nav>
             <Nav pullRight className="nav-bar-right">
-              <Navbar.Text>
-                <i className="fa fa-user" aria-hidden="true"></i> Welcome, {this.props.userStore.firstName}!
+              <Navbar.Text style={{color: "rgba(255,255,255, 0.8)"}}>
+                <i className="fa fa-user fa-lg" aria-hidden="true"></i> Welcome, {this.props.userStore.firstName}!
               </Navbar.Text>
               <LinkContainer onClick={this.props.userStore.logUserOut} to={{pathname: '/'}}>
                 <NavItem>
-                  <i className="fa fa-sign-out" aria-hidden="true"></i>
+                  <i style={{color: "rgba(255,255,255, 0.8)"}} className="fa fa-sign-out fa-lg" aria-hidden="true"></i>
                 </NavItem>
               </LinkContainer>
             </Nav>

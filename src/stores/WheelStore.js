@@ -137,9 +137,9 @@ export default class WheelStore {
     if (theCanvas && theCanvas.getContext) {
       let ctx = theCanvas.getContext("2d");
       if (ctx) {
-        let x = 275;
-        let y = 275;
-        let r = 250;
+        let x = 250;
+        let y = 250;
+        let r = 240;
         let a = 360/this.segs.length;
         let rad = a * (Math.PI / 180);
         let colorArr = ["#FF3251", "#FF7A32", "#3251FF", "#32FF7A", "#7A32FF", "#E032FF", "#FFE032", "#32B7FF"];

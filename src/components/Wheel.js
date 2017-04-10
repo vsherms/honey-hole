@@ -20,11 +20,20 @@ class Wheel extends React.Component{
 
   render(){
     let wheelSaved = (
-      <div>
-        <h3>Your wheel is saved!!</h3>
+      <div className="wheel-saved">
+        <h3 className="wheel-saved-text">Your wheel is saved!!</h3>
       </div>
     );
-    let save = <h3><Glyphicon glyph="plus-sign"/>  Save Your Wheel</h3>;
+    let save = (
+            <button
+              className="wheel-button"
+              onClick={this.handleAddWheel}
+              bsStyle="primary"
+              block>
+              <h3 className="wheel-button-text">Save Your Wheel</h3>
+            </button>
+          );
+
     return (
         <div className="container">
             <div>
@@ -37,16 +46,9 @@ class Wheel extends React.Component{
                 <Slider segs={this.props.wheelStore.segs} display={this.props.wheelStore.display}/>
                 <br/>
               </div>
-              <div style={{textAlign:'center'}}>
+              <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
               <WheelCanvas/>
-                <button
-                  style={{padding:"15px", borderRadius: "15px", background:"#FF7A32", border:'1px solid black', width:'50%', height:'100px'}}
-                  onClick={this.handleAddWheel}
-                  bsStyle="primary"
-                  block>
-                  {this.props.wheelStore.wheelSaved ? wheelSaved : save}
-                </button>
-
+              {this.props.wheelStore.wheelSaved ? wheelSaved : save}
               </div>
             </div>
         </div>

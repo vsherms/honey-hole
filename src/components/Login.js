@@ -29,12 +29,12 @@ class Login extends React.Component {
     this.props.userStore.authUser(user);
     this.props.userStore.setUser(user);
     this.setState({email: "", password: ""});
-    
+
   }
   render(){
     let invalidUser = <h3 className="invalidUser">Please enter valid username and password.</h3>;
     let loginForm = (
-      <div style={{marginRight:'5vw'}}>
+      <div >
         <form method="" role="form">
           <div className="form-group" style={{marginBottom: '0px', display: 'flex', flexDirection: 'row', alignItems:'center', height:'15vh'}}>
             <input style={{margin:'1vw'}} onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email"/>

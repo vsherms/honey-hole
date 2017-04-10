@@ -13,7 +13,7 @@ export default class GoalStore {
       goalsArr: [],
       optionIndex:'',
       columnLabels: ["backlog", "priority", "today", "complete", "trash"],
-      backgroundColorArr: ["#ff7733", "#cc6699", "#9933ff", "#3377ff", "#66cc99", "#bbbb77", "#cccc00", "#cc9966"]
+      backgroundColorArr: ["#FF3251", "#FF7A32", "#3251FF", "#66D453", "#7A32FF", "#E032FF", "#E7CB2B", "#32B7FF"]
 
     });
     this.changeStatus = this.changeStatus.bind(this);
