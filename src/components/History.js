@@ -40,30 +40,34 @@ class History extends React.Component{
       let ticksArr = this.setTicksArr();
 
       return (
-      <div className="background-container2">
+
         <div className="container">
-            <h2 className="subheader2">Your History</h2>
-            <div className="canvasCenter">
-            <h3 className="subheader">
-                {dateFormat(wheelArray[index].date,
-                   "dddd, mmmm dS, yyyy, h:MM TT")}
-            </h3>
-              <canvas id="Canvas1" width="550" height="550">Your browser does not support canvas.</canvas>
+          <h2 className="jumbotronHeader2">History</h2>
+          <div style={{display:'flex', justifyContent:'space-around', alignItems:'center', marginTop:'5vh'}}>
+            <div style={{border:'1px solid #32B7FF', borderRadius:'15px', background:'rgba(255,255,255,0.1)', padding:'15px'}}>
+              <div className="canvasCenter">
+                <h3 className="subheader">
+                    {dateFormat(wheelArray[index].date,
+                       "dddd, mmmm dS, yyyy, h:MM TT")}
+                </h3>
+                <canvas id="Canvas1" width="500" height="500">Your browser does not support canvas.</canvas>
+              </div>
+              <div className="history-slider">
+                <h2 className="bodyText">Your History</h2>
+                <ReactBootstrapSlider className= "slider"
+                  value={index + 1}
+                  change={this.changeHistoryIndex}
+                  step={this.props.wheelStore.step}
+                  max={wheelArray.length}
+                  min={this.props.wheelStore.min}
+                  ticks = {ticksArr}
+                  orientation="horizontal"/>
+              </div>
             </div>
-          <div className="history-slider">
-            <h2 className="bodyText">Your History</h2>
-            <ReactBootstrapSlider className= "slider"
-              value={index + 1}
-              change={this.changeHistoryIndex}
-              step={this.props.wheelStore.step}
-              max={wheelArray.length}
-              min={this.props.wheelStore.min}
-              ticks = {ticksArr}
-              orientation="horizontal"/>
+            <HomeGoals/>
           </div>
-          <HomeGoals/>
         </div>
-      </div>
+
       );
     }
     else {

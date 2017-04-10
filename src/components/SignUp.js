@@ -76,7 +76,7 @@ class SignUp extends React.Component {
     );
 
     let signUpForm = (
-      <div style={{marginTop: "35vh", width:'40%', marginLeft:'auto', marginRight:'auto'}}>
+      <div >
         <form method="" role="form">
             <h1 className="jumbotronHeader">Please Sign Up</h1>
             <div className="form-group">
@@ -131,7 +131,6 @@ class SignUp extends React.Component {
     return(
         <div>
           {signUpForm}
-
         </div>
     );
   }

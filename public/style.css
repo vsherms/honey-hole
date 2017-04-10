@@ -63,12 +63,12 @@ body{
  margin:auto;
  text-align:center;
  font-family: 'Lobster', cursive;
- font-size: 8vw;
+ font-size: 120px;
  color:white;
  margin-bottom: 4vh;
  margin-left: auto;
- margin-right:'auto';
- width:45vw
+ margin-right: auto;
+
 }
 .lifecoach-header{
  font-family: 'Lobster', cursive;
@@ -83,11 +83,14 @@ body{
 .bodyText{
  font-family: 'Rokkitt', serif;
  color:rgba(255,255,255, 0.8);
+ margin-top: 5vh;
 }
 .home-text{
- margin-top: 10vh;
- margin-bottom: 25vh;
+ color: rgba(255,255,255, 0.8);
+ margin-bottom: 7vh;
  text-align: center;
+ margin-left: 100px;
+ margin-right: 100px;
 }
 .jumbotronHeader{
  text-align: center;
@@ -119,7 +122,7 @@ body{
  border: 1px solid rgba(255,255,255, 0.8);
  border-radius: 5px;
  text-align: center;
- width: 10vw;
+ width:80px;
  padding:.5vh;
  background-color:rgba(0, 0, 0, 0);
  cursor: pointer;
@@ -128,13 +131,14 @@ body{
 .submitForm:hover {
  background-color: white;
  cursor:pointer;
+ color: rgb(70,70,70);
 }
 
 .submitForm2 {
  border: 1px solid rgb(70, 70, 70);
  border-radius: 5px;
  text-align: center;
- width: 10vw;
+ width: 200px;
  padding:.5vh;
  background-color:rgb(70, 70, 70);
  cursor: pointer;
@@ -143,7 +147,7 @@ body{
 }
 .submitForm2:hover {
  background-color: white;
- color: maroon;
+ color: rgb(70,70,70);
  cursor:pointer;
 }
 
@@ -209,9 +213,16 @@ body{
 }
 
 .column-labels{
-  color:maroon;
+  color:#FF3251;
   text-align: center;
   font-family: 'Rokkitt', serif;
+}
+
+.fa-arrow-right:hover, .fa-arrow-left:hover {
+  color:#FF28B4;
+}
+.fa-times:hover{
+  color:red;
 }
 
 .invalidUser{
@@ -260,7 +271,8 @@ font-family: 'Rokkitt', serif;
   width:100%;
   padding:20px;
   border-radius: 15px;
-  background-color: #32FFE0;
+  /*background-color: #32FFE0;*/
+  background-color: #B2E2FF;
   margin-top: 2vh;
   margin-bottom: 2vh;
   display: flex;
@@ -306,7 +318,41 @@ font-family: 'Rokkitt', serif;
   justify-content: space-around;
   align-items: center;
 }
+ .wheel-button-text{
+   margin-top: 10px;
+   text-align: center;
+   font-family: 'Rokkitt', serif;
 
+ }
+ .wheel-saved-text{
+   margin-top: 35px;
+   text-align: center;
+   font-family: 'Rokkitt', serif;
+
+ }
+ .wheel-button{
+   padding:15px,;
+   border-radius: 15px;
+   background:#FF7A32;
+   border:1px solid black;
+   width:50%;
+   height:100px;
+ }
+ .wheel-saved{
+   padding:15px,;
+   border-radius: 15px;
+   background:#FF28B4;
+   border:1px solid black;
+   width:50%;
+   height:100px;
+ }
+ .wheel-button:hover{
+   background-color: #FF28B4;
+ }
+
+ .navbar-default{
+   background-color:#3251FF
+ }
 
 /*@media (min-width:1000px){
   .wheelDiv{

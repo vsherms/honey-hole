@@ -6,16 +6,15 @@ export default class EntryPage extends React.Component {
 
   render() {
     return(
-      <div className="background-container" >
-        <div style={{width: "100vw", position: "absolute",display:'flex', justifyContent:'space-around', background:"#3251FF"}}>
-          <h1 className="lifecoach">Life Coach</h1>
+      <div >
+        <div style={{width: "100vw", position: "relative", display:'flex', flexWrap:'wrap', justifyContent:'space-around', background:"#3251FF"}}>
+          <span><h1 className="lifecoach">Life&nbsp;Coach</h1></span>
           <Login/>
         </div>
-        <div style={{display:'flex', justifyContent:'space-around'}}>
 
-            <div className="left-container">
+        <div style={{display:'flex', alignItems:'center', flexWrap:'wrap', justifyContent:'space-around', marginTop:'7vh'}}>
                 <div className="bodyText">
-                  <div className="home-text" style={{marginLeft:'auto', marginRight:'auto', marginTop:"35vh", color: "rgba(255,255,255, 0.8)"}}>
+                  <div className="home-text">
                     <h2> Are you ready to realize your full potential?</h2>
                     <h1>Welcome to <span  style={{color: "#3251FF"}} className="branded">Life Coach™</span></h1>
                     <br/>
@@ -32,12 +31,10 @@ export default class EntryPage extends React.Component {
                       <strong style={{color: "#E032FF"}}>Track your progress</strong> over time.
                     </h2>
                   </div>
+                </div>
 
-            </div>
-          </div>
-          <div className="right-container" style={{height: "100vh"}}>
             <SignUp/>
-          </div>
+
         </div>
       </div>
     );
