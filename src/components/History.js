@@ -73,7 +73,7 @@ class History extends React.Component{
         <div className="background-container2">
           <div className="container">
               <h1 className="jumbotronHeader2">Your History</h1>
-            <div className="subheader3">You have not filled out any wheels yet! </div>
+            <div className="subheader3">Head to the Wheel Of Life page to begin your self assessment! </div>
           </div>
         </div>
       );
