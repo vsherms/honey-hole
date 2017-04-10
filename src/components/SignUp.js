@@ -76,9 +76,9 @@ class SignUp extends React.Component {
     );
 
     let signUpForm = (
-      <div >
+      <div style={{border:'1px solid black', borderRadius:'15px', background:'#ededed', padding:'15px', width:'250px'}}>
+        <h1 className="bodyText">Sign Up</h1>
         <form method="" role="form">
-            <h1 className="jumbotronHeader">Please Sign Up</h1>
             <div className="form-group">
               <input
                 onChange={this.handleFirstNameChange}

@@ -3,7 +3,6 @@ import { inject, observer } from 'mobx-react';
 import { Table, Jumbotron } from 'react-bootstrap';
 import ReactBootstrapSlider from 'react-bootstrap-slider';
 import dateFormat from 'dateformat';
-import HomeGoals from './HomeGoals';
 
 class History extends React.Component{
   constructor() {
@@ -43,12 +42,12 @@ class History extends React.Component{
 
         <div className="container">
           <h2 className="jumbotronHeader2">History</h2>
-          <div style={{display:'flex', justifyContent:'space-around', alignItems:'center', marginTop:'5vh'}}>
-            <div style={{border:'1px solid #32B7FF', borderRadius:'15px', background:'rgba(255,255,255,0.1)', padding:'15px'}}>
+          <div style={{display:'flex', justifyContent:'space-around', alignItems:'center', marginTop:'2vh'}}>
+            <div style={{border:'1px solid black', borderRadius:'15px', background:'#ededed', padding:'15px'}}>
               <div className="canvasCenter">
                 <h3 className="subheader">
                     {dateFormat(wheelArray[index].date,
-                       "dddd, mmmm dS, yyyy, h:MM TT")}
+                       "dddd, mmmm dS, yyyy")}
                 </h3>
                 <canvas id="Canvas1" width="500" height="500">Your browser does not support canvas.</canvas>
               </div>
@@ -64,7 +63,6 @@ class History extends React.Component{
                   orientation="horizontal"/>
               </div>
             </div>
-            <HomeGoals/>
           </div>
         </div>
 

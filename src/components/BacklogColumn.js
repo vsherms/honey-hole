@@ -14,12 +14,12 @@ class BacklogColumn extends React.Component{
     let backlogGoals = this.props.goalStore.goalsArr.filter(goal => goal.status == 'backlog');
     let displayBacklogGoals = backlogGoals.map((goal, index) =>
         ( <div key={index} style={{border:'1px solid black', width:'100%', padding:"15px",
-          borderRadius: "15px", background:"#B2E2FF",  textAlign: 'center', marginTop: '1vh', marginBottom: '1vh'}}>
+          borderRadius: "15px", background:"#ededed",  textAlign: 'center', marginTop: '1vh', marginBottom: '1vh'}}>
             <h4 style={{color: `${this.props.goalStore.cardColor(goal)}`}}>{goal.value}</h4>
               <p>{goal.lifeGoal}</p>
               <div style={{display:'flex', justifyContent: 'flex-end'}}>
                 <button onClick={this.props.goalStore.makePriority.bind(null, goal)}
-                style={{border:'none', background:'#B2E2FF'}}><i className="fa fa-arrow-right fa-lg" aria-hidden="true"></i></button>
+                style={{border:'none', background:'#ededed'}}><i className="fa fa-arrow-right fa-lg" aria-hidden="true"></i></button>
               </div>
           </div>)
       );
