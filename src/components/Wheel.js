@@ -55,6 +55,7 @@ class Wheel extends React.Component{
     let newWheel = <br/>;
 
     return (
+      <div className="parent">
         <div className="container">
             <div>
               <h2 className="jumbotronHeader2"><strong>Wheel of Life</strong></h2>
@@ -78,6 +79,7 @@ class Wheel extends React.Component{
               </div>
             </div>
         </div>
+      </div>  
     );
   }
 }

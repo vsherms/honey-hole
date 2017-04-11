@@ -17,6 +17,7 @@ class Home extends React.Component{
 
   render(){
     return (
+      <div className="parent">
         <div className="container">
           <h1 className="welcome-header">Welcome, {this.props.userStore.firstName}! </h1>
           <Col md={2}/>
@@ -62,6 +63,7 @@ class Home extends React.Component{
             </LinkContainer>
           </Col>
           <Col md={2}/>
+        </div>
         </div>
     );
   }

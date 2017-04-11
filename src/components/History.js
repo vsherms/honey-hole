@@ -39,7 +39,6 @@ class History extends React.Component{
       let ticksArr = this.setTicksArr();
 
       return (
-
         <div className="container">
           <h2 className="jumbotronHeader2">History</h2>
           <div style={{display:'flex', justifyContent:'space-around', alignItems:'center', marginTop:'2vh'}}>
@@ -51,26 +50,25 @@ class History extends React.Component{
                 </h3>
                 <canvas id="Canvas1" width="500" height="500">Your browser does not support canvas.</canvas>
               </div>
-              <div className="history-slider">
-                <h2 className="bodyText">Your History</h2>
-                <ReactBootstrapSlider 
-                  value={index + 1}
-                  change={this.changeHistoryIndex}
-                  step={this.props.wheelStore.step}
-                  max={wheelArray.length}
-                  min={this.props.wheelStore.min}
-                  ticks = {ticksArr}
-                  orientation="horizontal"/>
-              </div>
+                <div className="history-slider">
+                  <h2 className="bodyText">Your History</h2>
+                  <ReactBootstrapSlider 
+                    value={index + 1}
+                    change={this.changeHistoryIndex}
+                    step={this.props.wheelStore.step}
+                    max={wheelArray.length}
+                    min={this.props.wheelStore.min}
+                    ticks = {ticksArr}
+                    orientation="horizontal"/>
+                </div>
+             </div>
             </div>
           </div>
-        </div>
-
       );
     }
     else {
       return (
-        <div className="background-container2">
+        <div className="parentHist">
           <div className="container">
               <h1 className="jumbotronHeader2">Your History</h1>
             <div className="subheader3">Head to the Wheel Of Life page to begin your self assessment! </div>

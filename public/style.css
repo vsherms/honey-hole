@@ -2,9 +2,12 @@ html {
 width: 100vw;
 height: 100vh;
 }
-.entry-page{
-  height:100%;
- }
+
+.signup-form{
+  width: 50vw;
+  padding: 2vw;
+  position:relative;
+}
 
 .signup-message{
   text-align: center;
@@ -24,11 +27,6 @@ height: 100vh;
  height: 100vh;
  background-position: center;
  background-size: cover;
-}
-
-#app{
- width: 100vw;
- height: 100vh;
 }
 
 .lifecoach{
