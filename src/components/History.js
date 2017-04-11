@@ -53,7 +53,7 @@ class History extends React.Component{
               </div>
               <div className="history-slider">
                 <h2 className="bodyText">Your History</h2>
-                <ReactBootstrapSlider className= "slider"
+                <ReactBootstrapSlider 
                   value={index + 1}
                   change={this.changeHistoryIndex}
                   step={this.props.wheelStore.step}

@@ -29,11 +29,16 @@ class LifeGoals extends React.Component{
     this.prepareColumns = this.prepareColumns.bind(this);
     this.prepareLabels = this.prepareLabels.bind(this);
     this.filterGoals = this.filterGoals.bind(this);
+    this.randomQuote = this.randomQuote.bind(this);
   }
 
-  // componentDidMount(){
-  //   this.props.goalStore.loadGoalsFromServer(this.props.userStore.userId);
-  // }
+  componentDidMount(){
+    this.randomQuote();
+  }
+
+  randomQuote(){
+    this.props.goalStore.quote = this.props.goalStore.quoteArr[Math.floor(Math.random() * this.props.goalStore.quoteArr.length)];
+  }
 
   filterGoals(goals){
     let backlogArr = goals.filter(goal => goal.status == "backlog");
@@ -139,11 +144,12 @@ class LifeGoals extends React.Component{
       </form>
     );
 
+
     return (
       <div className="background-container2">
         <div className="container">
           <h1  className="jumbotronHeader2">Goals</h1>
-          <h3 className="subheader">{this.props.goalStore.quoteArr[Math.floor(Math.random() * this.props.goalStore.quoteArr.length)]}</h3>
+          <h3 className="subheader">{this.props.goalStore.quote}</h3>
          {goalForm}
          {this.state.failedSelect ? selectValue : ""}
          {this.state.failedWriteGoal ? writeGoal: ""}
