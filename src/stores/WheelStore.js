@@ -36,7 +36,8 @@ export default class WheelStore {
       wheelSaved: false,
       min: 1,
       step: 1,
-      historyIndex: 0
+      historyIndex: 0,
+      newWheel: true
     });
     // this.handleDelete = this.handleDelete.bind(this);
     this.loadWheelsFromServer = this.loadWheelsFromServer.bind(this);
@@ -45,6 +46,8 @@ export default class WheelStore {
     this.loadCanvas = this.loadCanvas.bind(this);
     this.loadHistoryCanvas = this.loadHistoryCanvas.bind(this);
     this.loadHomeCanvas = this.loadHomeCanvas.bind(this);
+    this.loadLastWheel = this.loadLastWheel.bind(this);
+    this.resetWheel = this.resetWheel.bind(this);
   }
   // setDate(){
   //   let date = new Date;
@@ -73,18 +76,31 @@ export default class WheelStore {
     })
     .then(result => result.json())
     .then(result => this.wheels.push(result));
-    for(let i = 0; i < this.segs.length; i++){
-      this.segs[i].score = 0;
-    }
     this.wheelSaved = true;
   }
 
+  loadLastWheel(){
+    if(this.wheels.length > 0){
+      for(let i = 0; i < this.segs.length; i++) {
+        this.segs[i].score = this.wheels[this.wheels.length - 1].segs[i].score;
+      }
+      this.newWheel = false;
+    }
+  }
+
+  resetWheel(){
+    for(let i = 0; i < this.segs.length; i++) {
+      this.segs[i].score = 0;
+    }
+    this.newWheel = true;
+    this.loadCanvas();
+  }
 
   loadWheelsFromServer(ownerId) {
     fetch('/wheel/wheels/' + ownerId)
        .then(result => result.json())
        .then(wheels => this.wheels = wheels)
-       .then(wheels => this.loadHomeCanvas());
+       .then(wheels => this.loadLastWheel());
   }
 
   loadCanvas(){

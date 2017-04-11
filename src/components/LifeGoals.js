@@ -142,8 +142,8 @@ class LifeGoals extends React.Component{
     return (
       <div className="background-container2">
         <div className="container">
-          <h1  className="jumbotronHeader2">Life Goals</h1>
-          <h3 className="subheader">What life goals would you like to set for yourself?</h3>
+          <h1  className="jumbotronHeader2">Goals</h1>
+          <h3 className="subheader">{this.props.goalStore.quoteArr[Math.floor(Math.random() * this.props.goalStore.quoteArr.length)]}</h3>
          {goalForm}
          {this.state.failedSelect ? selectValue : ""}
          {this.state.failedWriteGoal ? writeGoal: ""}

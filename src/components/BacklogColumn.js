@@ -35,6 +35,9 @@ class BacklogColumn extends React.Component{
     } else {
       return(
           <Col md={3}>
+          <h3 className="column-labels">
+            {this.props.goalStore.columnLabels[0].toUpperCase()}
+          </h3>
             <h4>New goals will display below</h4>
           </Col>
       );

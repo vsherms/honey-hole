@@ -12,8 +12,15 @@ export default class GoalStore {
       ],
       goalsArr: [],
       optionIndex:'',
-      columnLabels: ["backlog", "priority", "today", "complete", "trash"],
-      backgroundColorArr: ["#FF3251", "#FF7A32", "#3251FF", "#66D453", "#7A32FF", "#E032FF", "#E7CB2B", "#32B7FF"]
+      columnLabels: ["goals", "priority", "today", "complete", "trash"],
+      backgroundColorArr: ["#FF3251", "#FF7A32", "#3251FF", "#66D453", "#7A32FF", "#E032FF", "#E7CB2B", "#32B7FF"],
+      quoteArr: [
+        "Nothing can stop you!",
+        "Every accomplishment begins with the decision to try!",
+        "You got this!",
+        "Stay positive, work hard, make it happen!",
+        "Motivation gets you going and habit gets you there!"
+      ]
 
     });
     this.changeStatus = this.changeStatus.bind(this);

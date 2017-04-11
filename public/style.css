@@ -327,33 +327,53 @@ font-family: 'Rokkitt', serif;
    text-align: center;
    font-family: 'Rokkitt', serif;
    color: white;
-
  }
  .wheel-saved-text{
-   margin-top: 20px;
+   margin-top: 8px;
    text-align: center;
    font-family: 'Rokkitt', serif;
-   color: white;
+   color: black;
 
  }
  .wheel-button{
+
    padding:15px,;
    border-radius: 15px;
    background:#F9A603;
    border:1px solid black;
-   width:50%;
+   width:120px;
    height:70px;
  }
- .wheel-saved{
-   padding:15px,;
+ /*.wheel-saved{
+   padding:15px;
    border-radius: 15px;
    background:#F25C00;
    border:1px solid black;
    width:50%;
    height:70px;
- }
+ }*/
  .wheel-button:hover{
    background-color: #F25C00;
+ }
+
+ .wheel-new{
+   padding:5px;
+   border-radius: 15px;
+   background:#F9A603;
+   border:1px solid black;
+   color: white;
+   width:120px;
+   height:70px;
+ }
+ .wheel-new:hover{
+   background-color: #F25C00;
+ }
+
+ .new-wheel-text{
+   text-align: center;
+   font-family: 'Rokkitt', serif;
+   color: white;
+
  }
 
  .navbar-default{
