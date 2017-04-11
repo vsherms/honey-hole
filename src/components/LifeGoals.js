@@ -140,7 +140,7 @@ class LifeGoals extends React.Component{
     );
 
     return (
-      <div className="background-container2">
+      <div className="parent">
         <div className="container">
           <h1  className="jumbotronHeader2">Goals</h1>
           <h3 className="subheader">{this.props.goalStore.quoteArr[Math.floor(Math.random() * this.props.goalStore.quoteArr.length)]}</h3>
