@@ -4,6 +4,7 @@ import { observer, inject } from 'mobx-react';
 import {Row, Col, Button, Jumbotron, Glyphicon } from 'react-bootstrap';
 import Slider from './Slider';
 import WheelCanvas from './WheelCanvas';
+import dateFormat from 'dateformat';
 
 
 class Wheel extends React.Component{
@@ -11,11 +12,28 @@ class Wheel extends React.Component{
     super();
 
     this.handleAddWheel = this.handleAddWheel.bind(this);
+    this.handleDate = this.handleDate.bind(this);
   }
 
   handleAddWheel(){
     let ownerId = this.props.userStore.userId;
     this.props.wheelStore.addNewWheel(ownerId);
+    this.props.wheelStore.newWheel = false;
+  }
+
+  handleDate(){
+    if(this.props.wheelStore.wheels.length > 0) {
+      let dateLine = (
+      <h4 className="subheader"> Your last wheel: &nbsp;
+        {dateFormat(this.props.wheelStore.wheels[this.props.wheelStore.wheels.length - 1].date,
+           "dddd, mmmm dS, yyyy")}
+      </h4>
+    );
+      return dateLine;
+    }  else {
+      let dateLine = <br/>;
+      return dateLine;
+    }
   }
 
   render(){
@@ -30,24 +48,33 @@ class Wheel extends React.Component{
               onClick={this.handleAddWheel}
               bsStyle="primary"
               block>
-              <h3 className="wheel-button-text">Save Your Wheel</h3>
+              <h4 className="wheel-button-text">Save</h4>
             </button>
           );
+
+    let newWheel = <br/>;
 
     return (
         <div className="container">
             <div>
               <h2 className="jumbotronHeader2"><strong>Wheel of Life</strong></h2>
-              <h3 className="subheader">Rate yourself on a scale of 1-10.</h3>
+              <h3 className="subheader">Assess how you are doing in these 8 life categories.</h3>
             </div>
             <div className="wheel-page">
+
               <div style={{marginTop: '25px'}}>
                 <Slider segs={this.props.wheelStore.segs} display={this.props.wheelStore.display}/>
                 <br/>
               </div>
               <div style={{display:'flex', flexDirection:'column', alignItems:'center', border:'1px solid black', borderRadius:'15px', background:'#ededed', padding:'15px'}}>
+              <div>
+              {this.props.wheelStore.newWheel ? newWheel: this.handleDate()}
+              </div>
               <WheelCanvas/>
-              {this.props.wheelStore.wheelSaved ? wheelSaved : save}
+              <div style={{display: 'flex', justifyContent: "space-around", width: '100%'}}>
+                {this.props.wheelStore.wheelSaved ? wheelSaved : save}
+                <button onClick={this.props.wheelStore.resetWheel} className="wheel-new new-wheel-text"><h4>New Wheel</h4></button>
+              </div>
               </div>
             </div>
         </div>
