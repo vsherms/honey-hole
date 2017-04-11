@@ -2,49 +2,6 @@ html {
 width: 100vw;
 height: 100vh;
 }
-/*.entry-page{
-  height:100%;
-  background-image: url(./Life-coaching1.jpg);
-  background-size: cover;*/
- /*background: white;*/
- /*url(IMG_2036.jpg) no-repeat center center fixed;*/
-/*background: url(./caspar-rubin-39821.jpg) no-repeat center center fixed;
-background-size: cover;*/
- /*-webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;*/
- }
-
-body{
-  /*background: url(./Life-coaching1-copy.jpg);*/
-  /*background-size: cover;*/
-}
-/*.parent{
-  width: 100vw;
-  height: auto;
-  background-image: url(austin-dixon-38613.jpg);
-  background-size: cover;
-}
-.parentHist{
-  width: 100vw;
-  height: 110vh;
-  background-image: url(austin-dixon-38613.jpg);
-  background-size: cover;
-}*/
-/*.app-container{
- width: 100vw;
- height: 100vh;
- position: relative;
-
-}*/
-/*.login-form{
- width: 50vw;
- float: right;
- padding: 2vw;
- position: relative;
- height: 60vh;
-}*/
 
 .signup-form{
   width: 50vw;
@@ -64,10 +21,6 @@ body{
   font-family: 'Rokkitt', serif;
 }
 
-.wheel-container{
- width:25vw;
- margin: auto;
-}
 .background-container{
  background-image: url(IMG_2036.jpg);
  width: 100vw;
@@ -76,12 +29,6 @@ body{
  background-size: cover;
 }
 
-/*#app{
- background-image: url(./austin-dixon-38613.jpg);
- background-size: cover;
- width: 100vw;
- height: 120vh;
-}*/
 .lifecoach{
  margin:auto;
  text-align:center;
@@ -97,12 +44,7 @@ body{
  font-family: 'Lobster', cursive;
  font-size: 5vh;
 }
-.history{
- background-color: white;
-}
-.slider {
- width: 10vw;
-}
+
 .bodyText{
  font-family: 'Rokkitt', serif;
  color:black;
@@ -115,12 +57,7 @@ body{
  margin-right: 70px;
  width:800px;
 }
-.jumbotronHeader{
- text-align: center;
- font-family: 'Lobster', cursive;
- letter-spacing: 5px;
- color: #3251FF;
-}
+
 .jumbotronHeader2{
  margin-top: 8vh;
  text-align: center;
@@ -135,12 +72,7 @@ body{
  z-index: 1;
  width:100vw;
 }
-.introForm{
- background-color: tan;
-}
-.title{
- color: white;
-}
+
 .submitForm {
  border: 1px solid black;
  border-radius: 5px;
@@ -174,18 +106,10 @@ body{
  cursor:pointer;
 }
 
-.list-group1{
- margin-top: 5vh;
-}
-.list-item{
- margin-top: 1vh;
-}
 .history-slider{
  text-align: center;
 }
-.home-link{
- color: maroon;
-}
+
 .branded{
  font-family: 'Lobster', cursive;
  letter-spacing: 5px;
@@ -197,13 +121,7 @@ body{
  text-align: center;
  color:black;
 }
-.subheader2{
- margin-top: 8vh;
- font-size: 75px;
- font-family: 'Lobster', cursive;
- letter-spacing: 5px;
- text-align: center;
-}
+
 .subheader3{
  margin-top: 4vh;
  font-size: 6vh;
@@ -216,25 +134,7 @@ body{
  border-radius: 15px;
  background-color: #ededed;
 }
-.home-link:hover{
- color: white;
- cursor: pointer;
-}
-#Canvas1 {
-/*border: dotted 1px black;*/
-}
 
-.canvasFloat{
- float:right;
- color: maroon;
- text-align: center;
- font-family: 'Lobster', cursive;
-}
-
-.wheel-sliders{
- float:left;
- color: "rgba(255,255,255, 0.8)"
-}
 .canvasCenter{
  text-align: center;
 }
@@ -257,31 +157,6 @@ body{
   font-family: 'Rokkitt', serif;
   text-align: center;
   margin-top: 0px;
-}
-.left-container{
-  width:60vw;
-  height: 100vh;
-
-}
-.right-container{
-  width:40vw;
-  height: 100vh;
-}
-
-.home-scroll{
-  /*right:'-17px';*/
-  height:480px;
-  overflow-y: scroll;
-  /*border-radius: 15px;*/
-  background: white;
-  float:right;
-  width:400px;
-}
-.home-wheel{
-  width:400px;
-  background: maroon;
-  color:white;
-  font-family: 'Rokkitt', serif;
 }
 
 .welcome-header{
@@ -329,7 +204,6 @@ font-family: 'Rokkitt', serif;
   text-align: center;
 }
 
-
 .icon1{
   color:#F70025;
 }
@@ -368,14 +242,7 @@ font-family: 'Rokkitt', serif;
    width:120px;
    height:70px;
  }
- /*.wheel-saved{
-   padding:15px;
-   border-radius: 15px;
-   background:#F25C00;
-   border:1px solid black;
-   width:50%;
-   height:70px;
- }*/
+
  .wheel-button:hover{
    background-color: #F25C00;
  }
@@ -397,7 +264,6 @@ font-family: 'Rokkitt', serif;
    text-align: center;
    font-family: 'Rokkitt', serif;
    color: white;
-
  }
 
  .navbar-default{
@@ -416,25 +282,3 @@ font-family: 'Rokkitt', serif;
 .entry-title{
   font-weight: 800;
 }
-/*@media (min-width:1000px){
-  .wheelDiv{
-    float:right;
-    width:50vw;
-  }
-}
-
-@media (max-width:1000px) {
-
-  .canvasFloat{
-  float: none;
-  display:flex;
-  justify-content: center;
-  }
-
-  .wheel-sliders{
-    float: none;
-    display: flex;
-    justify-content: center;
-  }
-
-}*/

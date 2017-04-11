@@ -19,8 +19,12 @@ export default class GoalStore {
         "Every accomplishment begins with the decision to try!",
         "You got this!",
         "Stay positive, work hard, make it happen!",
-        "Motivation gets you going and habit gets you there!"
-      ]
+        "Motivation gets you going and habit gets you there!",
+        "If it doesn't challenge you, it won't change you!",
+        "A goal without a plan is just a wish!",
+        "Today is the beginning of whatever you want!"
+      ],
+      quote: ""
 
     });
     this.changeStatus = this.changeStatus.bind(this);

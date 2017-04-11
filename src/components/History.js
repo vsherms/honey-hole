@@ -39,21 +39,20 @@ class History extends React.Component{
       let ticksArr = this.setTicksArr();
 
       return (
-        <div className="parentHist">
-          <div className="container">
-            <h2 className="jumbotronHeader2">History</h2>
-            <div style={{display:'flex', justifyContent:'space-around', alignItems:'center', marginTop:'2vh'}}>
-              <div style={{border:'1px solid black', borderRadius:'15px', background:'#ededed', padding:'15px'}}>
-                <div className="canvasCenter">
-                  <h3 className="subheader">
-                      {dateFormat(wheelArray[index].date,
-                         "dddd, mmmm dS, yyyy")}
-                  </h3>
-                  <canvas id="Canvas1" width="500" height="500">Your browser does not support canvas.</canvas>
-                </div>
+        <div className="container">
+          <h2 className="jumbotronHeader2">History</h2>
+          <div style={{display:'flex', justifyContent:'space-around', alignItems:'center', marginTop:'2vh'}}>
+            <div style={{border:'1px solid black', borderRadius:'15px', background:'#ededed', padding:'15px'}}>
+              <div className="canvasCenter">
+                <h3 className="subheader">
+                    {dateFormat(wheelArray[index].date,
+                       "dddd, mmmm dS, yyyy")}
+                </h3>
+                <canvas id="Canvas1" width="500" height="500">Your browser does not support canvas.</canvas>
+              </div>
                 <div className="history-slider">
                   <h2 className="bodyText">Your History</h2>
-                  <ReactBootstrapSlider className= "slider"
+                  <ReactBootstrapSlider 
                     value={index + 1}
                     change={this.changeHistoryIndex}
                     step={this.props.wheelStore.step}
@@ -62,9 +61,8 @@ class History extends React.Component{
                     ticks = {ticksArr}
                     orientation="horizontal"/>
                 </div>
-              </div>
+             </div>
             </div>
-          </div>
           </div>
       );
     }
