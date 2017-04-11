@@ -39,11 +39,15 @@ background-size: cover;*/
 }
 
 .signup-message{
-  float: left;
-  margin-left: 2vw;
-  bottom: 25vh;
   text-align: center;
-  font-family: 'Lobster', cursive;
+  color: red;
+  font-family: 'Rokkitt', serif;
+}
+
+.signup-message2{
+  text-align: center;
+  color: black;
+  font-family: 'Rokkitt', serif;
 }
 
 .wheel-container{
@@ -233,8 +237,8 @@ background-size: cover;*/
 }
 
 .invalidUser{
-  color: white;
-  font-family: 'Lobster', cursive;
+  color: red;
+  font-family: 'Rokkitt', serif;
   text-align: center;
   margin-top: 0px;
 }

@@ -60,7 +60,6 @@ class History extends React.Component{
                   max={wheelArray.length}
                   min={this.props.wheelStore.min}
                   ticks = {ticksArr}
-                  reversed = "true"
                   orientation="horizontal"/>
               </div>
             </div>
