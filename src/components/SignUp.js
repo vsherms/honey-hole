@@ -76,7 +76,7 @@ class SignUp extends React.Component {
     );
 
     let signUpForm = (
-      <div style={{border:'1px solid black', borderRadius:'15px', background:'#ededed', padding:'15px', width:'250px'}}>
+      <div style={{width:"240px"}}>
         <h1 className="bodyText">Sign Up</h1>
         <form method="" role="form">
             <div className="form-group">

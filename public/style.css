@@ -2,8 +2,10 @@ html {
 width: 100vw;
 height: 100vh;
 }
-.entry-page{
+/*.entry-page{
   height:100%;
+  background-image: url(./Life-coaching1.jpg);
+  background-size: cover;*/
  /*background: white;*/
  /*url(IMG_2036.jpg) no-repeat center center fixed;*/
 /*background: url(./caspar-rubin-39821.jpg) no-repeat center center fixed;
@@ -14,23 +16,35 @@ background-size: cover;*/
  background-size: cover;*/
  }
 
-/*body{
-  background: #32FF7A;
+body{
+  /*background: url(./Life-coaching1-copy.jpg);*/
+  /*background-size: cover;*/
+}
+/*.parent{
+  width: 100vw;
+  height: auto;
+  background-image: url(austin-dixon-38613.jpg);
+  background-size: cover;
+}
+.parentHist{
+  width: 100vw;
+  height: 110vh;
+  background-image: url(austin-dixon-38613.jpg);
+  background-size: cover;
 }*/
-
-.app-container{
+/*.app-container{
  width: 100vw;
  height: 100vh;
  position: relative;
 
-}
-.login-form{
+}*/
+/*.login-form{
  width: 50vw;
  float: right;
  padding: 2vw;
  position: relative;
  height: 60vh;
-}
+}*/
 
 .signup-form{
   width: 50vw;
@@ -62,10 +76,12 @@ background-size: cover;*/
  background-size: cover;
 }
 
-#app{
+/*#app{
+ background-image: url(./austin-dixon-38613.jpg);
+ background-size: cover;
  width: 100vw;
- height: 100vh;
-}
+ height: 120vh;
+}*/
 .lifecoach{
  margin:auto;
  text-align:center;
