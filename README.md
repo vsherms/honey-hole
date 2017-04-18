@@ -1,4 +1,4 @@
-# Honey Hole ![](https://65e226e929a5af0b2a5c-b2b05f995fc8916f7d7814d5d83ccb0d.ssl.cf3.rackcdn.com/products/450/serve-honey-pot-oak-dipper.jpg)
+# Honey Hole ![](http://pix.iemoji.com/images/emoji/apple/ios-9/256/honey-pot.png)
 Keep track of your favorite but secret spots.  Mobile first development, intuitive user experience, integrated maps, offline usability.
 
 Brain child of Vince.
