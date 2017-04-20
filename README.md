@@ -1,7 +1,18 @@
+<<<<<<< HEAD
 # Life Coach
 
 # Work-flow Guidelines
 If you'd like to work on the repository please take this tutorial on React Native: https://facebook.github.io/react/
+=======
+# Honey Hole ![](http://pix.iemoji.com/images/emoji/apple/ios-9/256/honey-pot.png)
+Keep track of your favorite but secret spots.  Mobile first development, intuitive user experience, integrated maps, offline usability.
+
+Brain child of Vince.
+
+# Work-Flow Guidelines
+
+If you'd like to work on the repository please take read through this document.
+>>>>>>> a03f82a0b5c649cd69824bebe838cd319bc76d7f
 
 ## Work on a personal copy:
 1. FORK the repository into your own profile.
@@ -15,6 +26,7 @@ If you'd like to work on the repository please take this tutorial on React Nativ
 5. Check to make sure it passes Travis CI before merging.
 
 ## Pulling changes from MTCS Master Branch:
+<<<<<<< HEAD
 1. git remote add upstream https://github.com/Montana-Code-School/LifeCoach.git
 2. git pull upstream master
 
@@ -94,3 +106,9 @@ other ways to view results, besides a slider.
 4. There could be further refactoring of the Goals components, and also would be nice to implement a
 Drag N Drop functionality.
 For any questions or support, you can contact vsherms@gmail.com.
+=======
+1. git remote add upstream https://github.com/Montana-Code-School/honey-hole.git
+ - Only do this once, it will create a remote branch on your machine.  Then the next line is all you will need to do to pull changes from this repository.
+2. git pull upstream master
+
+>>>>>>> a03f82a0b5c649cd69824bebe838cd319bc76d7f
