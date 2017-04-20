@@ -1,5 +1,5 @@
 {
-  "name": "life-coach",
+  "name": "honey-hole",
   "version": "1.0.0",
   "description": "1st project MTCS05",
   "scripts": {
@@ -17,7 +17,7 @@
     "build:webpack": "NODE_ENV='production' webpack --config webpack.config.babel.js",
     "build:server": "babel tools -d distserver/tools --presets es2015 && babel models -d distserver/models && babel routes -d distserver/routes --presets es2015 && babel webpack.config.babel.js webpack.config.dev.js -d distserver"
   },
-  "author": "team Andy, Neal, Vince",
+  "author": "team Ricky, Alex, Neal, Vince",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
@@ -26,6 +26,8 @@
     "colors": "^1.1.2",
     "dateformat": "^2.0.0",
     "express": "^4.15.2",
+    "google-map-react": "^0.24.0",
+    "google-maps-react": "^1.0.19",
     "if-env": "^1.0.0",
     "jquery": "^3.2.1",
     "jsonwebtoken": "^7.3.0",
@@ -85,6 +87,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Montana-Code-School/LifeCoach"
+    "url": "https://github.com/Montana-Code-School/honey-hole"
   }
 }

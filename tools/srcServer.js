@@ -6,9 +6,9 @@ import open from 'open';
 import bodyParser from 'body-parser';
 import uriUtil from 'mongodb-uri';
 import User from '../models/user';
-import Wheel from '../models/wheel';
+import Location from '../models/location';
 import Goal from '../models/goal';
-import wheelRoutes from '../routes/wheel';
+import locationRoutes from '../routes/location';
 import goalRoutes from '../routes/goal';
 import jwt from 'jsonwebtoken';
 import authConfig from './authConfig';
@@ -17,7 +17,7 @@ import hash from 'password-hash';
 import mongoose from 'mongoose';
 const apiRoutes = express.Router();
 mongoose.Promise = global.Promise;
-const mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost/lifecoach';
+const mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost/honeyhole';
 const mongooseUri = uriUtil.formatMongoose(mongodbUri);
 const options = {
   server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
@@ -124,7 +124,7 @@ app.get('/', function(req, res) {
   res.sendFile(path.join( __dirname, '../public/index.html'));
 });
 
-app.use('/wheel', wheelRoutes);
+app.use('/location', locationRoutes);
 app.use('/goal', goalRoutes);
 
 app.use('/api', apiRoutes);

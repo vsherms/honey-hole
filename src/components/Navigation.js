@@ -23,7 +23,7 @@ class Navigation extends React.Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <LinkContainer to={{pathname: '/wheel'}}>
+              <LinkContainer to={{pathname: '/form'}}>
                 <NavItem>
                   <i style={{color:'#F70025'}} className="fa fa-pie-chart fa-lg" aria-hidden="true"></i>
                 </NavItem>

@@ -288,3 +288,9 @@ font-family: 'Rokkitt', serif;
   flex-wrap:wrap;
   justify-content:space-around;
 }
+
+#map {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
