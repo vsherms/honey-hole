@@ -15,12 +15,20 @@ export default class LocationStore {
         lng: ''
       },
       zoom: 11,
-      location: []
+      location: {},
+      weather: {
+        conditions: '',
+        temp: '',
+        windSpeed: '',
+        windDir:''
+      }
     });
 
     this.loadMap = this.loadMap.bind(this);
     this.showMap = this.showMap.bind(this);
     this.savePosition = this.savePosition.bind(this);
+    this.getWeatherInfo = this.getWeatherInfo.bind(this);
+    this.saveNotes = this.saveNotes.bind(this);
   }
 
   savePosition(ownerId) {
@@ -41,7 +49,26 @@ export default class LocationStore {
       })
     })
     .then(result => result.json())
-    .then(result => this.location.push(result));
+    .then(result => this.location = result);
+  }
+
+  getWeatherInfo() {
+    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${this.center.lat}&lon=${this.center.lng}&APPID=72c2e10afa58ce6e31b103d41b7125b8`)
+       .then(result => result.json())
+       .then(data => this.weather = {conditions: data.weather[0].description, temp: data.main.temp, windSpeed: data.wind.speed, windDir: data.wind.deg });
+  }
+
+  saveNotes(locationId){
+    fetch('/location/locations/' + locationId, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        // status: this.columnLabels[index]
+      })
+    });
   }
 
   loadLastWheel(){

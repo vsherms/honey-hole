@@ -7,8 +7,12 @@ const LocationSchema = new mongoose.Schema({
     longitude: Number
   },
   title: String,
-  temperature: Number,
-  condition: String,
+  weather: {
+    temp: Number,
+    windSpeed: Number,
+    windDir: Number,
+    conditions: String
+  },
   notes: String,
   img: [{
     data: Buffer,

@@ -18,6 +18,7 @@ class Home extends React.Component{
 
   handleSavePosition() {
     this.props.locationStore.savePosition(this.props.userStore.userId);
+    this.props.locationStore.getWeatherInfo();
     browserHistory.replace("/form");
 
   }
