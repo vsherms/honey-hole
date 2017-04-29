@@ -1,5 +1,5 @@
 import React from 'react';
-import {extendObservable} from 'mobx';
+import { extendObservable } from 'mobx';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 const dateFormat = require('dateformat');
@@ -29,6 +29,7 @@ export default class LocationStore {
     this.saveFieldNotes = this.saveFieldNotes.bind(this);
     this.loadLocationsFromServer = this.loadLocationsFromServer.bind(this);
     this.honeyHoleClick = this.honeyHoleClick.bind(this);
+    this.deleteLocation = this.deleteLocation.bind(this);
   }
 
   savePosition(ownerId) {
@@ -92,6 +93,15 @@ export default class LocationStore {
     fetch('/location/locations/' + ownerId)
        .then(result => result.json())
        .then(locations => this.locations = locations);
+  }
+
+  deleteLocation(locationId) {
+    console.log(locationId);
+    let newList = this.locations.filter(l => l._id !== locationId);
+    this.locations = newList;
+    fetch('/location/locations/' + locationId, {
+      method: 'DELETE'
+    });
   }
 
   honeyHoleClick(){

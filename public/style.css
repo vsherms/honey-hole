@@ -294,3 +294,7 @@ font-family: 'Rokkitt', serif;
   padding: 0;
   height: 100%;
 }
+
+.delX:hover{
+  color:red;
+}

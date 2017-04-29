@@ -20,7 +20,7 @@ export default class EntryPage extends React.Component {
                     <br/>
                      <div style= {{display: "flex", justifyContent: "space-around"}}>
                        <div className="entry-feature">
-                         <h3 className="entry-title">GPS Coordinates</h3>
+                         <h3 className="entry-title">Save your GPS Coordinates</h3>
                          <h4 className="blurb">Easily get back to the sweet spot.</h4>
                          <i className="fa fa-pie-chart fa-4x icon1" aria-hidden="true"></i>
                        </div>
@@ -31,7 +31,7 @@ export default class EntryPage extends React.Component {
                          <i className="fa fa-heart fa-4x icon2" aria-hidden="true"></i>
                        </div>
                        <div className="entry-feature">
-                         <h3 className="entry-title"><strong>Map</strong></h3>
+                         <h3 className="entry-title"><strong>Maps</strong></h3>
                          <h4 className="blurb">Amazing map showing you how to get back to the honey.</h4>
                          <i className="fa fa-database fa-4x icon3" aria-hidden="true"></i>
                        </div>

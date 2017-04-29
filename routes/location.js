@@ -48,7 +48,7 @@ locationRoutes.put('/locations/:location_id', function(req, res, next){
 });
 
 locationRoutes.delete('/locations/:location_id', function(req, res, next){
-  location.remove({_id: req.params.location_id}, function(err, location){
+  Location.remove({_id: req.params.location_id}, function(err, location){
     if(err){
       next(err);
     } else {
