@@ -33,7 +33,7 @@ class SimpleExample extends React.Component {
         this.setState({lat: lat, lng: lon, currentLocation: true});
         this.props.locationStore.center.lat = lat;
         this.props.locationStore.center.lng = lon;
-        // this.props.locationStore.getWeatherInfo();
+        this.props.locationStore.getWeatherInfo();
       });
     } else {
       // Print out a message to the user.
